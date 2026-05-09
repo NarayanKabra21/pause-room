@@ -1,26 +1,68 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
+import { Navbar } from "@/components/site/Navbar";
+import { IntroHero } from "@/components/site/IntroHero";
+import { MainHero } from "@/components/site/MainHero";
+import { About } from "@/components/site/About";
+import { Services } from "@/components/site/Services";
+import { HealingAreas } from "@/components/site/HealingAreas";
+import { WhyUs } from "@/components/site/WhyUs";
+import { CalmRoom } from "@/components/site/CalmRoom";
+import { Testimonials } from "@/components/site/Testimonials";
+import { FAQs } from "@/components/site/FAQs";
+import { Booking } from "@/components/site/Booking";
+import { Contact } from "@/components/site/Contact";
+import { Blog } from "@/components/site/Blog";
+import { Footer } from "@/components/site/Footer";
+import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "The Pause Room — Emotional Wellness & Psychiatric Care" },
+      {
+        name: "description",
+        content:
+          "A peaceful sanctuary for psychiatric care and emotional wellness. Therapy, counseling, and a calming space to breathe, heal, and rediscover peace.",
+      },
+      { property: "og:title", content: "The Pause Room — A space to breathe and heal" },
+      {
+        property: "og:description",
+        content:
+          "Compassionate psychiatric care and emotional wellness in a calming, judgment-free sanctuary.",
+      },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  useReveal();
+  return (
+    <main className="relative">
+      <Navbar />
+      <IntroHero />
+      <MainHero />
+      <About />
+      <Services />
+      <HealingAreas />
+      <WhyUs />
+      <CalmRoom />
+      <Testimonials />
+      <FAQs />
+      <Booking />
+      <Contact />
+      <Blog />
+      <Footer />
+      <Toaster position="bottom-center" />
+    </main>
+  );
 }
