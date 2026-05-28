@@ -16,26 +16,26 @@ export function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Explore</h4>
             <ul className="mt-4 space-y-2">
-              <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Services</a></li>
-              <li><a href="#calm" className="hover:text-primary transition-colors">The Calm Room</a></li>
-              <li><a href="#blog" className="hover:text-primary transition-colors">Journal</a></li>
+              <li><a href="/#about" className="hover:text-primary transition-colors">About</a></li>
+              <li><a href="/#services" className="hover:text-primary transition-colors">Services</a></li>
+              <li><a href="/#calm" className="hover:text-primary transition-colors">The Calm Room</a></li>
+              <li><a href="/#blog" className="hover:text-primary transition-colors">Journal</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Care</h4>
             <ul className="mt-4 space-y-2">
-              <li><a href="#book" className="hover:text-primary transition-colors">Book a session</a></li>
-              <li><a href="#faqs" className="hover:text-primary transition-colors">FAQs</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="/#book" className="hover:text-primary transition-colors">Book a session</a></li>
+              <li><a href="/#faqs" className="hover:text-primary transition-colors">FAQs</a></li>
+              <li><a href="/#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Legal</h4>
             <ul className="mt-4 space-y-2">
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Confidentiality</a></li>
+              <li><a href="/#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="/#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><a href="/#" className="hover:text-primary transition-colors">Confidentiality</a></li>
             </ul>
           </div>
           <div>
@@ -46,7 +46,7 @@ export function Footer() {
               {[Instagram, Facebook, Linkedin, Youtube].map((Icon, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href="/#"
                   className="h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/70 hover:text-primary hover:scale-110 transition-all duration-500"
                 >
                   <Icon size={16} />
