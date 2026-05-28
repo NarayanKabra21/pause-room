@@ -6,7 +6,6 @@ const links = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#healing", label: "Healing Areas" },
   { href: "#why", label: "Why Us" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faqs", label: "FAQs" },
