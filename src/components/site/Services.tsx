@@ -1,17 +1,6 @@
-import {
-  HeartPulse, Wind, Users, CloudRain, ShieldCheck, GraduationCap, Flame, Video,
-} from "lucide-react";
-
-const items = [
-  { icon: HeartPulse, title: "Individual Therapy", desc: "One-on-one sessions tailored to your inner world." },
-  { icon: Wind, title: "Anxiety & Stress", desc: "Tools to soften racing thoughts and find your breath." },
-  { icon: Users, title: "Relationship Counseling", desc: "Reconnect, communicate, and rebuild together." },
-  { icon: CloudRain, title: "Depression Support", desc: "Gentle, structured care through difficult seasons." },
-  { icon: ShieldCheck, title: "Trauma Therapy", desc: "Trauma-informed healing at your own safe pace." },
-  { icon: GraduationCap, title: "Student Counseling", desc: "Support for academic pressure and identity." },
-  { icon: Flame, title: "Burnout Recovery", desc: "Restore energy and reclaim a sustainable rhythm." },
-  { icon: Video, title: "Online Consultation", desc: "Care that meets you, wherever you are." },
-];
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { services } from "@/data/services";
 
 export function Services() {
   return (
@@ -33,18 +22,24 @@ export function Services() {
         </div>
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {items.map(({ icon: Icon, title, desc }, i) => (
-            <div
-              key={title}
-              className="reveal-on-scroll group glass rounded-2xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-elevated"
+          {services.map(({ slug, icon: Icon, title, card }, i) => (
+            <Link
+              key={slug}
+              to="/services/$slug"
+              params={{ slug }}
+              preload="intent"
+              className="reveal-on-scroll group glass rounded-2xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-elevated focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               style={{ transitionDelay: `${(i % 4) * 80}ms` }}
             >
               <div className="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5 transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
                 <Icon size={22} strokeWidth={1.6} />
               </div>
               <h3 className="text-xl text-foreground">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
-            </div>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{card}</p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-primary opacity-0 -translate-x-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
+                Explore <ArrowRight size={14} />
+              </span>
+            </Link>
           ))}
         </div>
       </div>
