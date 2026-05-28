@@ -38,7 +38,7 @@
   --color-mist: var(--mist);
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
 
   --animate-breathe: breathe 8s ease-in-out infinite;
   --animate-float: float 9s ease-in-out infinite;
