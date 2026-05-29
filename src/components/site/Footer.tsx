@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -16,32 +17,32 @@ export function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Explore</h4>
             <ul className="mt-4 space-y-2">
-              <li><a href="/#about" className="hover:text-primary transition-colors">About</a></li>
-              <li><a href="/#services" className="hover:text-primary transition-colors">Services</a></li>
-              <li><a href="/#calm" className="hover:text-primary transition-colors">The Calm Room</a></li>
-              <li><a href="/#blog" className="hover:text-primary transition-colors">Journal</a></li>
+              <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/team" className="hover:text-primary transition-colors">Our Team</Link></li>
+              <li><Link to="/pause-room" className="hover:text-primary transition-colors">The Pause Room</Link></li>
+              <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
+              <li><Link to="/blog" className="hover:text-primary transition-colors">Journal</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Care</h4>
             <ul className="mt-4 space-y-2">
-              <li><a href="/#book" className="hover:text-primary transition-colors">Book a session</a></li>
-              <li><a href="/#faqs" className="hover:text-primary transition-colors">FAQs</a></li>
-              <li><a href="/#contact" className="hover:text-primary transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Legal</h4>
-            <ul className="mt-4 space-y-2">
-              <li><a href="/#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="/#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="/#" className="hover:text-primary transition-colors">Confidentiality</a></li>
+              <li><Link to="/book" className="hover:text-primary transition-colors">Book a Consultation</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><a href="tel:+917439680766" className="hover:text-primary transition-colors">+91 74396 80766</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Reach us</h4>
-            <p className="mt-4 text-muted-foreground">Lakeside Avenue, Bengaluru</p>
-            <p className="text-muted-foreground">hello@thepauseroom.in</p>
+            <ul className="mt-4 space-y-2 text-muted-foreground">
+              <li><a href="mailto:info.pauseroom@gmail.com" className="hover:text-primary transition-colors">info.pauseroom@gmail.com</a></li>
+              <li><a href="mailto:swati.pauseroom@gmail.com" className="hover:text-primary transition-colors">swati.pauseroom@gmail.com</a></li>
+              <li><a href="mailto:aparna.thepauseroom@gmail.com" className="hover:text-primary transition-colors">aparna.thepauseroom@gmail.com</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Stay close</h4>
+            <p className="mt-4 text-muted-foreground">A quiet community for slow, intentional well-being.</p>
             <div className="mt-4 flex gap-3">
               {[Instagram, Facebook, Linkedin, Youtube].map((Icon, i) => (
                 <a
