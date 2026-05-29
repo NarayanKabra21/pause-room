@@ -1,27 +1,92 @@
-import lake from "@/assets/hero-lake.jpg";
-import logo from "@/assets/logo.png";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import logo from "@/assets/logo.png";
+import lake from "@/assets/hero-lake.jpg";
+import clouds from "@/assets/intro/clouds.jpg";
+import ocean from "@/assets/intro/ocean.jpg";
+import forest from "@/assets/intro/forest.jpg";
+import rain from "@/assets/intro/rain.jpg";
+
+type Scene = {
+  src: string;
+  label: string;
+  overlay: string;
+};
+
+const scenes: Scene[] = [
+  {
+    src: lake,
+    label: "Sunrise lake",
+    overlay:
+      "linear-gradient(180deg, oklch(0.85 0.04 225 / 0.12) 0%, oklch(0.55 0.06 235 / 0.22) 60%, oklch(0.3 0.05 240 / 0.38) 100%)",
+  },
+  {
+    src: clouds,
+    label: "Drifting clouds",
+    overlay:
+      "linear-gradient(180deg, oklch(0.9 0.03 80 / 0.1) 0%, oklch(0.6 0.07 230 / 0.22) 70%, oklch(0.3 0.06 240 / 0.4) 100%)",
+  },
+  {
+    src: ocean,
+    label: "Calm ocean",
+    overlay:
+      "linear-gradient(180deg, oklch(0.88 0.03 230 / 0.1) 0%, oklch(0.5 0.08 235 / 0.28) 70%, oklch(0.28 0.06 240 / 0.45) 100%)",
+  },
+  {
+    src: forest,
+    label: "Forest light",
+    overlay:
+      "linear-gradient(180deg, oklch(0.7 0.06 180 / 0.18) 0%, oklch(0.45 0.07 200 / 0.32) 60%, oklch(0.25 0.06 230 / 0.5) 100%)",
+  },
+  {
+    src: rain,
+    label: "Rain on glass",
+    overlay:
+      "linear-gradient(180deg, oklch(0.5 0.05 230 / 0.25) 0%, oklch(0.35 0.06 240 / 0.4) 70%, oklch(0.22 0.05 240 / 0.55) 100%)",
+  },
+];
 
 export function IntroHero() {
+  // Pick a random starting scene each visit, then rotate.
+  const [current, setCurrent] = useState<number>(() =>
+    typeof window === "undefined" ? 0 : Math.floor(Math.random() * scenes.length),
+  );
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setCurrent((i) => (i + 1) % scenes.length),
+      5200,
+    );
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Cinematic background with Ken Burns motion */}
+      {/* Cross-fading scenes */}
       <div className="absolute inset-0">
-        <img
-          src={lake}
-          alt="Misty lake at sunrise"
-          className="h-full w-full object-cover animate-ken-burns"
-        />
+        {scenes.map((scene, i) => (
+          <img
+            key={scene.label}
+            src={scene.src}
+            alt={scene.label}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms] ${
+              i === current ? "opacity-100 animate-ken-burns" : "opacity-0"
+            }`}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
       </div>
 
-      {/* Soft blue overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, oklch(0.85 0.04 225 / 0.12) 0%, oklch(0.55 0.06 235 / 0.22) 60%, oklch(0.3 0.05 240 / 0.38) 100%)",
-        }}
-      />
+      {/* Soft tonal overlay (also cross-fades with the scene) */}
+      {scenes.map((scene, i) => (
+        <div
+          key={scene.label + "-overlay"}
+          className={`absolute inset-0 transition-opacity duration-[1800ms] ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ background: scene.overlay }}
+        />
+      ))}
 
       {/* Drifting mist particles */}
       <div className="absolute inset-0 pointer-events-none">
@@ -53,7 +118,6 @@ export function IntroHero() {
               style={{ filter: "brightness(0) invert(1)" }}
             />
           </div>
-          {/* breathing ripple */}
           <div className="mt-8 flex justify-center">
             <div className="relative h-3 w-3">
               <span className="absolute inset-0 rounded-full bg-white/70 animate-breathe" />
@@ -66,6 +130,18 @@ export function IntroHero() {
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-white/80 flex flex-col items-center gap-2 animate-float">
         <span className="text-[11px] tracking-[0.4em] uppercase">Scroll</span>
         <ChevronDown size={20} />
+      </div>
+
+      {/* Scene indicator dots */}
+      <div className="absolute bottom-8 right-8 z-10 hidden md:flex items-center gap-2">
+        {scenes.map((s, i) => (
+          <span
+            key={s.label}
+            className={`h-1.5 rounded-full transition-all duration-700 ${
+              i === current ? "bg-white/80 w-8" : "bg-white/30 w-2"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
