@@ -35,7 +35,7 @@ export function ServicePage({ service }: { service: Service }) {
           className="absolute inset-0"
           style={{ background: "var(--gradient-overlay)" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-background/5 to-transparent" />
 
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-6 pb-20 md:pb-28">
           <Link

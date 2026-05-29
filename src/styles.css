@@ -120,7 +120,7 @@
   --gradient-lake: linear-gradient(135deg, oklch(0.85 0.06 225) 0%, oklch(0.7 0.09 235) 100%);
   --gradient-dawn: linear-gradient(180deg, oklch(0.95 0.03 90) 0%, oklch(0.88 0.05 220) 60%, oklch(0.75 0.08 235) 100%);
   --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.55), oklch(1 0 0 / 0.18));
-  --gradient-overlay: linear-gradient(180deg, oklch(0.4 0.07 230 / 0.35) 0%, oklch(0.3 0.08 240 / 0.55) 100%);
+  --gradient-overlay: linear-gradient(180deg, oklch(0.55 0.04 230 / 0.08) 0%, oklch(0.3 0.05 240 / 0.28) 100%);
 
   --shadow-soft: 0 10px 40px -12px oklch(0.5 0.08 235 / 0.18);
   --shadow-glow: 0 0 60px oklch(0.78 0.1 230 / 0.45);
