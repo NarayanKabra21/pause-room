@@ -19,7 +19,7 @@ export function IntroHero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, oklch(0.85 0.05 225 / 0.25) 0%, oklch(0.55 0.09 235 / 0.45) 60%, oklch(0.35 0.08 240 / 0.7) 100%)",
+            "linear-gradient(180deg, oklch(0.85 0.04 225 / 0.12) 0%, oklch(0.55 0.06 235 / 0.22) 60%, oklch(0.3 0.05 240 / 0.38) 100%)",
         }}
       />
 
