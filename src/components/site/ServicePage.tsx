@@ -31,11 +31,10 @@ export function ServicePage({ service }: { service: Service }) {
           height={1080}
           className="absolute inset-0 h-full w-full object-cover animate-ken-burns"
         />
-        <div
-          className="absolute inset-0"
-          style={{ background: "var(--gradient-overlay)" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-background/5 to-transparent" />
+        {/* Softer hero treatment — keep the image as the hero, gradient is whisper-light */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background/35" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/55 to-transparent" />
+
 
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-6 pb-20 md:pb-28">
           <Link
