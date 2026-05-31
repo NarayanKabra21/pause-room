@@ -19,6 +19,26 @@ import roomImg from "@/assets/hero-room.jpg";
 
 export type ServiceCategory = "Assessments" | "Therapy" | "Classes & Events";
 
+export type ServiceDetailSection = {
+  heading: string;
+  paragraphs: string[];
+  image: string;
+  imageAlt: string;
+  sideQuote?: string;
+};
+
+export type ServiceDetail = {
+  heroImage: string;
+  heroAlt: string;
+  tagline: string;
+  openingQuote: string;
+  openingQuoteAuthor: string;
+  sections: ServiceDetailSection[];
+  closingStatement: string;
+  closingQuote: string;
+  closingQuoteAuthor: string;
+};
+
 export type Service = {
   slug: string;
   title: string;
@@ -36,6 +56,7 @@ export type Service = {
   expectations: { title: string; desc: string }[];
   faqs: { q: string; a: string }[];
   testimonial: { quote: string; author: string };
+  detail?: ServiceDetail;
 };
 
 // Shared, gentle defaults so each service still feels complete.
