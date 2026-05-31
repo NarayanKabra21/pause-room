@@ -106,6 +106,89 @@ export function ServicePage({ service }: { service: Service }) {
         </div>
       </section>
 
+      {/* HEALING QUOTE — RIBBON 1 */}
+      <section className="relative -mt-6">
+        <div className="mx-auto max-w-4xl px-6">
+          <figure className="reveal-on-scroll glass rounded-3xl px-8 py-10 md:px-14 md:py-14 text-center">
+            <span className="text-5xl md:text-6xl font-display text-primary/30 leading-none select-none">“</span>
+            <blockquote className="mt-2 text-2xl md:text-3xl font-display italic leading-snug text-foreground/90">
+              Healing takes time, and asking for help is a courageous step.
+            </blockquote>
+            <figcaption className="mt-4 text-xs tracking-[0.4em] uppercase text-muted-foreground">— Mariska Hargitay</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* DEEP DIVE — elaboration + why us */}
+      <section className="relative py-28 md:py-32">
+        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-5 gap-12 lg:gap-16">
+          <div className="lg:col-span-3 reveal-on-scroll">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">In depth</span>
+            <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl leading-tight">
+              Understanding <em className="text-gradient-lake not-italic">{service.title.toLowerCase()}</em>, slowly and fully.
+            </h2>
+            <div className="mt-8 space-y-5 text-base md:text-[1.07rem] text-foreground/80 leading-[1.85]">
+              <p>
+                {service.intro} At The Pause Room, we believe that the way care is offered matters as much as the care itself. Every conversation begins with listening — not assessing, not labelling, simply being present with what you bring through the door.
+              </p>
+              <p>
+                {service.story}
+              </p>
+              <p>
+                We move slowly because the inner world rarely moves on schedule. Whether the work unfolds across a single careful evaluation or a long, returning rhythm of sessions, our intention is the same: that you leave each meeting feeling a little more understood, a little less alone, and a little more equipped for the days between.
+              </p>
+              <p>
+                Our team brings together psychiatry, clinical psychology and counselling — qualified, supervised and quietly devoted to the craft of holding people well. We integrate evidence-based approaches with a deeply human warmth, so the science never becomes louder than the soul.
+              </p>
+            </div>
+          </div>
+
+          <aside className="lg:col-span-2 reveal-on-scroll">
+            <div className="sticky top-24 glass rounded-3xl p-8 md:p-9">
+              <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Why us</span>
+              <h3 className="mt-3 text-2xl md:text-3xl leading-snug">
+                The care we bring to <em className="not-italic text-primary">{service.title.toLowerCase()}</em>.
+              </h3>
+              <ul className="mt-7 space-y-5 text-foreground/85">
+                {[
+                  { t: "Quietly qualified", d: "Clinicians trained at India's leading institutions, practising with humility." },
+                  { t: "Held, not handled", d: "You are met as a person, not processed as a case." },
+                  { t: "Evidence with warmth", d: "Validated tools and frameworks delivered through a gentle, human lens." },
+                  { t: "Time that is yours", d: "Unhurried sessions, with space to breathe between every word." },
+                  { t: "A whole ecosystem", d: "Assessment, therapy and aftercare under one calm roof." },
+                ].map((w) => (
+                  <li key={w.t} className="flex items-start gap-3">
+                    <span className="mt-1 h-6 w-6 flex-shrink-0 rounded-full bg-primary/15 text-primary flex items-center justify-center">
+                      <Check size={14} strokeWidth={2.2} />
+                    </span>
+                    <span>
+                      <span className="block text-foreground">{w.t}</span>
+                      <span className="block text-sm text-muted-foreground leading-relaxed mt-0.5">{w.d}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* HEALING QUOTE — RIBBON 2 (full-bleed serene) */}
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-dawn opacity-80" />
+        <div className="absolute inset-0 pointer-events-none opacity-50">
+          <div className="absolute top-0 left-1/4 h-72 w-72 rounded-full bg-primary/15 blur-3xl animate-float-slow" />
+          <div className="absolute bottom-0 right-1/4 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-float" />
+        </div>
+        <div className="relative mx-auto max-w-3xl px-6 text-center reveal-on-scroll">
+          <p className="text-2xl md:text-4xl font-display italic leading-snug text-foreground/90">
+            “You don't have to be positive all the time. It is perfectly okay to feel sad, angry, annoyed, frustrated, scared or anxious. Having feelings doesn't make you a negative person. It makes you human.”
+          </p>
+          <p className="mt-6 text-xs tracking-[0.4em] uppercase text-muted-foreground">— Lori Deschene</p>
+        </div>
+      </section>
+
+
       {/* BENEFITS */}
       <section className="relative py-24 bg-gradient-sky">
         <div className="mx-auto max-w-7xl px-6">
