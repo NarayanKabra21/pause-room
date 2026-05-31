@@ -79,7 +79,7 @@ function MemberPage() {
         </div>
 
         <div className="mx-auto max-w-3xl px-6 mt-16 space-y-5 text-lg leading-relaxed text-foreground/85 reveal-on-scroll">
-          {member.bio.map((p, i) => <p key={i}>{p}</p>)}
+          {member.bio.map((p: string, i: number) => <p key={i}>{p}</p>)}
         </div>
       </section>
 
