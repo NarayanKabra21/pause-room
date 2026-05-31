@@ -68,7 +68,7 @@ function MemberPage() {
             <div key={b.label} className="glass rounded-2xl p-6">
               <span className="text-xs tracking-[0.4em] uppercase text-primary/80">{b.label}</span>
               <ul className="mt-3 space-y-1.5 text-foreground/85">
-                {b.items.map((it) => <li key={it}>· {it}</li>)}
+                {b.items.map((it: string) => <li key={it}>· {it}</li>)}
               </ul>
             </div>
           ))}
@@ -79,7 +79,7 @@ function MemberPage() {
         </div>
 
         <div className="mx-auto max-w-3xl px-6 mt-16 space-y-5 text-lg leading-relaxed text-foreground/85 reveal-on-scroll">
-          {member.bio.map((p, i) => <p key={i}>{p}</p>)}
+          {member.bio.map((p: string, i: number) => <p key={i}>{p}</p>)}
         </div>
       </section>
 

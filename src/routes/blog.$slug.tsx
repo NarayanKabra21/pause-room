@@ -51,7 +51,7 @@ function PostPage() {
       <article className="py-20">
         <div className="mx-auto max-w-3xl px-6 space-y-6 text-lg leading-relaxed text-foreground/85 reveal-on-scroll">
           <p className="text-2xl font-display italic text-foreground/90">{post.excerpt}</p>
-          {post.body.map((para, i) => <p key={i}>{para}</p>)}
+          {post.body.map((para: string, i: number) => <p key={i}>{para}</p>)}
           <p className="pt-8 text-sm text-muted-foreground italic">This is one of a growing series. If something here resonates, you are warmly invited to <Link to="/book" className="text-primary underline">book a session</Link>.</p>
         </div>
       </article>
