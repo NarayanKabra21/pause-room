@@ -288,6 +288,36 @@ export function ServicePage({ service }: { service: Service }) {
         </div>
       </section>
 
+      {/* HEALING QUOTES — TRIPTYCH */}
+      <section className="relative py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center reveal-on-scroll mb-12">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Words to rest in</span>
+            <h2 className="mt-3 text-3xl md:text-4xl">Read these slowly. Breathe between them.</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { q: "What we don't need anymore, we let go of. What we still need, we make room for.", a: "Yung Pueblo" },
+              { q: "You are the sky. Everything else — it's just the weather.", a: "Pema Chödrön" },
+              { q: "Almost everything will work again if you unplug it for a few minutes, including you.", a: "Anne Lamott" },
+            ].map((h, i) => (
+              <figure
+                key={h.a}
+                className="reveal-on-scroll glass rounded-3xl p-8 md:p-9 text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-elevated"
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                <span className="text-4xl font-display text-primary/30 leading-none select-none">“</span>
+                <blockquote className="mt-2 text-lg md:text-xl font-display italic leading-relaxed text-foreground/85">
+                  {h.q}
+                </blockquote>
+                <figcaption className="mt-5 text-xs tracking-[0.35em] uppercase text-muted-foreground">— {h.a}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* FAQs */}
       <section className="relative py-24 bg-gradient-sky">
         <div className="mx-auto max-w-4xl px-6">
