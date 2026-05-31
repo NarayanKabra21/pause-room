@@ -1,5 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
+import { ServiceDetailPage } from "@/components/site/ServiceDetailPage";
 import { getService, services } from "@/data/services";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -44,6 +45,7 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceRoute() {
   const { service } = Route.useLoaderData();
+  if (service.detail) return <ServiceDetailPage service={service} />;
   return <ServicePage service={service} />;
 }
 
