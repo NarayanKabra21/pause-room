@@ -45,6 +45,7 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceRoute() {
   const { service } = Route.useLoaderData();
+  if (service.detail) return <ServiceDetailPage service={service} />;
   return <ServicePage service={service} />;
 }
 
