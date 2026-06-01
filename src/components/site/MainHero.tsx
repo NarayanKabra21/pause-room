@@ -60,19 +60,6 @@ export function MainHero() {
             <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
           </div>
 
-          {/* Floating glass card */}
-          <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-5 shadow-soft max-w-xs animate-float">
-            <div className="flex items-center gap-3">
-              <div className="relative h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                <span className="absolute inset-0 rounded-full bg-primary/30 animate-ripple" />
-                <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-              </div>
-              <div>
-                <div className="text-sm font-medium">Available now</div>
-                <div className="text-xs text-muted-foreground">Online &amp; in-person sessions</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
