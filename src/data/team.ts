@@ -1,9 +1,6 @@
 import aparnaImg from "@/assets/team/aparna.jpg";
 import swatiImg from "@/assets/team/swati.jpg";
 import prernaImg from "@/assets/team/prerna.jpg";
-import familyImg from "@/assets/team/family.jpg";
-import relImg from "@/assets/team/relationship.jpg";
-import wellImg from "@/assets/team/wellness.jpg";
 
 export type TeamMember = {
   slug: string;
@@ -74,60 +71,6 @@ export const team: TeamMember[] = [
       "Children describe her room as the place where they don't have to pretend to be okay.",
     ],
     photo: prernaImg,
-  },
-  {
-    slug: "ramesh-kumar",
-    name: "Dr. Ramesh Kumar",
-    role: "Family Therapist",
-    specialization: "Family Systems & Couples Therapy",
-    qualifications: ["PhD (Family Therapy)", "M.A. (Counselling Psychology)"],
-    certifications: ["Gottman Method Level 2", "Systemic Family Therapy"],
-    experience: "15+ years",
-    expertise: ["Couples therapy", "Family systems", "Co-parenting", "Inter-generational patterns"],
-    languages: ["English", "Hindi", "Tamil"],
-    shortBio: "A family therapist who sees relationships as living systems worth tending with patience.",
-    bio: [
-      "Dr. Ramesh has spent over fifteen years helping families and couples find their way back to each other. His work blends systemic family therapy with the Gottman Method, offering structure without ever losing warmth.",
-      "He is particularly skilled with co-parenting after separation, inter-generational difficulties, and couples navigating ruptures of trust.",
-      "His sessions are known for their steady neutrality — never taking sides, always seeking the truth that lives between people.",
-    ],
-    photo: familyImg,
-  },
-  {
-    slug: "ananya-rao",
-    name: "Ananya Rao",
-    role: "Relationship Counsellor",
-    specialization: "Couples Work & Emotional Connection",
-    qualifications: ["M.A. (Counselling Psychology)"],
-    certifications: ["Emotionally Focused Therapy", "Attachment-Based Couples Work"],
-    experience: "8+ years",
-    expertise: ["Couples therapy", "Pre-marital counselling", "Attachment & intimacy", "Communication patterns"],
-    languages: ["English", "Hindi", "Telugu"],
-    shortBio: "A relationship counsellor whose room makes hard conversations feel possible.",
-    bio: [
-      "Ananya works primarily with couples and pre-married partners, using Emotionally Focused Therapy and attachment-based approaches to rebuild safety, intimacy and honest dialogue.",
-      "She has a particular gift for slowing down reactive cycles in real time — helping partners hear each other beneath the noise of long-held hurt.",
-      "Her sessions are warm, structured, and quietly hopeful.",
-    ],
-    photo: relImg,
-  },
-  {
-    slug: "meera-jain",
-    name: "Meera Jain",
-    role: "Mental Wellness Coach",
-    specialization: "Workshops, Wellness & Emotional Resilience",
-    qualifications: ["M.A. (Applied Psychology)", "PG Diploma (Mindfulness-Based Therapy)"],
-    certifications: ["Certified Mindfulness Teacher", "Positive Psychology Coach"],
-    experience: "6+ years",
-    expertise: ["Workshop facilitation", "Mindfulness", "Stress & burnout", "Women's wellness"],
-    languages: ["English", "Hindi"],
-    shortBio: "A wellness coach who turns psychology into rituals you can carry home.",
-    bio: [
-      "Meera leads workshops, group programmes and one-on-one wellness coaching at The Pause Room. Her work bridges psychological depth and everyday practicality — designed for people who don't (yet) want or need therapy.",
-      "She specialises in mindfulness-based approaches, stress recovery and women's wellness, and is the steady force behind many of our community seminars and workplace sessions.",
-      "Her work answers a simple question: what would it look like to feel a little better tomorrow than you did today?",
-    ],
-    photo: wellImg,
   },
 ];
 
