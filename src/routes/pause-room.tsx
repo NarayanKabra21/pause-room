@@ -53,9 +53,9 @@ function PauseRoomPage() {
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The People of the Room</span>
             <h2 className="mt-3 text-3xl md:text-5xl">The hands and hearts that hold this room.</h2>
             <p className="mt-5 text-lg leading-relaxed text-foreground/80">
-              The Pause Room is shaped, daily, by a small team of psychiatrists, psychologists and
-              therapists who chose this work as a vocation. Each of them brings a different kind of
-              expertise — psychiatry, trauma, child and family work, couples therapy, wellness — and
+              The Pause Room is shaped, daily, by a small team of psychiatrists and psychologists
+              who chose this work as a vocation. Each of them brings a different kind of
+              expertise — psychiatry, trauma and adult psychotherapy, child and adolescent care — and
               the same underlying commitment: to listen carefully, move slowly, and honour every
               person who arrives. What follows is a quiet introduction to the people behind the room.
             </p>
