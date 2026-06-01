@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TeamRouteImport } from './routes/team'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PauseRoomRouteImport } from './routes/pause-room'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -17,15 +16,9 @@ import { Route as BookRouteImport } from './routes/book'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as TeamSlugRouteImport } from './routes/team.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -61,11 +54,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeamSlugRoute = TeamSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => TeamRoute,
-} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -85,10 +73,8 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/pause-room': typeof PauseRoomRoute
   '/services': typeof ServicesRouteWithChildren
-  '/team': typeof TeamRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/team/$slug': typeof TeamSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -98,10 +84,8 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/pause-room': typeof PauseRoomRoute
   '/services': typeof ServicesRouteWithChildren
-  '/team': typeof TeamRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/team/$slug': typeof TeamSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -112,10 +96,8 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/pause-room': typeof PauseRoomRoute
   '/services': typeof ServicesRouteWithChildren
-  '/team': typeof TeamRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/team/$slug': typeof TeamSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -127,10 +109,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/pause-room'
     | '/services'
-    | '/team'
     | '/blog/$slug'
     | '/services/$slug'
-    | '/team/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -140,10 +120,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/pause-room'
     | '/services'
-    | '/team'
     | '/blog/$slug'
     | '/services/$slug'
-    | '/team/$slug'
   id:
     | '__root__'
     | '/'
@@ -153,10 +131,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/pause-room'
     | '/services'
-    | '/team'
     | '/blog/$slug'
     | '/services/$slug'
-    | '/team/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -167,18 +143,10 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PauseRoomRoute: typeof PauseRoomRoute
   ServicesRoute: typeof ServicesRouteWithChildren
-  TeamRoute: typeof TeamRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -228,13 +196,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/team/$slug': {
-      id: '/team/$slug'
-      path: '/$slug'
-      fullPath: '/team/$slug'
-      preLoaderRoute: typeof TeamSlugRouteImport
-      parentRoute: typeof TeamRoute
-    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
@@ -274,16 +235,6 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
   ServicesRouteChildren,
 )
 
-interface TeamRouteChildren {
-  TeamSlugRoute: typeof TeamSlugRoute
-}
-
-const TeamRouteChildren: TeamRouteChildren = {
-  TeamSlugRoute: TeamSlugRoute,
-}
-
-const TeamRouteWithChildren = TeamRoute._addFileChildren(TeamRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -292,7 +243,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PauseRoomRoute: PauseRoomRoute,
   ServicesRoute: ServicesRouteWithChildren,
-  TeamRoute: TeamRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
