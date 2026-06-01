@@ -47,6 +47,81 @@ function PauseRoomPage() {
         </div>
       </section>
 
+      <section className="relative py-24 md:py-32 bg-secondary/30">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="reveal-on-scroll max-w-3xl">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The People of the Room</span>
+            <h2 className="mt-3 text-3xl md:text-5xl">The hands and hearts that hold this room.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-foreground/80">
+              The Pause Room is shaped, daily, by a small team of psychiatrists, psychologists and
+              therapists who chose this work as a vocation. Each of them brings a different kind of
+              expertise — psychiatry, trauma, child and family work, couples therapy, wellness — and
+              the same underlying commitment: to listen carefully, move slowly, and honour every
+              person who arrives. What follows is a quiet introduction to the people behind the room.
+            </p>
+          </div>
+
+          <div className="mt-16 space-y-16">
+            {team.map((m, i) => (
+              <article
+                key={m.slug}
+                className={`reveal-on-scroll grid md:grid-cols-12 gap-8 md:gap-12 items-center ${
+                  i % 2 ? "md:[direction:rtl]" : ""
+                }`}
+              >
+                <div className="md:col-span-5 [direction:ltr]">
+                  <div className="overflow-hidden rounded-3xl shadow-soft">
+                    <img
+                      src={m.photo}
+                      alt={m.name}
+                      loading="lazy"
+                      className="h-full w-full object-cover aspect-[4/5] transition-transform duration-[1400ms] hover:scale-105"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-7 [direction:ltr]">
+                  <span className="text-xs tracking-[0.4em] uppercase text-primary/80">{m.role}</span>
+                  <h3 className="mt-2 text-3xl md:text-4xl">{m.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground italic">{m.specialization} · {m.experience}</p>
+                  <div className="mt-5 space-y-3 text-foreground/85 leading-relaxed">
+                    {m.bio.map((p, idx) => (
+                      <p key={idx}>{p}</p>
+                    ))}
+                  </div>
+                  <div className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+                    <div>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Qualifications</p>
+                      <p className="mt-1 text-foreground/80">{m.qualifications.join(" · ")}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Certifications</p>
+                      <p className="mt-1 text-foreground/80">{m.certifications.join(" · ")}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Expertise</p>
+                      <p className="mt-1 text-foreground/80">{m.expertise.join(", ")}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Languages</p>
+                      <p className="mt-1 text-foreground/80">{m.languages.join(", ")}</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="reveal-on-scroll mt-20 max-w-2xl mx-auto text-center">
+            <p className="text-lg text-foreground/80 leading-relaxed italic">
+              "We are a small team on purpose. It is the only way we know how to do this work — with
+              presence, with patience, and with the time each person deserves."
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-lake opacity-90" />
         <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
