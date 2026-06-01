@@ -132,17 +132,6 @@ export function IntroHero() {
         <ChevronDown size={20} />
       </div>
 
-      {/* Scene indicator dots */}
-      <div className="absolute bottom-8 right-8 z-10 hidden md:flex items-center gap-2">
-        {scenes.map((s, i) => (
-          <span
-            key={s.label}
-            className={`h-1.5 rounded-full transition-all duration-700 ${
-              i === current ? "bg-white/80 w-8" : "bg-white/30 w-2"
-            }`}
-          />
-        ))}
-      </div>
     </section>
   );
 }
