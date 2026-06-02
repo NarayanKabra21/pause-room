@@ -1162,6 +1162,14 @@ export const services: Service[] = [
   },
 ];
 
+// Attach unique hero+quote detail pages to every service that didn't already have one.
+import { extraServiceDetails } from "./serviceDetailsExtra";
+for (const s of services) {
+  if (!s.detail && extraServiceDetails[s.slug]) {
+    s.detail = extraServiceDetails[s.slug];
+  }
+}
+
 export const getService = (slug: string): Service | undefined =>
   services.find((s) => s.slug === slug);
 
