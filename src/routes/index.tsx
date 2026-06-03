@@ -50,7 +50,6 @@ function Index() {
       <IntroHero />
       <MainHero />
       <About />
-      <Services />
       <HealingAreas />
       <WhyUs />
       <CalmRoom />
@@ -58,7 +57,6 @@ function Index() {
       <FAQs />
       <Booking />
       <Contact />
-      <Blog />
       <Footer />
       <Toaster position="bottom-center" />
     </main>
