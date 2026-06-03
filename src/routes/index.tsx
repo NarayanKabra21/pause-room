@@ -4,7 +4,6 @@ import { Navbar } from "@/components/site/Navbar";
 import { IntroHero } from "@/components/site/IntroHero";
 import { MainHero } from "@/components/site/MainHero";
 import { About } from "@/components/site/About";
-import { Services } from "@/components/site/Services";
 import { HealingAreas } from "@/components/site/HealingAreas";
 import { WhyUs } from "@/components/site/WhyUs";
 import { CalmRoom } from "@/components/site/CalmRoom";
@@ -12,7 +11,6 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { FAQs } from "@/components/site/FAQs";
 import { Booking } from "@/components/site/Booking";
 import { Contact } from "@/components/site/Contact";
-import { Blog } from "@/components/site/Blog";
 import { Footer } from "@/components/site/Footer";
 import { useReveal } from "@/hooks/use-reveal";
 
