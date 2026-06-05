@@ -649,7 +649,7 @@ const workshops: CatalogItem[] = [
     shortDesc: "Gentle, embodied practices for daily inner care.",
     cardImage: u("photo-1545389336-cf090694435e"),
     heroImage: u("photo-1545205597-3d9d02c29597", 1920),
-    icon: Leaf(),
+    icon: Leaf,
     category: "workshops",
     categoryLabel: "Workshops, Seminars & Webinars",
     quote: "Almost everything will work again if you unplug it for a few minutes — including you.",
@@ -921,9 +921,6 @@ const classes: CatalogItem[] = [
   },
 ];
 
-// Tiny inline icon shim (lucide-react does export Leaf — use direct import).
-import { Leaf as LeafIcon } from "lucide-react";
-function Leaf() { return LeafIcon; }
 
 export const serviceCategories: CatalogCategory[] = [
   {
