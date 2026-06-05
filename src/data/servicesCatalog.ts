@@ -1,8 +1,8 @@
 import {
-  Brain, Compass, ClipboardList, Activity, Lightbulb, BookOpen,
+  Brain, Compass, ClipboardList, Lightbulb, BookOpen,
   Baby, User, UserCheck, Briefcase, Heart, Wrench, Users, UsersRound,
-  Target, MessageCircle, GraduationCap, Presentation, Sparkles,
-  HeartHandshake, Building2, School, Globe, Headphones, Focus,
+  GraduationCap, Presentation, Sparkles, Leaf,
+  HeartHandshake, Building2, School, Globe, Focus,
   type LucideIcon,
 } from "lucide-react";
 
