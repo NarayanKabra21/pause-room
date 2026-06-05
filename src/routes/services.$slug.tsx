@@ -6,8 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
-import { useReveal } from "@/hooks/use-reveal";
-import { getCatalogItem, getAdjacent } from "@/data/servicesCatalog";
+import { getCatalogItem, getAdjacent, type CatalogItem } from "@/data/servicesCatalog";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
