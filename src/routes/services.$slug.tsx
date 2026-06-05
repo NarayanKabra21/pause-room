@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { useReveal } from "@/hooks/use-reveal";
 import { getCatalogItem, getAdjacent, type CatalogItem } from "@/data/servicesCatalog";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -33,7 +34,9 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceDetailPage() {
   useReveal();
-  const { item, adjacent } = Route.useLoaderData();
+  const data = Route.useLoaderData();
+  const item = data.item as CatalogItem;
+  const adjacent = data.adjacent as { prev?: CatalogItem; next?: CatalogItem };
   const Icon = item.icon;
 
   useEffect(() => {
