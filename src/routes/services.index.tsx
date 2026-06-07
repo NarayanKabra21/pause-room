@@ -9,7 +9,7 @@ import {
   type CatalogItem,
 } from "@/data/servicesCatalog";
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Services — The Pause Room" },
