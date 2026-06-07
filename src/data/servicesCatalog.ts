@@ -969,4 +969,4 @@ export const getAdjacent = (slug: string) => {
   };
 };
 
-export const servicesHeroImage = u("photo-1506126613408-eca07ce68773", 2400);
+export const servicesHeroImage = u("photo-1518173946687-a4c8892bbd9f", 2400);
