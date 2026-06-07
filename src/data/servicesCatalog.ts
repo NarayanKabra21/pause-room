@@ -783,7 +783,7 @@ const workshops: CatalogItem[] = [
     slug: "awareness-webinars",
     title: "Awareness Webinars",
     shortDesc: "Reaching wider audiences with grounded mental-health knowledge.",
-    cardImage: u("photo-1591115765373-5207764f72e4"),
+    cardImage: u("photo-1610563166150-b34df4f3bcd6"),
     heroImage: u("photo-1587560699334-cc4ff634909a", 1920),
     icon: Globe,
     category: "workshops",
