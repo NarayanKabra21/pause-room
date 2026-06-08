@@ -1,6 +1,5 @@
 import aparnaImg from "@/assets/team/aparna.jpg";
 import swatiImg from "@/assets/team/swati.jpg";
-import prernaImg from "@/assets/team/prerna.jpg";
 
 export type TeamMember = {
   slug: string;
