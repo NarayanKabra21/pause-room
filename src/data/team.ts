@@ -1,6 +1,5 @@
 import aparnaImg from "@/assets/team/aparna.jpg";
 import swatiImg from "@/assets/team/swati.jpg";
-import prernaImg from "@/assets/team/prerna.jpg";
 
 export type TeamMember = {
   slug: string;
@@ -53,24 +52,6 @@ export const team: TeamMember[] = [
       "Outside of sessions, Swati trains young therapists and quietly mentors the wider clinical team — bringing the same warmth to colleagues that she brings to clients.",
     ],
     photo: swatiImg,
-  },
-  {
-    slug: "prerna",
-    name: "Prerna",
-    role: "Child & Adolescent Psychologist",
-    specialization: "Child Therapy, Assessments & Family Work",
-    qualifications: ["M.A. (Clinical Psychology)", "Diploma in Child Psychology"],
-    certifications: ["Play Therapy", "Child CBT", "SLD Assessment Certification"],
-    experience: "7+ years",
-    expertise: ["Child & adolescent therapy", "Psychological assessments", "Learning differences", "Parent guidance"],
-    languages: ["English", "Hindi"],
-    shortBio: "A child psychologist whose warmth makes therapy feel like the safest room in the house.",
-    bio: [
-      "Prerna brings a rare gentleness to her work with children, teens and families. She specialises in play therapy, child-friendly CBT and developmental assessments — including IQ, learning and behavioural evaluations.",
-      "She works closely with parents and schools, translating clinical findings into compassionate, practical support that honours how each child actually learns and grows.",
-      "Children describe her room as the place where they don't have to pretend to be okay.",
-    ],
-    photo: prernaImg,
   },
 ];
 
