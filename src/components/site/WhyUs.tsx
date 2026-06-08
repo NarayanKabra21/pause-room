@@ -29,12 +29,13 @@ export function WhyUs() {
             {points.map(({ icon: Icon, title, desc }, i) => (
               <div
                 key={title}
-                className="reveal-on-scroll group rounded-2xl border border-border/60 bg-card/60 p-6 backdrop-blur-md transition-all duration-700 hover:-translate-y-1 hover:shadow-soft hover:border-primary/30"
+                className="reveal-on-scroll group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-6 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-elevated hover:border-primary/40 hover:bg-card/90"
                 style={{ transitionDelay: `${(i % 2) * 80}ms` }}
               >
-                <Icon size={22} className="text-primary mb-4" strokeWidth={1.6} />
-                <h3 className="text-lg">{title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
+                <Icon size={22} className="relative text-primary mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" strokeWidth={1.6} />
+                <h3 className="relative text-lg transition-colors duration-500 group-hover:text-primary">{title}</h3>
+                <p className="relative mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
