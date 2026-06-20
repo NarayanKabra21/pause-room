@@ -19,7 +19,7 @@ export function About() {
         <div className="reveal-on-scroll">
           <span className="text-xs tracking-[0.4em] uppercase text-primary/80">About us</span>
           <h2 className="mt-4 text-4xl md:text-5xl text-foreground leading-tight">
-            A sanctuary for the <em className="text-gradient-lake not-italic">quietly tired</em>.
+            A sanctuary for the <em className="text-gradient-lake not-italic">quietly tired</em>
           </h2>
           <div className="mt-6 space-y-5 text-muted-foreground leading-relaxed">
             <p>
