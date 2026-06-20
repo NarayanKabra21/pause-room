@@ -15,7 +15,7 @@ export function Contact() {
 
           <div className="mt-10 space-y-5">
             {[
-              { icon: MapPin, label: "Address", val: "Lakeside Avenue, Bengaluru, India" },
+              { icon: MapPin, label: "Address", val: "B 105, E.M Bypass Metropolitan, Dhapa, S.O South 24 Parganas, West Bengal- 700105" },
               { icon: Phone, label: "Phone", val: "+91 98765 43210" },
               { icon: Mail, label: "Email", val: "hello@thepauseroom.in" },
             ].map(({ icon: Icon, label, val }) => (

@@ -34,7 +34,7 @@ function ContactPage() {
             {[
               { icon: Phone, label: "Phone", val: "+91 74396 80766", href: "tel:+917439680766" },
               { icon: Mail, label: "General", val: "info.pauseroom@gmail.com", href: "mailto:info.pauseroom@gmail.com" },
-              { icon: MapPin, label: "Address", val: "Lakeside Avenue, Bengaluru, India" },
+              { icon: MapPin, label: "Address", val: "B 105, E.M Bypass Metropolitan, Dhapa, S.O South 24 Parganas, West Bengal- 700105" },
               { icon: Clock, label: "Working hours", val: "Mon–Sat · 9:00 AM – 7:00 PM" },
             ].map(({ icon: Icon, label, val, href }) => (
               <a
