@@ -231,7 +231,7 @@ function ServiceDetailPage() {
         <div className="mx-auto max-w-3xl px-6">
           <div className="text-center reveal-on-scroll">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Questions</span>
-            <h2 className="mt-3 text-3xl md:text-5xl">Common questions, gently answered.</h2>
+            <h2 className="mt-3 text-3xl md:text-5xl">Common questions, gently answered</h2>
           </div>
           <Accordion type="single" collapsible className="mt-12 space-y-3">
             {item.faqs.map((f, i) => (
