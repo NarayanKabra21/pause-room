@@ -143,7 +143,7 @@ function BookPage() {
 
       <section className="py-20 bg-gradient-sky">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl md:text-4xl text-center reveal-on-scroll">Gentle answers.</h2>
+          <h2 className="text-3xl md:text-4xl text-center reveal-on-scroll">Gentle answers</h2>
           <div className="mt-10 space-y-4">
             {bookFaqs.map((f) => (
               <details key={f.q} className="reveal-on-scroll group glass rounded-2xl p-6 open:shadow-soft">
