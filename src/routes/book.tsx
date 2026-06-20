@@ -72,7 +72,7 @@ function BookPage() {
           {submitted ? (
             <div className="reveal-on-scroll glass rounded-3xl p-12 text-center">
               <div className="mx-auto h-16 w-16 rounded-full bg-primary/15 text-primary flex items-center justify-center"><Check size={28} /></div>
-              <h2 className="mt-6 text-3xl">Thank you.</h2>
+              <h2 className="mt-6 text-3xl">Thank you</h2>
               <p className="mt-3 text-muted-foreground">Your request has been received. We'll be in touch within 24 hours to confirm your session.</p>
               <Button className="mt-8 rounded-full" onClick={() => setSubmitted(false)}>Book another</Button>
             </div>
