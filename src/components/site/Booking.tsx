@@ -27,7 +27,7 @@ export function Booking() {
         <div className="text-center reveal-on-scroll">
           <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Book</span>
           <h2 className="mt-4 text-4xl md:text-5xl">
-            Begin your <em className="text-gradient-lake not-italic">pause</em>.
+            Begin your <em className="text-gradient-lake not-italic">pause</em>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-md mx-auto">
             Reach out and we'll respond gently within 24 hours.
