@@ -17,17 +17,17 @@ import { useReveal } from "@/hooks/use-reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "The Pause Room — Emotional Wellness & Psychiatric Care" },
+      { title: "The Pause Room — Emotional Wellness & Psychological Care" },
       {
         name: "description",
         content:
-          "A peaceful sanctuary for psychiatric care and emotional wellness. Therapy, counseling, and a calming space to breathe, heal, and rediscover peace.",
+          "A peaceful sanctuary for psychological care and emotional wellness. Therapy, counseling, and a calming space to breathe, heal, and rediscover peace.",
       },
       { property: "og:title", content: "The Pause Room — A space to breathe and heal" },
       {
         property: "og:description",
         content:
-          "Compassionate psychiatric care and emotional wellness in a calming, judgment-free sanctuary.",
+          "Compassionate psychological care and emotional wellness in a calming, judgment-free sanctuary.",
       },
     ],
     links: [
