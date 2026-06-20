@@ -53,7 +53,7 @@ function BookPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="reveal-on-scroll max-w-2xl">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Consultation types</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Choose what feels right.</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Choose what feels right</h2>
           </div>
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {types.map(({ icon: Icon, label, desc }, i) => (
@@ -72,7 +72,7 @@ function BookPage() {
           {submitted ? (
             <div className="reveal-on-scroll glass rounded-3xl p-12 text-center">
               <div className="mx-auto h-16 w-16 rounded-full bg-primary/15 text-primary flex items-center justify-center"><Check size={28} /></div>
-              <h2 className="mt-6 text-3xl">Thank you.</h2>
+              <h2 className="mt-6 text-3xl">Thank you</h2>
               <p className="mt-3 text-muted-foreground">Your request has been received. We'll be in touch within 24 hours to confirm your session.</p>
               <Button className="mt-8 rounded-full" onClick={() => setSubmitted(false)}>Book another</Button>
             </div>
@@ -143,7 +143,7 @@ function BookPage() {
 
       <section className="py-20 bg-gradient-sky">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl md:text-4xl text-center reveal-on-scroll">Gentle answers.</h2>
+          <h2 className="text-3xl md:text-4xl text-center reveal-on-scroll">Gentle answers</h2>
           <div className="mt-10 space-y-4">
             {bookFaqs.map((f) => (
               <details key={f.q} className="reveal-on-scroll group glass rounded-2xl p-6 open:shadow-soft">

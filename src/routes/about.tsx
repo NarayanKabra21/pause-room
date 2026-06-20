@@ -57,7 +57,7 @@ function AboutPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="max-w-2xl reveal-on-scroll">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Our Values</span>
-            <h2 className="mt-4 text-4xl md:text-5xl">Care, held by <em className="text-gradient-lake not-italic">principles</em>.</h2>
+            <h2 className="mt-4 text-4xl md:text-5xl">Care, held by <em className="text-gradient-lake not-italic">principles</em></h2>
           </div>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map(({ icon: Icon, title, desc }, i) => (
@@ -74,7 +74,7 @@ function AboutPage() {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-lake opacity-90" />
         <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
-          <h2 className="text-4xl md:text-5xl">Begin gently.</h2>
+          <h2 className="text-4xl md:text-5xl">Begin gently</h2>
           <p className="mt-4 text-white/85">A 15-minute intro call to see if we are the right fit for you.</p>
           <Link to="/book" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-foreground px-7 py-3 text-sm font-medium hover:scale-105 transition-all duration-500">
             Book a consultation <ArrowRight size={16} />

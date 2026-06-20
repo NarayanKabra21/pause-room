@@ -40,8 +40,8 @@ export function CalmRoom() {
       <div className="mx-auto max-w-4xl px-6 text-center">
         <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The Calm Room</span>
         <h2 className="mt-4 text-4xl md:text-6xl leading-tight">
-          Take a moment. <br />
-          <em className="text-gradient-lake not-italic">Breathe slowly.</em>
+          Take a moment <br />
+          <em className="text-gradient-lake not-italic">Breathe slowly</em>
         </h2>
         <p className="mt-5 text-muted-foreground">
           Let your mind feel lighter. Follow the circle.

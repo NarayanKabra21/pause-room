@@ -18,7 +18,7 @@ export function WhyUs() {
           <div className="lg:sticky lg:top-32 self-start reveal-on-scroll">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Why The Pause Room</span>
             <h2 className="mt-4 text-4xl md:text-5xl leading-tight">
-              Trust that feels <em className="text-gradient-lake not-italic">earned</em>, not asked for.
+              Trust that feels <em className="text-gradient-lake not-italic">earned</em>, not asked for
             </h2>
             <p className="mt-5 text-muted-foreground">
               We built this around the things people quietly need most — softness, safety, and time.

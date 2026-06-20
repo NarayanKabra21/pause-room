@@ -16,7 +16,7 @@ export function HealingAreas() {
         <span className="text-xs tracking-[0.4em] uppercase text-primary/80">What we help with</span>
         <h2 className="mt-4 text-4xl md:text-6xl leading-tight">
           You are not alone in <br />
-          <em className="text-gradient-lake not-italic">what you are feeling.</em>
+          <em className="text-gradient-lake not-italic">what you are feeling</em>
         </h2>
         <p className="mt-5 max-w-xl mx-auto text-muted-foreground">
           Whatever you're carrying, there is a place for it here. Without explanation, without rush.

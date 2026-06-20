@@ -184,7 +184,7 @@ function ServiceDetailPage() {
           <div className="max-w-2xl reveal-on-scroll">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Key Benefits</span>
             <h2 className="mt-3 text-3xl md:text-5xl">
-              The quiet gifts of <em className="text-gradient-lake not-italic">this work</em>.
+              The quiet gifts of <em className="text-gradient-lake not-italic">this work</em>
             </h2>
           </div>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -231,7 +231,7 @@ function ServiceDetailPage() {
         <div className="mx-auto max-w-3xl px-6">
           <div className="text-center reveal-on-scroll">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Questions</span>
-            <h2 className="mt-3 text-3xl md:text-5xl">Common questions, gently answered.</h2>
+            <h2 className="mt-3 text-3xl md:text-5xl">Common questions, gently answered</h2>
           </div>
           <Accordion type="single" collapsible className="mt-12 space-y-3">
             {item.faqs.map((f, i) => (

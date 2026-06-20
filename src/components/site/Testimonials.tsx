@@ -20,7 +20,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-5xl px-6 text-center reveal-on-scroll">
         <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Voices</span>
         <h2 className="mt-4 text-4xl md:text-5xl">
-          Stories of <em className="text-gradient-lake not-italic">quiet healing</em>.
+          Stories of <em className="text-gradient-lake not-italic">quiet healing</em>
         </h2>
       </div>
 

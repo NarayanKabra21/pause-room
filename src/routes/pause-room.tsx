@@ -51,7 +51,7 @@ function PauseRoomPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="reveal-on-scroll max-w-3xl">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The People of the Room</span>
-            <h2 className="mt-3 text-3xl md:text-5xl">The hands and hearts that hold this room.</h2>
+            <h2 className="mt-3 text-3xl md:text-5xl">The hands and hearts that hold this room</h2>
             <p className="mt-5 text-lg leading-relaxed text-foreground/80">
               The Pause Room is shaped, daily, by a small team of psychiatrists and psychologists
               who chose this work as a vocation. Each of them brings a different kind of
@@ -125,7 +125,7 @@ function PauseRoomPage() {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-lake opacity-90" />
         <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
-          <h2 className="text-4xl md:text-5xl">Step inside the room.</h2>
+          <h2 className="text-4xl md:text-5xl">Step inside the room</h2>
           <p className="mt-4 text-white/85">A quiet, confidential conversation is the only first step.</p>
           <Link to="/book" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-foreground px-7 py-3 text-sm font-medium hover:scale-105 transition-all duration-500">
             Book a consultation <ArrowRight size={16} />
