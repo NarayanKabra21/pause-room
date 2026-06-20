@@ -35,8 +35,6 @@ export function Footer() {
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Reach us</h4>
             <ul className="mt-4 space-y-2 text-muted-foreground">
               <li><a href="mailto:info.pauseroom@gmail.com" className="hover:text-primary transition-colors">info.pauseroom@gmail.com</a></li>
-              <li><a href="mailto:swati.pauseroom@gmail.com" className="hover:text-primary transition-colors">swati.pauseroom@gmail.com</a></li>
-              <li><a href="mailto:aparna.thepauseroom@gmail.com" className="hover:text-primary transition-colors">aparna.thepauseroom@gmail.com</a></li>
             </ul>
           </div>
           <div>
