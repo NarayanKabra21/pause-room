@@ -119,7 +119,7 @@ function ServicesPage() {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-lake opacity-90" />
         <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
-          <h2 className="text-4xl md:text-5xl">Begin where you are.</h2>
+          <h2 className="text-4xl md:text-5xl">Begin where you are</h2>
           <p className="mt-4 text-white/85">
             A quiet, confidential conversation is the only first step.
           </p>
