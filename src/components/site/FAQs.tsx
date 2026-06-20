@@ -16,7 +16,7 @@ export function FAQs() {
       <div className="mx-auto max-w-3xl px-6">
         <div className="text-center reveal-on-scroll">
           <span className="text-xs tracking-[0.4em] uppercase text-primary/80">FAQs</span>
-          <h2 className="mt-4 text-4xl md:text-5xl">Gentle answers</h2>
+          <h2 className="mt-4 text-4xl md:text-5xl">Gentle Answers</h2>
         </div>
 
         <Accordion type="single" collapsible className="mt-12 space-y-3">
