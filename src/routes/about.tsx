@@ -57,7 +57,7 @@ function AboutPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="max-w-2xl reveal-on-scroll">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Our Values</span>
-            <h2 className="mt-4 text-4xl md:text-5xl">Care, held by <em className="text-gradient-lake not-italic">principles</em>.</h2>
+            <h2 className="mt-4 text-4xl md:text-5xl">Care, held by <em className="text-gradient-lake not-italic">principles</em></h2>
           </div>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map(({ icon: Icon, title, desc }, i) => (
