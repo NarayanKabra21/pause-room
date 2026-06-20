@@ -34,8 +34,6 @@ function ContactPage() {
             {[
               { icon: Phone, label: "Phone", val: "+91 74396 80766", href: "tel:+917439680766" },
               { icon: Mail, label: "General", val: "info.pauseroom@gmail.com", href: "mailto:info.pauseroom@gmail.com" },
-              { icon: Mail, label: "Swati", val: "swati.pauseroom@gmail.com", href: "mailto:swati.pauseroom@gmail.com" },
-              { icon: Mail, label: "Aparna", val: "aparna.thepauseroom@gmail.com", href: "mailto:aparna.thepauseroom@gmail.com" },
               { icon: MapPin, label: "Address", val: "Lakeside Avenue, Bengaluru, India" },
               { icon: Clock, label: "Working hours", val: "Mon–Sat · 9:00 AM – 7:00 PM" },
             ].map(({ icon: Icon, label, val, href }) => (
