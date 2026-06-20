@@ -53,7 +53,7 @@ function BookPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="reveal-on-scroll max-w-2xl">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Consultation types</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Choose what feels right.</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Choose what feels right</h2>
           </div>
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {types.map(({ icon: Icon, label, desc }, i) => (
