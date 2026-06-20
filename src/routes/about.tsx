@@ -75,7 +75,7 @@ function AboutPage() {
         <div className="absolute inset-0 bg-gradient-lake opacity-90" />
         <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
           <h2 className="text-4xl md:text-5xl">Begin gently</h2>
-          <p className="mt-4 text-white/85">A 15-minute intro call to see if we are the right fit for you.</p>
+          
           <Link to="/book" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-foreground px-7 py-3 text-sm font-medium hover:scale-105 transition-all duration-500">
             Book a consultation <ArrowRight size={16} />
           </Link>
