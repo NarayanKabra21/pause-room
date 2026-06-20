@@ -72,11 +72,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The Pause Room — Emotional Wellness & Psychiatric Care" },
+      { title: "The Pause Room — Emotional Wellness & Psychological Care" },
       {
         name: "description",
         content:
-          "A peaceful sanctuary for psychiatric care, therapy and emotional wellness. Held with care, online and in-person.",
+          "A peaceful sanctuary for psychological care, therapy and emotional wellness. Held with care, online and in-person.",
       },
       { name: "author", content: "The Pause Room" },
       { property: "og:type", content: "website" },

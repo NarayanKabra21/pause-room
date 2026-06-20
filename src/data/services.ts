@@ -795,7 +795,7 @@ export const services: Service[] = [
     tagline: "Even the darkest night will end, and the sun will rise.",
     headline: "Therapy that meets depression with patience.",
     intro: "A compassionate space to slowly find light again — at your own pace.",
-    story: "Through CBT, interpersonal therapy, behavioural activation, and coordinated psychiatric care where helpful, we walk with you through the fog and back into your life.",
+    story: "Through CBT, interpersonal therapy, behavioural activation, and coordinated psychological care where helpful, we walk with you through the fog and back into your life.",
     benefits: [
       { title: "Lifting fog", desc: "Gentle clarity returning to thought and feeling." },
       { title: "Restored rhythm", desc: "Sleep, food and movement, slowly re-finding shape." },

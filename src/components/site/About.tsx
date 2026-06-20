@@ -32,7 +32,7 @@ export function About() {
               The Pause Room exists to change that.
             </p>
             <p>
-              We provide compassionate psychiatric care and emotional wellness support in a calming
+              We provide compassionate psychological care and emotional wellness support in a calming
               environment where healing feels natural, safe, and personal.
             </p>
           </div>

@@ -21,7 +21,7 @@ export function MainHero() {
             <br /> this is your space to <span className="font-light">PAUSE</span>
           </h1>
           <p className="mt-7 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Professional psychiatric care and emotional wellness support designed
+            Professional psychological care and emotional wellness support designed
             to help you breathe, heal, and rediscover peace.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">

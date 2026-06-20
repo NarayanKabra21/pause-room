@@ -34,7 +34,7 @@ function AboutPage() {
         <div className="mx-auto max-w-4xl px-6 reveal-on-scroll space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>The Pause Room was created with one simple belief — everyone deserves a safe space to be heard without judgment.</p>
           <p>In today's fast-moving world, people silently carry anxiety, stress, emotional exhaustion, loneliness, heartbreak, burnout, and trauma while pretending everything is fine. The Pause Room exists to change that.</p>
-          <p>We provide compassionate psychiatric care, therapy and emotional wellness support in a calming environment where healing feels natural, safe, and personal.</p>
+          <p>We provide compassionate psychological care, therapy and emotional wellness support in a calming environment where healing feels natural, safe, and personal.</p>
         </div>
       </section>
 
