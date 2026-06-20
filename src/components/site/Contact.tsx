@@ -7,7 +7,7 @@ export function Contact() {
         <div className="reveal-on-scroll">
           <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Contact</span>
           <h2 className="mt-4 text-4xl md:text-5xl">
-            Find us by the <em className="text-gradient-lake not-italic">lakeside</em>.
+            Find us by the <em className="text-gradient-lake not-italic">lakeside</em>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-md">
             Walk in, write to us, or call — we are here when you're ready.
