@@ -51,7 +51,7 @@ function PauseRoomPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="reveal-on-scroll max-w-3xl">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The People of the Room</span>
-            <h2 className="mt-3 text-3xl md:text-5xl">The hands and hearts that hold this room.</h2>
+            <h2 className="mt-3 text-3xl md:text-5xl">The hands and hearts that hold this room</h2>
             <p className="mt-5 text-lg leading-relaxed text-foreground/80">
               The Pause Room is shaped, daily, by a small team of psychiatrists and psychologists
               who chose this work as a vocation. Each of them brings a different kind of
