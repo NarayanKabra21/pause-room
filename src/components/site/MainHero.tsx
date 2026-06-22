@@ -18,7 +18,7 @@ export function MainHero() {
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground">
             In a world that <em className="text-gradient-lake not-italic">never stops</em>,
-            <br /> this is your space to <span className="font-light">PAUSE</span>
+            <br /> this is your space to <span className="font-light italic">PAUSE</span>
           </h1>
           <p className="mt-7 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
             Professional psychological care and emotional wellness support designed
