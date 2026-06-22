@@ -944,13 +944,6 @@ export const serviceCategories: CatalogCategory[] = [
       "Interactive learning experiences designed to spread awareness, build skills, encourage self-growth, and promote emotional well-being.",
     items: workshops,
   },
-  {
-    slug: "classes",
-    title: "Classes & Training Programs",
-    description:
-      "Specialized programs focused on developing attention, communication, learning, and life skills.",
-    items: classes,
-  },
 ];
 
 export const allCatalogItems: CatalogItem[] = serviceCategories.flatMap(
