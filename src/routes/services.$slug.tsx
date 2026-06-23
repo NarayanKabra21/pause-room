@@ -135,26 +135,6 @@ function ServiceDetailPage() {
             </p>
           </div>
 
-          {/* Process */}
-          <div className="reveal-on-scroll">
-            <div className="max-w-2xl">
-              <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The Process</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">How the journey unfolds</h2>
-            </div>
-            <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {item.process.map((p, i) => (
-                <div
-                  key={p.step}
-                  className="reveal-on-scroll glass rounded-2xl p-6"
-                  style={{ transitionDelay: `${i * 80}ms` }}
-                >
-                  <span className="text-xs tracking-[0.3em] uppercase text-primary/80">{p.step}</span>
-                  <h3 className="mt-3 text-lg">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Outcomes */}
           <div className="reveal-on-scroll">
