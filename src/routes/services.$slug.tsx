@@ -226,31 +226,6 @@ function ServiceDetailPage() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="relative py-24 md:py-32 bg-secondary/30">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="text-center reveal-on-scroll">
-            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Questions</span>
-            <h2 className="mt-3 text-3xl md:text-5xl">Common questions, gently answered</h2>
-          </div>
-          <Accordion type="single" collapsible className="mt-12 space-y-3">
-            {item.faqs.map((f, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="glass rounded-2xl px-6 border-none data-[state=open]:shadow-soft transition-shadow duration-500"
-              >
-                <AccordionTrigger className="text-left hover:no-underline py-5 text-base font-medium">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
