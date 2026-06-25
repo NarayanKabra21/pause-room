@@ -19,6 +19,15 @@ export type CatalogCategory = {
   items: CatalogItem[];
 };
 
+export type CatalogSubsection = {
+  title: string;
+  what: string;
+  why: string;
+  outcomes: string[];
+  benefits: { title: string; desc: string }[];
+  whoCanBenefit: string[];
+};
+
 export type CatalogItem = {
   slug: string;
   title: string;
@@ -37,6 +46,7 @@ export type CatalogItem = {
   process: { step: string; title: string; desc: string }[];
   benefits: { title: string; desc: string }[];
   faqs: { q: string; a: string }[];
+  subsections?: CatalogSubsection[];
 };
 
 const u = (id: string, w = 1600) =>
