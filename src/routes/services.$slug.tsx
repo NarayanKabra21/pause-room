@@ -136,75 +136,193 @@ function ServiceDetailPage() {
           </div>
 
 
-          {/* Outcomes */}
-          <div className="reveal-on-scroll">
-            <div className="max-w-2xl">
-              <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Expected outcomes</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">What you can expect</h2>
+          {/* Outcomes (only when no subsections) */}
+          {!item.subsections && (
+            <div className="reveal-on-scroll">
+              <div className="max-w-2xl">
+                <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Expected outcomes</span>
+                <h2 className="mt-3 text-3xl md:text-4xl">What you can expect</h2>
+              </div>
+              <ul className="mt-10 grid md:grid-cols-2 gap-4">
+                {item.outcomes.map((o, i) => (
+                  <li
+                    key={i}
+                    className="reveal-on-scroll flex items-start gap-3 rounded-2xl bg-secondary/40 p-5"
+                    style={{ transitionDelay: `${i * 60}ms` }}
+                  >
+                    <Check size={18} className="mt-0.5 text-primary shrink-0" strokeWidth={2} />
+                    <span className="text-foreground/85 leading-relaxed">{o}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="mt-10 grid md:grid-cols-2 gap-4">
-              {item.outcomes.map((o, i) => (
-                <li
-                  key={i}
-                  className="reveal-on-scroll flex items-start gap-3 rounded-2xl bg-secondary/40 p-5"
-                  style={{ transitionDelay: `${i * 60}ms` }}
+          )}
+        </div>
+      </section>
+
+      {/* BENEFITS (only when no subsections) */}
+      {!item.subsections && (
+        <section className="relative py-24 md:py-32 bg-gradient-sky">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="max-w-2xl reveal-on-scroll">
+              <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Key Benefits</span>
+              <h2 className="mt-3 text-3xl md:text-5xl">
+                The quiet gifts of <em className="text-gradient-lake not-italic">this work</em>
+              </h2>
+            </div>
+            <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {item.benefits.map((b, i) => (
+                <div
+                  key={b.title}
+                  className="reveal-on-scroll glass rounded-2xl p-6"
+                  style={{ transitionDelay: `${i * 80}ms` }}
                 >
-                  <Check size={18} className="mt-0.5 text-primary shrink-0" strokeWidth={2} />
-                  <span className="text-foreground/85 leading-relaxed">{o}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* BENEFITS */}
-      <section className="relative py-24 md:py-32 bg-gradient-sky">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="max-w-2xl reveal-on-scroll">
-            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Key Benefits</span>
-            <h2 className="mt-3 text-3xl md:text-5xl">
-              The quiet gifts of <em className="text-gradient-lake not-italic">this work</em>
-            </h2>
-          </div>
-          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {item.benefits.map((b, i) => (
-              <div
-                key={b.title}
-                className="reveal-on-scroll glass rounded-2xl p-6"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <h3 className="text-lg">{b.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHO CAN BENEFIT */}
-      <section className="relative py-24 md:py-32">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="reveal-on-scroll max-w-2xl">
-            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Who it's for</span>
-            <h2 className="mt-3 text-3xl md:text-5xl">Who can benefit</h2>
-          </div>
-          <div className="mt-12 grid sm:grid-cols-2 gap-5">
-            {item.whoCanBenefit.map((w, i) => (
-              <div
-                key={i}
-                className="reveal-on-scroll flex items-start gap-4 rounded-2xl border border-border/60 bg-card p-6 shadow-soft"
-                style={{ transitionDelay: `${i * 70}ms` }}
-              >
-                <div className="h-10 w-10 shrink-0 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                  <Icon size={18} strokeWidth={1.6} />
+                  <h3 className="text-lg">{b.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>
-                <p className="leading-relaxed text-foreground/85">{w}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* WHO CAN BENEFIT (only when no subsections) */}
+      {!item.subsections && (
+        <section className="relative py-24 md:py-32">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="reveal-on-scroll max-w-2xl">
+              <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Who it's for</span>
+              <h2 className="mt-3 text-3xl md:text-5xl">Who can benefit</h2>
+            </div>
+            <div className="mt-12 grid sm:grid-cols-2 gap-5">
+              {item.whoCanBenefit.map((w, i) => (
+                <div
+                  key={i}
+                  className="reveal-on-scroll flex items-start gap-4 rounded-2xl border border-border/60 bg-card p-6 shadow-soft"
+                  style={{ transitionDelay: `${i * 70}ms` }}
+                >
+                  <div className="h-10 w-10 shrink-0 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                    <Icon size={18} strokeWidth={1.6} />
+                  </div>
+                  <p className="leading-relaxed text-foreground/85">{w}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SUBSECTIONS — one block per included therapy */}
+      {item.subsections && (
+        <section className="relative">
+          <div className="mx-auto max-w-6xl px-6 py-20 md:py-24 reveal-on-scroll text-center">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">What's included</span>
+            <h2 className="mt-3 text-3xl md:text-5xl">
+              Therapies within <em className="text-gradient-lake not-italic">{item.title}</em>
+            </h2>
+            <p className="mt-5 max-w-2xl mx-auto text-foreground/75 leading-relaxed">
+              Each of the focused therapies below sits within this care category. Explore the one
+              that meets you where you are.
+            </p>
+          </div>
+
+          {item.subsections.map((sub, sIdx) => (
+            <div
+              key={sub.title}
+              className={`relative py-20 md:py-28 ${sIdx % 2 === 0 ? "bg-gradient-sky" : ""}`}
+            >
+              <div className="mx-auto max-w-5xl px-6">
+                {/* Subsection header */}
+                <div className="reveal-on-scroll text-center mb-16">
+                  <span className="text-[10px] tracking-[0.4em] uppercase text-primary/80">
+                    {String(sIdx + 1).padStart(2, "0")} · Subsection
+                  </span>
+                  <h3 className="mt-4 font-display text-3xl md:text-5xl">{sub.title}</h3>
+                  <div className="mx-auto mt-6 h-px w-20 bg-primary/40" />
+                </div>
+
+                <div className="space-y-16">
+                  {/* What it is */}
+                  <div className="reveal-on-scroll grid md:grid-cols-5 gap-8 items-start">
+                    <div className="md:col-span-2">
+                      <span className="text-xs tracking-[0.4em] uppercase text-primary/80">What it is</span>
+                      <h4 className="mt-3 text-2xl md:text-3xl">About</h4>
+                    </div>
+                    <p className="md:col-span-3 text-lg leading-relaxed text-foreground/85">{sub.what}</p>
+                  </div>
+
+                  {/* Why it matters */}
+                  <div className="reveal-on-scroll grid md:grid-cols-5 gap-8 items-start md:[direction:rtl]">
+                    <div className="md:col-span-2 [direction:ltr]">
+                      <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Why it matters</span>
+                      <h4 className="mt-3 text-2xl md:text-3xl">Why this work matters</h4>
+                    </div>
+                    <p className="md:col-span-3 text-lg leading-relaxed text-foreground/85 [direction:ltr]">
+                      {sub.why}
+                    </p>
+                  </div>
+
+                  {/* What you can expect */}
+                  <div className="reveal-on-scroll">
+                    <div className="max-w-2xl">
+                      <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Expected outcomes</span>
+                      <h4 className="mt-3 text-2xl md:text-3xl">What you can expect</h4>
+                    </div>
+                    <ul className="mt-8 grid md:grid-cols-2 gap-4">
+                      {sub.outcomes.map((o, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 rounded-2xl bg-secondary/40 p-5"
+                        >
+                          <Check size={18} className="mt-0.5 text-primary shrink-0" strokeWidth={2} />
+                          <span className="text-foreground/85 leading-relaxed">{o}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Key benefits */}
+                  <div className="reveal-on-scroll">
+                    <div className="max-w-2xl">
+                      <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Key Benefits</span>
+                      <h4 className="mt-3 text-2xl md:text-3xl">The quiet gifts of this work</h4>
+                    </div>
+                    <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                      {sub.benefits.map((b) => (
+                        <div key={b.title} className="glass rounded-2xl p-6">
+                          <h5 className="text-lg">{b.title}</h5>
+                          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Who can benefit */}
+                  <div className="reveal-on-scroll">
+                    <div className="max-w-2xl">
+                      <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Who it's for</span>
+                      <h4 className="mt-3 text-2xl md:text-3xl">Who can benefit</h4>
+                    </div>
+                    <div className="mt-8 grid sm:grid-cols-2 gap-5">
+                      {sub.whoCanBenefit.map((w, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-4 rounded-2xl border border-border/60 bg-card p-6 shadow-soft"
+                        >
+                          <div className="h-10 w-10 shrink-0 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                            <Icon size={18} strokeWidth={1.6} />
+                          </div>
+                          <p className="leading-relaxed text-foreground/85">{w}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
 
 
       {/* CTA */}
