@@ -1,4 +1,5 @@
-import nature from "@/assets/about-nature.jpg";
+import natureAsset from "@/assets/about-therapy.jpg.asset.json";
+const nature = natureAsset.url;
 
 export function About() {
   return (
@@ -7,7 +8,7 @@ export function About() {
         <div className="relative reveal-on-scroll">
           <div className="absolute -inset-4 rounded-[2rem] bg-accent/20 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] shadow-elevated">
-            <img src={nature} alt="Misty mountains reflecting on lake" className="w-full h-[32rem] object-cover" />
+            <img src={nature} alt="Therapy session in a warm, calming space" className="w-full h-[32rem] object-cover" />
           </div>
           <div className="absolute -bottom-6 -right-6 glass rounded-2xl p-5 max-w-[14rem] shadow-soft">
             <p className="text-sm italic text-foreground/80">
