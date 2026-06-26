@@ -10,8 +10,8 @@ export function About() {
           <div className="relative overflow-hidden rounded-[2rem] shadow-elevated">
             <img src={nature} alt="Therapy session in a warm, calming space" className="w-full h-[32rem] object-cover" />
           </div>
-          <div className="absolute -bottom-6 -right-6 glass rounded-2xl p-5 max-w-[14rem] shadow-soft">
-            <p className="text-sm italic text-foreground/80">
+          <div className="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-md rounded-2xl p-5 max-w-[14rem] shadow-soft border border-primary/20">
+            <p className="text-sm italic text-foreground">
               "Healing begins the moment you allow yourself to feel."
             </p>
           </div>
