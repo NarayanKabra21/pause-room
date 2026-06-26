@@ -1,4 +1,5 @@
-import nature from "@/assets/about-nature.jpg";
+import natureAsset from "@/assets/about-therapy.jpg.asset.json";
+const nature = natureAsset.url;
 
 export function About() {
   return (
