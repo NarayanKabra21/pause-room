@@ -46,8 +46,8 @@ export function Contact() {
           <div className="overflow-hidden rounded-3xl shadow-elevated h-[28rem] glass">
             <iframe
               title="Map"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=77.55%2C12.95%2C77.65%2C13.05&amp;layer=mapnik"
-              className="w-full h-full grayscale-[20%] opacity-90"
+              src="https://maps.google.com/maps?q=P-43%2C+Niharika+building%2C+E.M+Bypass+Metropolitan%2C+Dhapa%2C+South+24+Parganas%2C+West+Bengal+700105&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+              className="w-full h-full"
               loading="lazy"
             />
           </div>
