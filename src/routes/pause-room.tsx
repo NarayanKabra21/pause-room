@@ -17,35 +17,190 @@ export const Route = createFileRoute("/pause-room")({
   component: PauseRoomPage,
 });
 
-const sections = [
-  { eyebrow: "Our Story", title: "Born from a quiet need.", body: "The Pause Room began as a longing — for a place where mental health care felt as warm as it was rigorous. Where people could arrive as they are, and be held without performance." },
-  { eyebrow: "What We Believe", title: "Healing is slow, and that's okay.", body: "We believe that real change doesn't arrive in a moment. It is built in unhurried hours, with someone who remembers your name and your story." },
-  { eyebrow: "Our Healing Philosophy", title: "Listen first. Always.", body: "Every modality we use — psychiatry, psychotherapy, assessments, classes — sits inside a deeper practice of presence. We listen, and only then do we respond." },
-  { eyebrow: "Emotional Wellness Approach", title: "Mind, body, and the life around it.", body: "We treat the whole person — not just the symptom. Sleep, relationships, work, body, history. Every thread matters." },
-  { eyebrow: "Community Impact", title: "Carrying care into the world.", body: "Through workshops, school programmes and community seminars, we work to make mental health knowledge accessible to everyone — not just those who can afford long therapy." },
-  { eyebrow: "Safe Space Commitment", title: "A room that holds.", body: "Confidentiality, dignity, and the right to be exactly as you are — these are not perks of our work. They are its foundation." },
-];
-
 function PauseRoomPage() {
   return (
-    <PageShell
-      image={pauseImg}
-    >
-      <section className="py-24 md:py-32">
-        <div className="mx-auto max-w-4xl px-6 space-y-16">
-          {sections.map((s, i) => (
-            <div key={s.title} className={`reveal-on-scroll grid md:grid-cols-5 gap-8 items-start ${i % 2 ? "md:[direction:rtl]" : ""}`}>
-              <div className="md:col-span-2 [direction:ltr]">
-                <span className="text-xs tracking-[0.4em] uppercase text-primary/80">{s.eyebrow}</span>
-                <h2 className="mt-3 text-3xl md:text-4xl">{s.title}</h2>
-              </div>
-              <p className="md:col-span-3 text-lg leading-relaxed text-foreground/85 [direction:ltr]">{s.body}</p>
-            </div>
-          ))}
+    <PageShell image={pauseImg}>
+      {/* ── 1. The world we live in ── */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute -top-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-0 -right-24 h-[24rem] w-[24rem] rounded-full bg-accent/20 blur-3xl" />
+
+        <div className="relative mx-auto max-w-4xl px-6 text-center reveal-on-scroll">
+          <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Our Story</span>
+          <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
+            A world that celebrates <em className="text-gradient-lake not-italic">constant change</em>
+          </h2>
+          <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed text-foreground/80">
+            <p>
+              We live in a world that celebrates constant change.
+            </p>
+            <p>
+              Move fast. Achieve more… Move faster… The cycle keeps going.
+            </p>
+            <p>
+              Somewhere along the way, we stop noticing ourselves.
+            </p>
+            <p>
+              Perhaps that is why the simplest thing has become the hardest thing — to stay calm or to <span className="font-display text-2xl md:text-3xl text-foreground/95">PAUSE</span>.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="relative py-24 md:py-32 bg-secondary/30">
+      {/* ── 2. Why we exist ── */}
+      <section className="py-24 md:py-32 bg-secondary/30">
+        <div className="mx-auto max-w-4xl px-6 reveal-on-scroll">
+          <div className="text-center">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Why We Exist</span>
+            <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl">
+              Born from a quiet <em className="text-gradient-lake not-italic">realisation</em>
+            </h2>
+          </div>
+
+          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed text-foreground/85">
+            <p>
+              The Pause Room was born from this very thought.
+            </p>
+            <p>
+              Not as a place that promises to fix people, because we do not believe people are meant to be fixed.
+            </p>
+            <p>
+              We believe they are meant to be <strong>understood</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. What we believe ── */}
+      <section className="py-24 md:py-32">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center reveal-on-scroll">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">What We Believe</span>
+            <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl">
+              Beneath every feeling is a <em className="text-gradient-lake not-italic">story</em>
+            </h2>
+          </div>
+
+          <div className="mt-14 grid md:grid-cols-3 gap-8">
+            <div className="reveal-on-scroll glass rounded-2xl p-8 text-center" style={{ transitionDelay: "0ms" }}>
+              <p className="font-display text-4xl text-primary/60 mb-4">01</p>
+              <p className="text-lg leading-relaxed text-foreground/85">
+                Beneath every fear, anxiety, and worry is a story waiting to be heard.
+              </p>
+            </div>
+            <div className="reveal-on-scroll glass rounded-2xl p-8 text-center" style={{ transitionDelay: "80ms" }}>
+              <p className="font-display text-4xl text-primary/60 mb-4">02</p>
+              <p className="text-lg leading-relaxed text-foreground/85">
+                Beneath every self-doubt is a strength waiting to be rediscovered.
+              </p>
+            </div>
+            <div className="reveal-on-scroll glass rounded-2xl p-8 text-center" style={{ transitionDelay: "160ms" }}>
+              <p className="font-display text-4xl text-primary/60 mb-4">03</p>
+              <p className="text-lg leading-relaxed text-foreground/85">
+                Behind every overwhelming emotion is a human longing for kindness, acceptance, and understanding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. Our philosophy ── */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-lake opacity-90" />
+        <div className="relative mx-auto max-w-4xl px-6 text-center text-white reveal-on-scroll">
+          <span className="text-xs tracking-[0.4em] uppercase text-white/70">Our Philosophy</span>
+          <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl">
+            Sometimes the most meaningful step forward begins by simply <em className="not-italic opacity-90">pausing</em>
+          </h2>
+          <div className="mt-10 space-y-6 text-lg md:text-xl leading-relaxed text-white/90">
+            <p>
+              In conversations that are not rushed, but held with presence.
+            </p>
+            <p>
+              In the gentle pauses where emotions begin to make sense, where thoughts find clarity, and where insight quietly unfolds and the human evolves.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Our mission ── */}
+      <section className="py-24 md:py-32 bg-secondary/30">
+        <div className="mx-auto max-w-4xl px-6 reveal-on-scroll">
+          <div className="text-center">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Our Mission</span>
+            <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl">
+              A space to explore every part of <em className="text-gradient-lake not-italic">yourself</em>
+            </h2>
+          </div>
+
+          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed text-foreground/85">
+            <p>
+              Our goal is to create a space where individuals feel safe to explore every part of themselves without judgment.
+            </p>
+            <p>
+              Where vulnerability is not seen as weakness but as the beginning of self-discovery. Where reflection becomes a pathway to awareness, resilience, and growth.
+            </p>
+            <p>
+              Because we believe that the most profound relationship a human will ever have is the one he builds with himself.
+            </p>
+            <p>
+              We help create families, workplaces, and communities where emotional well-being is not an afterthought, but a way of living.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. What we are ── */}
+      <section className="py-24 md:py-32">
+        <div className="mx-auto max-w-4xl px-6 reveal-on-scroll">
+          <div className="text-center">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">What We Are</span>
+            <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl">
+              More than a clinic. An <em className="text-gradient-lake not-italic">invitation</em>
+            </h2>
+          </div>
+
+          <div className="mt-12 space-y-8 text-lg md:text-xl leading-relaxed text-foreground/85 text-center">
+            <p>
+              The Pause Room is more than a psychological clinic. It is a wellness centre.
+            </p>
+            <p className="font-display text-2xl md:text-3xl text-foreground/90">
+              It is an invitation.
+            </p>
+            <div className="space-y-2 text-foreground/80">
+              <p>To pause.</p>
+              <p>To reflect.</p>
+              <p>To reconnect with yourself.</p>
+            </div>
+            <p>
+              And to discover that healing doesn't always begin with finding the right answers — it often begins by giving yourself permission to stop, listen, and simply be.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. Founder's words ── */}
+      <section className="py-24 md:py-32 bg-secondary/30">
+        <div className="mx-auto max-w-3xl px-6 reveal-on-scroll text-center">
+          <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Founder's Words</span>
+
+          <blockquote className="mt-10">
+            <p className="font-display italic text-2xl md:text-3xl lg:text-4xl text-foreground/90 leading-snug">
+              "Emotional well-being isn't built through conversations alone. It is built through conversations and thoughts that make space for pause."
+            </p>
+          </blockquote>
+
+          <div className="mt-10">
+            <p className="text-lg font-medium text-foreground">Aparna Ladha Somani</p>
+            <p className="mt-1 text-sm text-muted-foreground tracking-wide uppercase">Founder</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Team section (preserved) ── */}
+      <section className="relative py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6">
           <div className="reveal-on-scroll max-w-3xl">
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The People of the Room</span>
@@ -118,8 +273,7 @@ function PauseRoomPage() {
         </div>
       </section>
 
-
-
+      {/* ── CTA ── */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-lake opacity-90" />
         <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
