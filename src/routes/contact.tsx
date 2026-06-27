@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, AlertCircle, Clock } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
@@ -5,8 +6,25 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "sonner";
 import nature from "@/assets/about-nature.jpg";
+
+const CONSULTATION_TYPES = [
+  "Individual Therapy",
+  "Couple / Relationship Counselling",
+  "Family Therapy",
+  "Child & Adolescent",
+  "Assessment",
+  "Workshop / Seminar / Webinar",
+  "Other",
+];
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -21,6 +39,42 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [consultationType, setConsultationType] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = formRef.current;
+    if (!form) return;
+
+    const fd = new FormData(form);
+    const name = (fd.get("name") as string)?.trim() ?? "";
+    const age = (fd.get("age") as string)?.trim() ?? "";
+    const email = (fd.get("email") as string)?.trim() ?? "";
+    const phone = (fd.get("phone") as string)?.trim() ?? "";
+    const preferredDate = (fd.get("preferredDate") as string)?.trim() ?? "";
+    const message = (fd.get("message") as string)?.trim() ?? "";
+
+    if (!name || !age || !email || !phone || !consultationType || !preferredDate || !message) {
+      toast.error("Please fill in all the required fields before sending the message.");
+      return;
+    }
+
+    const whatsappMessage =
+      `Hello The Pause Room,\n\n` +
+      `I would like to book a consultation. Here are my details:\n\n` +
+      `*Name:* ${name}\n` +
+      `*Age:* ${age}\n` +
+      `*Email:* ${email}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Consultation Type:* ${consultationType}\n` +
+      `*Preferred Date:* ${preferredDate}\n` +
+      `*Message:* ${message}`;
+
+    const encoded = encodeURIComponent(whatsappMessage);
+    window.open(`https://wa.me/917439680766?text=${encoded}`, "_blank");
+  };
+
   return (
     <PageShell
       eyebrow="Contact"
@@ -65,31 +119,63 @@ function ContactPage() {
 
           <div className="reveal-on-scroll">
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                toast.success("Thank you. We'll respond within 24 hours.");
-                (e.target as HTMLFormElement).reset();
-              }}
+              ref={formRef}
+              onSubmit={handleSubmit}
               className="glass rounded-3xl p-8 shadow-soft space-y-4"
             >
               <h2 className="text-2xl">Send a message</h2>
-              <div>
-                <Label>Name</Label>
-                <Input required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label>Name</Label>
+                  <Input name="name" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                </div>
+                <div>
+                  <Label>Age</Label>
+                  <Input name="age" type="number" min={1} max={120} required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                </div>
               </div>
-              <div>
-                <Label>Email</Label>
-                <Input type="email" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label>Email</Label>
+                  <Input name="email" type="email" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                </div>
+                <div>
+                  <Label>Phone</Label>
+                  <Input name="phone" type="tel" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                </div>
               </div>
-              <div>
-                <Label>Phone</Label>
-                <Input type="tel" className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label>Consultation Type</Label>
+                  <Select
+                    value={consultationType}
+                    onValueChange={setConsultationType}
+                    required
+                  >
+                    <SelectTrigger className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl">
+                      <SelectValue placeholder="Select type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {CONSULTATION_TYPES.map((type) => (
+                        <SelectItem key={type} value={type}>
+                          {type}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label>Preferred Date</Label>
+                  <Input name="preferredDate" type="date" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                </div>
               </div>
               <div>
                 <Label>Message</Label>
-                <Textarea rows={5} className="mt-2 bg-white/60 border-white/60 rounded-xl" />
+                <Textarea name="message" required rows={4} className="mt-2 bg-white/60 border-white/60 rounded-xl" />
               </div>
-              <Button type="submit" className="w-full h-12 rounded-full bg-primary hover:shadow-glow">Send message</Button>
+              <Button type="submit" className="w-full h-12 rounded-full bg-primary hover:shadow-glow">
+                Send message
+              </Button>
             </form>
 
             <div className="mt-6 glass rounded-3xl overflow-hidden h-64">
