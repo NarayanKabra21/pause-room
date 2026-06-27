@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { team } from "@/data/team";
-import pauseImg from "@/assets/pages/pause-hero.jpg";
+import pauseImgAsset from "@/assets/pages/pause-hero.jpg.asset.json";
+const pauseImg = pauseImgAsset.url;
 
 export const Route = createFileRoute("/pause-room")({
   head: () => ({
