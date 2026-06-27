@@ -83,14 +83,14 @@ function PostPage() {
           </p>
 
           <div className="mt-14 space-y-12">
-            {post.body.map((section, i) => (
+            {post.body.map((section: BlogSection, i: number) => (
               <div key={i} className="reveal-on-scroll space-y-5">
                 {section.heading && (
                   <h2 className="text-2xl md:text-3xl font-display text-foreground">
                     {section.heading}
                   </h2>
                 )}
-                {section.paragraphs?.map((para, j) => (
+                {section.paragraphs?.map((para: string, j: number) => (
                   <p
                     key={j}
                     className="text-lg leading-relaxed text-foreground/80"
@@ -100,7 +100,7 @@ function PostPage() {
                 ))}
                 {section.list && (
                   <ul className="space-y-3 pl-1">
-                    {section.list.map((item, k) => (
+                    {section.list.map((item: string, k: number) => (
                       <li
                         key={k}
                         className="flex gap-3 text-lg leading-relaxed text-foreground/80"
@@ -125,7 +125,7 @@ function PostPage() {
           {/* Tags */}
           {post.tags?.length > 0 && (
             <div className="mt-16 flex flex-wrap gap-2 reveal-on-scroll">
-              {post.tags.map((t) => (
+              {post.tags.map((t: string) => (
                 <span
                   key={t}
                   className="px-3 py-1 rounded-full text-xs uppercase tracking-widest glass text-foreground/70"
