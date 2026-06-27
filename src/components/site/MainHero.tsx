@@ -1,5 +1,6 @@
-import room from "@/assets/hero-room.jpg";
+import roomAsset from "@/assets/hero-therapy.png.asset.json";
 import { ArrowRight, Sparkles } from "lucide-react";
+const room = roomAsset.url;
 
 export function MainHero() {
   return (
