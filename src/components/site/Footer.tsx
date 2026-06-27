@@ -44,7 +44,7 @@ export function Footer() {
               {[
                 { Icon: Instagram, href: "https://www.instagram.com/thepause.room/?hl=en", label: "Instagram" },
                 { Icon: Facebook, href: "#", label: "Facebook" },
-                { Icon: Linkedin, href: "#", label: "LinkedIn" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/the-pause-room06/", label: "LinkedIn" },
                 { Icon: Youtube, href: "#", label: "YouTube" },
               ].map(({ Icon, href, label }) => (
                 <a
