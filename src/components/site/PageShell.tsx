@@ -25,7 +25,8 @@ export function PageShell({ eyebrow, title, intro, image, children }: Props) {
         <img
           src={image}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover animate-ken-burns"
+          className="absolute inset-0 h-full w-full object-cover object-center animate-ken-burns"
+          style={{ objectPosition: "center 30%" }}
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-overlay)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-background/5 to-transparent" />
