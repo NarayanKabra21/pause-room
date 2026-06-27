@@ -3,7 +3,7 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { useReveal } from "@/hooks/use-reveal";
-import { getPost, posts } from "@/data/blog";
+import { getPost, posts, type BlogSection } from "@/data/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
