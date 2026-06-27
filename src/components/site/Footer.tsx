@@ -41,10 +41,18 @@ export function Footer() {
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Stay close</h4>
             <p className="mt-4 text-muted-foreground">A quiet community for slow, intentional well-being.</p>
             <div className="mt-4 flex gap-3">
-              {[Instagram, Facebook, Linkedin, Youtube].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/thepause.room/?hl=en", label: "Instagram" },
+                { Icon: Facebook, href: "#", label: "Facebook" },
+                { Icon: Linkedin, href: "#", label: "LinkedIn" },
+                { Icon: Youtube, href: "#", label: "YouTube" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="/#"
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={label}
                   className="h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/70 hover:text-primary hover:scale-110 transition-all duration-500"
                 >
                   <Icon size={16} />
