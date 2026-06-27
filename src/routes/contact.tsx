@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import nature from "@/assets/about-nature.jpg";
+import contactHero from "@/assets/contact-hero.png.asset.json";
 
 const CONSULTATION_TYPES = [
   "Individual Therapy",
