@@ -72,7 +72,7 @@ function ContactPage() {
       `*Message:* ${message}`;
 
     const encoded = encodeURIComponent(whatsappMessage);
-    window.open(`https://wa.me/917439680766?text=${encoded}`, "_blank");
+    window.location.href = `https://wa.me/917439680766?text=${encoded}`;
   };
 
   return (
