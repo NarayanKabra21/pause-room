@@ -16,13 +16,13 @@ export const Route = createFileRoute("/services/")({
       {
         name: "description",
         content:
-          "Professional psychological services — assessments, therapy, workshops and training programs — for individuals, families, schools and organisations.",
+          "Professional psychological services — assessments, therapy, workshops, seminars and webinars — for individuals, families, schools and organisations.",
       },
       { property: "og:title", content: "Professional Psychological Services — The Pause Room" },
       {
         property: "og:description",
         content:
-          "Evidence-based assessments, therapy, counselling, workshops and training — held with warmth and care.",
+          "Evidence-based assessments, therapy, counselling, workshops, seminars and webinars — held with warmth and care.",
       },
       { property: "og:image", content: servicesHeroImage },
     ],
@@ -47,7 +47,6 @@ function ServicesPage() {
         <div className="absolute inset-0" style={{ background: "var(--gradient-overlay)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/10 to-background/30" />
 
-        {/* floating ambient dots */}
         <div className="pointer-events-none absolute inset-0">
           <span className="absolute left-[12%] top-[28%] h-2 w-2 rounded-full bg-white/60 animate-float" />
           <span className="absolute left-[78%] top-[22%] h-1.5 w-1.5 rounded-full bg-white/50 animate-float-slow" />
@@ -74,8 +73,8 @@ function ServicesPage() {
             style={{ animationDelay: "320ms" }}
           >
             Supporting individuals, children, adolescents, families, and organisations through
-            evidence-based psychological assessments, therapy, counselling, training, and mental
-            wellness programs.
+            evidence-based psychological assessments, therapy, counselling, and mental wellness
+            programs.
           </p>
 
           <a
@@ -95,7 +94,7 @@ function ServicesPage() {
           id={cat.slug}
           className={`relative py-28 md:py-36 ${idx % 2 ? "bg-gradient-sky" : ""}`}
         >
-          <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-5xl px-6">
             <div className="reveal-on-scroll max-w-3xl">
               <span className="text-xs tracking-[0.4em] uppercase text-primary/80">
                 {String(idx + 1).padStart(2, "0")} · Section
@@ -106,9 +105,9 @@ function ServicesPage() {
               </p>
             </div>
 
-            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div className="mt-20 space-y-16 md:space-y-20">
               {cat.items.map((item, i) => (
-                <ServiceCard key={item.slug} item={item} delay={i * 80} />
+                <ServiceEntry key={item.slug} item={item} delay={i * 60} />
               ))}
             </div>
           </div>
@@ -137,41 +136,37 @@ function ServicesPage() {
   );
 }
 
-function ServiceCard({ item, delay }: { item: CatalogItem; delay: number }) {
+function ServiceEntry({ item, delay }: { item: CatalogItem; delay: number }) {
   const Icon = item.icon;
   return (
-    <Link
-      to="/services/$slug"
-      params={{ slug: item.slug }}
-      className="reveal-on-scroll group relative flex flex-col overflow-hidden rounded-3xl bg-card shadow-soft transition-all duration-700 hover:shadow-elevated hover:-translate-y-1"
+    <article
+      className="reveal-on-scroll group relative"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="relative h-56 w-full overflow-hidden">
-        <img
-          src={item.cardImage}
-          alt={item.title}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-background/10 to-transparent" />
-        <div className="absolute left-5 top-5 h-11 w-11 rounded-full glass flex items-center justify-center text-primary">
-          <Icon size={18} strokeWidth={1.6} />
+      <div className="flex items-start gap-5">
+        <div className="hidden sm:flex shrink-0 h-12 w-12 rounded-full bg-primary/10 text-primary items-center justify-center mt-1">
+          <Icon size={20} strokeWidth={1.6} />
+        </div>
+        <div className="flex-1">
+          <h3 className="text-2xl md:text-3xl leading-tight">{item.title}</h3>
+          <p className="mt-4 text-base md:text-lg leading-relaxed text-foreground/75 max-w-3xl">
+            {item.what}
+          </p>
+
+          {item.subsections && item.subsections.length > 0 && (
+            <div className="mt-10 space-y-8 border-l border-primary/15 pl-6 md:pl-8">
+              {item.subsections.map((sub) => (
+                <div key={sub.title}>
+                  <h4 className="text-xl md:text-2xl">{sub.title}</h4>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/70 max-w-3xl">
+                    {sub.what}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
-
-      <div className="flex flex-1 flex-col p-7">
-        <h3 className="text-2xl leading-tight">{item.title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
-          {item.shortDesc}
-        </p>
-        <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
-          Learn more
-          <ArrowRight
-            size={14}
-            className="transition-transform duration-500 group-hover:translate-x-1"
-          />
-        </span>
-      </div>
-    </Link>
+    </article>
   );
 }
