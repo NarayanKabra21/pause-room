@@ -132,7 +132,7 @@ export function Booking() {
               rel="noreferrer"
               className="h-12 rounded-full px-8 inline-flex items-center justify-center bg-accent text-accent-foreground font-medium transition-all duration-500 hover:scale-[1.02]"
             >
-              <MessageCircle size={16} className="mr-2" /> Quick WhatsApp
+              <WhatsAppIcon className="mr-2 h-4 w-4" /> Quick WhatsApp
             </a>
           </div>
         </form>
