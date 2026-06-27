@@ -29,9 +29,6 @@ const sections = [
 function PauseRoomPage() {
   return (
     <PageShell
-      eyebrow="The Pause Room"
-      title={<>A peaceful digital sanctuary<br /><em className="not-italic">for emotional healing.</em></>}
-      intro="The story behind the room."
       image={pauseImg}
     >
       <section className="py-24 md:py-32">
