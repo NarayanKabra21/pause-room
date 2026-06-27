@@ -55,12 +55,16 @@ export function MainHero() {
           <div className="relative overflow-hidden rounded-[2rem] shadow-elevated">
             <img
               src={room}
-              alt="Calm therapy room overlooking a lake"
+              alt="Compassionate therapy session at The Pause Room"
               className="w-full h-[34rem] object-cover animate-ken-burns"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent" />
           </div>
-
+          <div className="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-md rounded-2xl p-5 max-w-[15rem] shadow-soft border border-primary/20">
+            <p className="text-sm italic text-foreground leading-relaxed">
+              "Healing begins the moment you allow yourself to feel."
+            </p>
+          </div>
         </div>
       </div>
     </section>
