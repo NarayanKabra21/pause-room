@@ -38,18 +38,15 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="relative py-24 bg-gradient-sky">
-        <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-3 gap-8">
-          {[
-            { label: "Mission", body: "To make emotional wellness accessible, unhurried and dignified — for every person who walks through our doors." },
-            { label: "Vision", body: "A world where pausing to care for your inner life is as ordinary as caring for your body." },
-            { label: "Philosophy", body: "Therapy that listens before it speaks. Care that respects the wholeness of every person." },
-          ].map((b) => (
-            <div key={b.label} className="reveal-on-scroll glass rounded-3xl p-8">
-              <span className="text-xs tracking-[0.4em] uppercase text-primary/80">{b.label}</span>
-              <p className="mt-4 text-lg leading-relaxed text-foreground/85">{b.body}</p>
-            </div>
-          ))}
+      <section className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-3xl px-6 text-center reveal-on-scroll">
+          <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Our Philosophy</span>
+          <h2 className="mt-6 text-3xl md:text-4xl leading-snug">
+            Therapy that listens before it speaks
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-foreground/80">
+            Care that respects the wholeness of every person. We believe healing unfolds naturally when you are met with patience, presence, and genuine understanding — not pressure or protocol.
+          </p>
         </div>
       </section>
 
