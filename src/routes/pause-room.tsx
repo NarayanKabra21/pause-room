@@ -37,7 +37,7 @@ function PauseRoomPage() {
               We live in a world that celebrates constant change.
             </p>
             <p>
-              Move fast. Achieve more… Move faster… The cycle keeps going.
+              Move fast. Achieve more. Move faster. The cycle keeps going.
             </p>
             <p>
               Somewhere along the way, we stop noticing ourselves.
