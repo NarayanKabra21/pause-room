@@ -69,8 +69,8 @@ function ServicesPage() {
             Services
           </h1>
           <p
-            className="mt-6 max-w-2xl text-base md:text-lg text-white/90 font-display italic animate-fade-up"
-            style={{ animationDelay: "320ms" }}
+            className="mt-6 max-w-2xl text-base md:text-lg text-white/95 font-display italic animate-fade-up"
+            style={{ animationDelay: "320ms", textShadow: "0 2px 16px rgba(0,0,0,0.45)" }}
           >
             Supporting individuals, children, adolescents, families, and organisations through
             evidence-based psychological assessments, therapy, counselling, and mental wellness
