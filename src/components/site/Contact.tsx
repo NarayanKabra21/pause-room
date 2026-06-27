@@ -17,7 +17,7 @@ export function Contact() {
             {[
               { icon: MapPin, label: "Address", val: "P-43, Niharika building, E.M Bypass Metropolitan, Dhapa, S.O South 24 Parganas, West Bengal- 700105" },
               { icon: Phone, label: "Phone", val: "+91 74396 80766" },
-              { icon: Mail, label: "Email", val: "hello@thepauseroom.in" },
+              { icon: Mail, label: "Email", val: "info.pauseroom@gmail.com" },
             ].map(({ icon: Icon, label, val }) => (
               <div key={label} className="flex items-start gap-4 glass rounded-2xl p-5">
                 <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
