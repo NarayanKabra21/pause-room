@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PauseRoomRouteImport } from './routes/pause-room'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as AboutRouteImport } from './routes/about'
@@ -25,6 +26,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const PauseRoomRoute = PauseRoomRouteImport.update({
   id: '/pause-room',
   path: '/pause-room',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/pause-room': typeof PauseRoomRoute
   '/services': typeof ServicesRouteWithChildren
   '/services/': typeof ServicesIndexRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/pause-room': typeof PauseRoomRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/pause-room': typeof PauseRoomRoute
   '/services': typeof ServicesRouteWithChildren
   '/services/': typeof ServicesIndexRoute
@@ -87,17 +96,26 @@ export interface FileRouteTypes {
     | '/about'
     | '/book'
     | '/contact'
+    | '/gallery'
     | '/pause-room'
     | '/services'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/book' | '/contact' | '/pause-room' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/book'
+    | '/contact'
+    | '/gallery'
+    | '/pause-room'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/book'
     | '/contact'
+    | '/gallery'
     | '/pause-room'
     | '/services'
     | '/services/'
@@ -108,6 +126,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BookRoute: typeof BookRoute
   ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
   PauseRoomRoute: typeof PauseRoomRoute
   ServicesRoute: typeof ServicesRouteWithChildren
 }
@@ -126,6 +145,13 @@ declare module '@tanstack/react-router' {
       path: '/pause-room'
       fullPath: '/pause-room'
       preLoaderRoute: typeof PauseRoomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -183,6 +209,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BookRoute: BookRoute,
   ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
   PauseRoomRoute: PauseRoomRoute,
   ServicesRoute: ServicesRouteWithChildren,
 }
