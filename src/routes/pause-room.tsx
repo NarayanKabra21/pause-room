@@ -71,13 +71,13 @@ function PauseRoomPage() {
 
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed text-foreground/85">
             <p>
-              The Pause Room was born from this very thought.
+              Not as a place that promises to fix people, because we do not believe people are meant to be fixed
             </p>
             <p>
-              Not as a place that promises to fix people, because we do not believe people are meant to be fixed.
+              We believe they are meant to be <strong>understood</strong>
             </p>
             <p>
-              We believe they are meant to be <strong>understood</strong>.
+              The Pause Room was born from this very thought
             </p>
           </div>
         </div>
