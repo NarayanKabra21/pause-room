@@ -3,37 +3,17 @@ import { useMemo, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { Lightbox } from "@/components/site/Lightbox";
 import blogHero from "@/assets/pages/blog-hero.jpg";
-import anger1 from "@/assets/gallery/anger-1.png.asset.json";
-import anger2 from "@/assets/gallery/anger-2.png.asset.json";
-import anger3 from "@/assets/gallery/anger-3.png.asset.json";
-import brave1 from "@/assets/gallery/brave-1.png.asset.json";
-import brave2 from "@/assets/gallery/brave-2.png.asset.json";
-import brave3 from "@/assets/gallery/brave-3.png.asset.json";
-import christmas1 from "@/assets/gallery/christmas-1.png.asset.json";
-import christmas2 from "@/assets/gallery/christmas-2.png.asset.json";
-import ckbirla1 from "@/assets/gallery/ckbirla-1.png.asset.json";
-import ckbirla2 from "@/assets/gallery/ckbirla-2.webp.asset.json";
-import ckbirla3 from "@/assets/gallery/ckbirla-3.webp.asset.json";
-import cmri1 from "@/assets/gallery/cmri-1.png.asset.json";
-import cmri2 from "@/assets/gallery/cmri-2.png.asset.json";
-import iocl1 from "@/assets/gallery/iocl-1.png.asset.json";
-import iocl2 from "@/assets/gallery/iocl-2.png.asset.json";
-import iocl3 from "@/assets/gallery/iocl-3.png.asset.json";
-import noah1 from "@/assets/gallery/noah-ark-1.png.asset.json";
-import smart1 from "@/assets/gallery/smart-skills-1.png.asset.json";
-import smart2 from "@/assets/gallery/smart-skills-2.png.asset.json";
-import vesuvius1 from "@/assets/gallery/vesuvius-1.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — The Pause Room" },
+      { title: "In Action — The Pause Room" },
       {
         name: "description",
         content:
           "Moments from workshops, seminars, webinars and community events hosted by The Pause Room.",
       },
-      { property: "og:title", content: "Gallery — The Pause Room" },
+      { property: "og:title", content: "In Action — The Pause Room" },
       {
         property: "og:description",
         content:
@@ -44,121 +24,312 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-type Event = { title: string; description?: string; seeds: string[]; images?: string[] };
+type EventType =
+  | "Webinar"
+  | "Workshop"
+  | "Seminar"
+  | "Panel Discussion"
+  | "Awareness Program"
+  | "Training"
+  | "Celebration"
+  | "Initiative";
 
-const events: Event[] = [
+type Event = {
+  id: string;
+  title: string;
+  type: EventType;
+  date?: string;
+  subtitle?: string;
+  seeds: string[];
+};
+
+// ─── Pause Room Initiatives ───────────────────────────────────────────────────
+const initiativesEvents: Event[] = [
   {
-    title: "Anger Management Workshop",
-    description:
-      "An interactive workshop helping participants understand triggers and respond with calm intention.",
-    seeds: ["anger-1", "anger-2", "anger-3"],
-    images: [anger1.url, anger2.url, anger3.url],
+    id: "before-next-chapter",
+    title: "Before the Next Chapter",
+    type: "Webinar",
+    subtitle: "A reflective space for emotional transitions and new beginnings",
+    seeds: ["chapter-a", "chapter-b", "chapter-c"],
   },
   {
-    title: "Before the Next Chapter Webinar",
-    description:
-      "A reflective webinar on closing emotional chapters before stepping into something new.",
-    seeds: ["chapter-1", "chapter-2", "chapter-3"],
+    id: "christmas-social-skills",
+    title: "Social Skills Training & Christmas Party",
+    type: "Workshop",
+    subtitle: "Celebrating connection, play and togetherness",
+    seeds: ["xmas-a", "xmas-b", "xmas-c"],
   },
   {
-    title: "Brave Soul Foundation",
-    description:
-      "A community collaboration supporting courage, healing and emotional resilience.",
-    seeds: ["brave-1", "brave-2", "brave-3"],
-    images: [brave1.url, brave2.url, brave3.url],
+    id: "anger-management-children",
+    title: "Anger Management for Children",
+    type: "Workshop",
+    subtitle:
+      "Helping young minds understand their emotions and respond with calm",
+    seeds: ["anger-a", "anger-b", "anger-c"],
   },
   {
-    title: "Calcutta Debating Circle",
-    description:
-      "Conversations on mental health, identity and modern life with the Calcutta Debating Circle.",
-    seeds: ["debate-1", "debate-2", "debate-3"],
+    id: "social-skills-summer",
+    title: "Social Skills for Children – Summer Training",
+    type: "Workshop",
+    subtitle: "Building confidence, empathy and connection over summer",
+    seeds: ["summer-a", "summer-b", "summer-c"],
   },
   {
-    title: "Calcutta University Learning Disability",
-    description:
-      "A seminar at Calcutta University on understanding and supporting learning disabilities.",
-    seeds: ["cu-1", "cu-2", "cu-3"],
+    id: "social-skills-adulthood",
+    title: "Social Skills, Emotional Regulation & Transition into Adulthood",
+    type: "Workshop",
+    subtitle:
+      "Equipping young adults with the emotional toolkit for life's next chapter",
+    seeds: ["adult-a", "adult-b", "adult-c"],
+  },
+];
+
+// ─── Partnerships & Collaborations ───────────────────────────────────────────
+const collaborationsEvents: Event[] = [
+  {
+    id: "cdc-high-pressure",
+    title: "Managing High Pressure Situations",
+    type: "Seminar",
+    subtitle: "CDC × The Pause Room",
+    seeds: ["cdc-a", "cdc-b", "cdc-c"],
   },
   {
-    title: "CK Birla World Cancer Day",
-    description:
-      "Holding space for emotional well-being on World Cancer Day with CK Birla Hospitals.",
-    seeds: ["ckbirla-1", "ckbirla-2", "ckbirla-3"],
-    images: [ckbirla1.url, ckbirla2.url, ckbirla3.url],
+    id: "vesuvius-parenting",
+    title: "Successful Parenting",
+    type: "Seminar",
+    subtitle: "Vesuvius International Ltd.",
+    seeds: ["vesuvius-a", "vesuvius-b", "vesuvius-c"],
   },
   {
-    title: "IOCL Haldia Invisible Mental Load Seminar",
-    description:
-      "A workplace seminar exploring the invisible mental load carried by modern professionals.",
-    seeds: ["iocl-1", "iocl-2", "iocl-3"],
-    images: [iocl1.url, iocl2.url, iocl3.url],
+    id: "brave-souls-awareness",
+    title: "Mental Health & Wellbeing Awareness",
+    type: "Awareness Program",
+    subtitle: "Brave Souls Foundation × The Pause Room",
+    seeds: ["brave-a", "brave-b", "brave-c"],
   },
   {
-    title: "Smart Skills Summer Camp 26",
-    description:
-      "Life-skills and emotional learning for young minds at the Smart Skills summer camp.",
-    seeds: ["smart-1", "smart-2"],
-    images: [smart1.url, smart2.url],
+    id: "vesuvius-mental-load",
+    title: "The Invisible Mental Load",
+    type: "Seminar",
+    subtitle: "Vesuvius International Ltd.",
+    seeds: ["vesuvius2-a", "vesuvius2-b", "vesuvius2-c"],
   },
   {
-    title: "Summer Camp 2026",
-    description:
-      "A gentle, joyful summer camp built around creativity, play and emotional learning.",
-    seeds: ["camp-1", "camp-2", "camp-3"],
+    id: "iocl-mental-load",
+    title: "Invisible Mental Load",
+    type: "Seminar",
+    subtitle: "IOCL Haldia Refinery",
+    seeds: ["iocl-load-a", "iocl-load-b", "iocl-load-c"],
   },
   {
-    title: "Vesuvius Successful Parenting",
-    description:
-      "A parenting series with Vesuvius on raising emotionally healthy children.",
-    seeds: ["vesuvius-1"],
-    images: [vesuvius1.url],
+    id: "cu-learning-disability",
+    title: "Learning Disability Training for PhD Students",
+    type: "Training",
+    subtitle: "Calcutta University × The Pause Room",
+    seeds: ["cu-a", "cu-b", "cu-c"],
   },
   {
-    title: "Christmas Celebration",
-    description:
-      "A warm celebration of togetherness, creativity and joy at The Pause Room.",
-    seeds: ["christmas-1", "christmas-2"],
-    images: [christmas1.url, christmas2.url],
+    id: "noahs-arc-children",
+    title: "Emotion & Cognitive Skills Training for Special Needs Children",
+    type: "Training",
+    subtitle: "Noah's Arc × The Pause Room",
+    seeds: ["noah-a", "noah-b", "noah-c"],
   },
   {
-    title: "CMRI Fellowship in Fatherhood",
-    description:
-      "A fellowship session with CK Birla CMRI exploring the emotional transition into fatherhood.",
-    seeds: ["cmri-1", "cmri-2"],
-    images: [cmri1.url, cmri2.url],
+    id: "anxiety-to-action",
+    title: "From Anxiety to Action",
+    type: "Seminar",
+    subtitle: "The Pause Room",
+    seeds: ["anxiety-a", "anxiety-b", "anxiety-c"],
   },
   {
-    title: "Noah's Ark Foundation",
-    description:
-      "A heartfelt outreach initiative with Noah's Ark Foundation, bringing emotional support and care to children at Love & Care Special School.",
-    seeds: ["noah-1"],
-    images: [noah1.url],
+    id: "walk-dyslexia",
+    title: "Walk for Dyslexia",
+    type: "Awareness Program",
+    subtitle: "The Pause Room × Anjali Dyslexia Association",
+    seeds: ["dyslexia-a", "dyslexia-b", "dyslexia-c"],
+  },
+  {
+    id: "ntpc-womens-mental-health",
+    title: "Navigating Women's Mental Health at Work",
+    type: "Seminar",
+    subtitle: "NTPC Farakka",
+    seeds: ["ntpc-a", "ntpc-b", "ntpc-c"],
+  },
+  {
+    id: "brave-souls-acid-attack",
+    title: "Acid Attack Survivors Panel Discussion",
+    type: "Panel Discussion",
+    subtitle: "Brave Souls Foundation",
+    seeds: ["acid-a", "acid-b", "acid-c"],
+  },
+  {
+    id: "iocl-stress",
+    title: "Stress Management at Workplace",
+    type: "Seminar",
+    subtitle: "IOCL Haldia Refinery",
+    seeds: ["iocl-stress-a", "iocl-stress-b", "iocl-stress-c"],
+  },
+  {
+    id: "iocl-erpl-wellbeing",
+    title: "Mental Health & Wellbeing",
+    type: "Seminar",
+    subtitle: "IOCL ERPL",
+    seeds: ["erpl-a", "erpl-b", "erpl-c"],
+  },
+  {
+    id: "iocl-work-life",
+    title: "Mental Wellbeing & Work-Life Balance",
+    type: "Seminar",
+    subtitle: "IOCL Eastern Region Office",
+    seeds: ["worklife-a", "worklife-b", "worklife-c"],
+  },
+  {
+    id: "iocl-children-wellbeing",
+    title: "Mental Wellbeing of Children",
+    type: "Seminar",
+    subtitle: "IOCL Haldia Refinery",
+    seeds: ["children-wb-a", "children-wb-b", "children-wb-c"],
+  },
+  {
+    id: "ys-autism",
+    title: "Demystifying Autism Awareness Program",
+    type: "Awareness Program",
+    subtitle: "Y's Kolkata Chapter",
+    seeds: ["autism-a", "autism-b", "autism-c"],
   },
 ];
 
 function placeholder(seed: string) {
-  return `https://picsum.photos/seed/pauseroom-${seed}/800/600`;
+  return `https://picsum.photos/seed/pr-${seed}/800/600`;
 }
 
+type LightboxImage = { src: string; alt: string };
+
+interface EventSectionProps {
+  event: Event;
+  globalOffset: number;
+  onImageClick: (index: number) => void;
+}
+
+function EventSection({ event, globalOffset, onImageClick }: EventSectionProps) {
+  return (
+    <div className="reveal-on-scroll">
+      {/* Heading area */}
+      <div className="mb-6">
+        <h2 className="text-2xl md:text-4xl font-display leading-tight text-foreground">
+          {event.title}
+        </h2>
+        {event.subtitle && (
+          <p className="mt-2 text-muted-foreground leading-relaxed max-w-2xl">
+            {event.subtitle}
+          </p>
+        )}
+        {event.date && (
+          <p className="mt-2 text-xs tracking-[0.25em] uppercase text-primary/70">
+            {event.date}
+          </p>
+        )}
+      </div>
+
+      {/* 3-image row */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {event.seeds.map((seed, i) => {
+          const src = placeholder(seed);
+          const imgIndex = globalOffset + i;
+          return (
+            <button
+              key={seed}
+              type="button"
+              id={`event-img-${event.id}-${i}`}
+              onClick={() => onImageClick(imgIndex)}
+              aria-label={`Open ${event.title} photo ${i + 1}`}
+              className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted cursor-zoom-in"
+            >
+              <img
+                src={src}
+                alt={`${event.title} — photo ${i + 1}`}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="rounded-full bg-white/20 backdrop-blur-sm p-2.5">
+                  <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <circle cx="11" cy="11" r="8" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+type TabKey = "initiatives" | "collaborations";
+
 function GalleryPage() {
+  const [activeTab, setActiveTab] = useState<TabKey>("initiatives");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const allImages = useMemo(
+  // Build a flat image list for the lightbox — per-tab
+  const initiativesImages = useMemo<LightboxImage[]>(
     () =>
-      events.flatMap((event) =>
-        event.seeds.map((seed, i) => ({
-          src: event.images?.[i] ?? placeholder(seed),
-          alt: `${event.title} — photo ${i + 1}`,
+      initiativesEvents.flatMap((ev) =>
+        ev.seeds.map((seed, i) => ({
+          src: placeholder(seed),
+          alt: `${ev.title} — photo ${i + 1}`,
         }))
       ),
     []
   );
 
-  let globalIndex = -1;
+  const collaborationsImages = useMemo<LightboxImage[]>(
+    () =>
+      collaborationsEvents.flatMap((ev) =>
+        ev.seeds.map((seed, i) => ({
+          src: placeholder(seed),
+          alt: `${ev.title} — photo ${i + 1}`,
+        }))
+      ),
+    []
+  );
+
+  const activeImages =
+    activeTab === "initiatives" ? initiativesImages : collaborationsImages;
+  const activeEvents =
+    activeTab === "initiatives" ? initiativesEvents : collaborationsEvents;
+
+  // Compute per-event global offsets
+  const eventOffsets = useMemo(() => {
+    const offsets: number[] = [];
+    let running = 0;
+    for (const ev of activeEvents) {
+      offsets.push(running);
+      running += ev.seeds.length;
+    }
+    return offsets;
+  }, [activeEvents]);
+
+  const tabs: { key: TabKey; label: string; subLabel: string }[] = [
+    {
+      key: "initiatives",
+      label: "Pause Room Initiatives",
+      subLabel: "Events organized by The Pause Room",
+    },
+    {
+      key: "collaborations",
+      label: "Partnerships & Collaborations",
+      subLabel: "Events with organizations, hospitals, schools & corporates",
+    },
+  ];
 
   return (
     <PageShell
-      eyebrow="Gallery"
+      eyebrow="In Action"
       title={
         <>
           Moments we have <em className="not-italic">held together</em>
@@ -168,59 +339,75 @@ function GalleryPage() {
       image={blogHero}
     >
       <section className="py-20">
-        <div className="mx-auto max-w-7xl px-6 space-y-24">
-          {events.map((event, idx) => (
-            <div key={event.title} className="reveal-on-scroll">
-              <div className="flex items-end justify-between gap-6 flex-wrap mb-8">
-                <div>
-                  <span className="text-xs uppercase tracking-[0.3em] text-primary/80">
-                    Event {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <h2 className="mt-3 text-3xl md:text-4xl font-display leading-tight">
-                    {event.title}
-                  </h2>
-                  {event.description && (
-                    <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
-                      {event.description}
-                    </p>
-                  )}
-                </div>
-                <div className="hidden md:block h-px flex-1 bg-border/60" />
-              </div>
+        <div className="mx-auto max-w-7xl px-6">
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {event.seeds.map((seed, i) => {
-                  const src = event.images?.[i] ?? placeholder(seed);
-                  globalIndex += 1;
-                  const myIndex = globalIndex;
-                  return (
-                    <button
-                      type="button"
-                      key={seed}
-                      onClick={() => setLightboxIndex(myIndex)}
-                      aria-label={`Open ${event.title} photo ${i + 1}`}
-                      className="group relative aspect-[4/3] overflow-hidden rounded-3xl bg-card border border-border/60 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:shadow-elevated cursor-zoom-in text-left"
-                      style={{ transitionDelay: `${i * 60}ms` }}
-                    >
-                      <img
-                        src={src}
-                        alt={`${event.title} — photo ${i + 1}`}
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1800ms] group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+          {/* ── Tab Switcher ─────────────────────────────────────────────── */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-16 p-1.5 rounded-2xl bg-muted/60 border border-border/50 backdrop-blur-sm max-w-3xl mx-auto">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.key;
+              return (
+                <button
+                  key={tab.key}
+                  id={`tab-${tab.key}`}
+                  type="button"
+                  onClick={() => {
+                    setActiveTab(tab.key);
+                    setLightboxIndex(null);
+                  }}
+                  className={`flex-1 flex flex-col items-center text-center px-6 py-4 rounded-xl transition-all duration-500 ${
+                    isActive
+                      ? "bg-card shadow-soft text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <span
+                    className={`text-sm font-medium tracking-wide transition-all duration-300 ${
+                      isActive ? "text-foreground" : ""
+                    }`}
+                  >
+                    {tab.label}
+                  </span>
+                  <span
+                    className={`mt-1 text-[11px] leading-snug transition-all duration-300 ${
+                      isActive ? "text-primary/80" : "text-muted-foreground/70"
+                    }`}
+                  >
+                    {tab.subLabel}
+                  </span>
+                  {isActive && (
+                    <span className="mt-2 h-0.5 w-8 rounded-full bg-primary/60" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ── Event count label ────────────────────────────────────────── */}
+          <p className="text-center text-xs tracking-[0.3em] uppercase text-muted-foreground mb-12">
+            {activeEvents.length} {activeEvents.length === 1 ? "Event" : "Events"}
+          </p>
+
+          {/* ── Event List ───────────────────────────────────────────────── */}
+          <div
+            key={activeTab}
+            className="space-y-20 animate-fade-up"
+            style={{ animationDuration: "600ms" }}
+          >
+            {activeEvents.map((event, idx) => (
+              <EventSection
+                key={event.id}
+                event={event}
+                globalOffset={eventOffsets[idx]}
+                onImageClick={(i) => setLightboxIndex(i)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {lightboxIndex !== null && (
         <Lightbox
-          images={allImages}
+          images={activeImages}
           index={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onIndexChange={setLightboxIndex}

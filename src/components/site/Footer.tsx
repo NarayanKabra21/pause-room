@@ -28,7 +28,7 @@ export function Footer() {
               
               <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
               <li><Link to="/pause-room" className="hover:text-primary transition-colors">The Pause Room</Link></li>
-              <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
+              <li><Link to="/gallery" className="hover:text-primary transition-colors">In Action</Link></li>
             </ul>
           </div>
           <div>

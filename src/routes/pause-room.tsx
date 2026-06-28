@@ -196,12 +196,12 @@ function PauseRoomPage() {
               The Pause Room is more than a psychological clinic. It is a wellness centre.
             </p>
             <p className="font-display text-2xl md:text-3xl text-foreground/90">
-              It is an invitation.
+              It is an invitation
             </p>
             <div className="space-y-2 text-foreground/80">
-              <p>To pause.</p>
-              <p>To reflect.</p>
-              <p>To reconnect with yourself.</p>
+              <p>To pause</p>
+              <p>To reflect</p>
+              <p>To reconnect with yourself</p>
             </div>
             <p>
               And to discover that healing doesn't always begin with finding the right answers — it often begins by giving yourself permission to stop, listen, and simply be.
