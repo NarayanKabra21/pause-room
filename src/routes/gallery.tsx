@@ -19,6 +19,7 @@ import cmri2 from "@/assets/gallery/cmri-2.png.asset.json";
 import iocl1 from "@/assets/gallery/iocl-1.png.asset.json";
 import iocl2 from "@/assets/gallery/iocl-2.png.asset.json";
 import iocl3 from "@/assets/gallery/iocl-3.png.asset.json";
+import noah1 from "@/assets/gallery/noah-ark-1.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -120,6 +121,13 @@ const events: Event[] = [
       "A fellowship session with CK Birla CMRI exploring the emotional transition into fatherhood.",
     seeds: ["cmri-1", "cmri-2"],
     images: [cmri1.url, cmri2.url],
+  },
+  {
+    title: "Noah's Ark Foundation",
+    description:
+      "A heartfelt outreach initiative with Noah's Ark Foundation, bringing emotional support and care to children at Love & Care Special School.",
+    seeds: ["noah-1"],
+    images: [noah1.url],
   },
 ];
 
