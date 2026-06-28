@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import logoAsset from "@/assets/logo-transparent.png.asset.json";
+import logoAsset from "@/assets/logo-new-transparent.png.asset.json";
 import lake from "@/assets/hero-lake.jpg";
 import clouds from "@/assets/intro/clouds.jpg";
 import ocean from "@/assets/intro/ocean.jpg";
