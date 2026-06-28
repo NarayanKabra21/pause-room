@@ -630,7 +630,7 @@ const workshops: CatalogItem[] = [
   },
   {
     slug: "child-adolescent-workshops",
-    title: "Child & Adolescent",
+    title: "School and College",
     shortDesc: "Emotional wellbeing for children, teens, parents, teachers and schools.",
     cardImage: u("photo-1523580494863-6f3031224c94"),
     heroImage: u("photo-1509062522246-3755977927d7", 1920),
