@@ -129,14 +129,16 @@ function GalleryPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {event.seeds.map((seed, i) => (
+                {event.seeds.map((seed, i) => {
+                  const src = event.images?.[i] ?? placeholder(seed);
+                  return (
                   <div
                     key={seed}
                     className="group relative aspect-[4/3] overflow-hidden rounded-3xl bg-card border border-border/60 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:shadow-elevated"
                     style={{ transitionDelay: `${i * 60}ms` }}
                   >
                     <img
-                      src={placeholder(seed)}
+                      src={src}
                       alt={`${event.title} — photo ${i + 1}`}
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1800ms] group-hover:scale-105"
