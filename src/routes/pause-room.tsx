@@ -43,7 +43,10 @@ function PauseRoomPage() {
               Somewhere along the way, we stop noticing ourselves.
             </p>
             <p>
-              Perhaps that is why the simplest thing has become the hardest thing — to stay calm or to <span className="font-display text-2xl md:text-3xl text-foreground/95">PAUSE</span>.
+              Perhaps that is why the simplest thing has become the hardest thing —
+            </p>
+            <p className="font-display text-2xl md:text-3xl text-foreground/95">
+              To <em className="italic">PAUSE</em>
             </p>
           </div>
         </div>
