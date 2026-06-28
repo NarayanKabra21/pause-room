@@ -75,6 +75,7 @@ const events: Event[] = [
     description:
       "Holding space for emotional well-being on World Cancer Day with CK Birla Hospitals.",
     seeds: ["ckbirla-1", "ckbirla-2", "ckbirla-3"],
+    images: [ckbirla1.url, ckbirla2.url, ckbirla3.url],
   },
   {
     title: "IOCL Haldia Invisible Mental Load Seminar",
