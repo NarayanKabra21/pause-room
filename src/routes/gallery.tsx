@@ -97,6 +97,13 @@ const events: Event[] = [
       "A parenting series with Vesuvius on raising emotionally healthy children.",
     seeds: ["vesuvius-1", "vesuvius-2", "vesuvius-3"],
   },
+  {
+    title: "Christmas Celebration",
+    description:
+      "A warm celebration of togetherness, creativity and joy at The Pause Room.",
+    seeds: ["christmas-1", "christmas-2"],
+    images: [christmas1.url, christmas2.url],
+  },
 ];
 
 function placeholder(seed: string) {
