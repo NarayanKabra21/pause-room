@@ -62,7 +62,7 @@ export function MainHero() {
           </div>
           <div className="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-md rounded-2xl p-5 max-w-[15rem] shadow-soft border border-primary/20">
             <p className="text-sm italic text-foreground leading-relaxed">
-              "Healing begins the moment you allow yourself to feel."
+              "Healing begins the moment you feel heard. Take the first step"
             </p>
           </div>
         </div>
