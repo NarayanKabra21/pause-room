@@ -239,7 +239,7 @@ const assessments: CatalogItem[] = [
   },
   {
     slug: "sld-assessment",
-    title: "SLD Assessment",
+    title: "Learning Disability Assessment",
     shortDesc: "Naming and supporting specific learning differences.",
     cardImage: u("photo-1497486751825-1233686d5d80"),
     heroImage: u("photo-1456513080510-7bf3a84b82f8", 1920),
