@@ -110,6 +110,13 @@ const events: Event[] = [
     seeds: ["christmas-1", "christmas-2"],
     images: [christmas1.url, christmas2.url],
   },
+  {
+    title: "CMRI Fellowship in Fatherhood",
+    description:
+      "A fellowship session with CK Birla CMRI exploring the emotional transition into fatherhood.",
+    seeds: ["cmri-1", "cmri-2"],
+    images: [cmri1.url, cmri2.url],
+  },
 ];
 
 function placeholder(seed: string) {
