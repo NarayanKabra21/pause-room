@@ -1,5 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, HeartHandshake, Sparkles, Leaf, Lock } from "lucide-react";
+
+const values = [
+  { icon: HeartHandshake, title: "Compassion first", desc: "Every interaction begins with warmth, not protocol." },
+  { icon: Lock, title: "Confidentiality", desc: "What you share stays held with strict therapeutic ethics." },
+  { icon: Sparkles, title: "Evidence-based care", desc: "Clinical rigour woven gently into a human-shaped experience." },
+  { icon: Leaf, title: "Patient-led pace", desc: "We move at the pace of your healing — never the clock." },
+];
 import { PageShell } from "@/components/site/PageShell";
 import { team } from "@/data/team";
 import pauseImgAsset from "@/assets/pages/pause-hero.jpg.asset.json";
@@ -151,6 +158,25 @@ function PauseRoomPage() {
             <p>
               We help create families, workplaces, and communities where emotional well-being is not an afterthought, but a way of living.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5.5 Our values ── */}
+      <section className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="max-w-2xl reveal-on-scroll">
+            <span className="text-xs tracking-[0.4em] uppercase text-primary/80">Our Values</span>
+            <h2 className="mt-4 text-4xl md:text-5xl">Care, held by <em className="text-gradient-lake not-italic">principles</em></h2>
+          </div>
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {values.map(({ icon: Icon, title, desc }, i) => (
+              <div key={title} className="reveal-on-scroll glass rounded-2xl p-6" style={{ transitionDelay: `${i * 80}ms` }}>
+                <Icon size={22} className="text-primary mb-4" strokeWidth={1.6} />
+                <h3 className="text-lg">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

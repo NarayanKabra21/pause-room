@@ -5,7 +5,7 @@ import logoAsset from "@/assets/logo-new-transparent.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  
   { to: "/services", label: "Services" },
   { to: "/pause-room", label: "The Pause Room" },
   { to: "/gallery", label: "Gallery" },
