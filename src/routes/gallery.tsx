@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
+import { Lightbox } from "@/components/site/Lightbox";
 import blogHero from "@/assets/pages/blog-hero.jpg";
 import anger1 from "@/assets/gallery/anger-1.png.asset.json";
 import anger2 from "@/assets/gallery/anger-2.png.asset.json";
@@ -96,6 +98,21 @@ function placeholder(seed: string) {
 }
 
 function GalleryPage() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const allImages = useMemo(
+    () =>
+      events.flatMap((event) =>
+        event.seeds.map((seed, i) => ({
+          src: event.images?.[i] ?? placeholder(seed),
+          alt: `${event.title} — photo ${i + 1}`,
+        }))
+      ),
+    []
+  );
+
+  let globalIndex = -1;
+
   return (
     <PageShell
       eyebrow="Gallery"
@@ -131,20 +148,25 @@ function GalleryPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {event.seeds.map((seed, i) => {
                   const src = event.images?.[i] ?? placeholder(seed);
+                  globalIndex += 1;
+                  const myIndex = globalIndex;
                   return (
-                  <div
-                    key={seed}
-                    className="group relative aspect-[4/3] overflow-hidden rounded-3xl bg-card border border-border/60 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:shadow-elevated"
-                    style={{ transitionDelay: `${i * 60}ms` }}
-                  >
-                    <img
-                      src={src}
-                      alt={`${event.title} — photo ${i + 1}`}
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1800ms] group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  </div>
+                    <button
+                      type="button"
+                      key={seed}
+                      onClick={() => setLightboxIndex(myIndex)}
+                      aria-label={`Open ${event.title} photo ${i + 1}`}
+                      className="group relative aspect-[4/3] overflow-hidden rounded-3xl bg-card border border-border/60 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:shadow-elevated cursor-zoom-in text-left"
+                      style={{ transitionDelay: `${i * 60}ms` }}
+                    >
+                      <img
+                        src={src}
+                        alt={`${event.title} — photo ${i + 1}`}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1800ms] group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    </button>
                   );
                 })}
               </div>
@@ -152,6 +174,15 @@ function GalleryPage() {
           ))}
         </div>
       </section>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={allImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onIndexChange={setLightboxIndex}
+        />
+      )}
     </PageShell>
   );
 }
