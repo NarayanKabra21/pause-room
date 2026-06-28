@@ -36,7 +36,7 @@ export function Navbar() {
       <div className="mx-auto mt-4 max-w-7xl px-4">
         <nav className="glass rounded-full px-5 py-3 shadow-soft flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="The Pause Room" className="h-9 w-auto" />
+            <img src={logoAsset.url} alt="The Pause Room" className="h-9 w-auto" />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-6 text-sm text-foreground/80">

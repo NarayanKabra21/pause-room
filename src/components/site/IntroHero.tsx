@@ -112,7 +112,7 @@ export function IntroHero() {
           <div className="relative inline-block">
             <div className="absolute inset-0 rounded-full bg-white/40 blur-3xl scale-110" />
             <img
-              src={logo}
+              src={logoAsset.url}
               alt="The Pause Room"
               className="relative h-44 md:h-64 lg:h-72 w-auto mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.6)]"
               style={{ filter: "brightness(0) invert(1)" }}
