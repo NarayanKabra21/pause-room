@@ -9,6 +9,8 @@ import anger3 from "@/assets/gallery/anger-3.png.asset.json";
 import brave1 from "@/assets/gallery/brave-1.png.asset.json";
 import brave2 from "@/assets/gallery/brave-2.png.asset.json";
 import brave3 from "@/assets/gallery/brave-3.png.asset.json";
+import christmas1 from "@/assets/gallery/christmas-1.png.asset.json";
+import christmas2 from "@/assets/gallery/christmas-2.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -94,6 +96,13 @@ const events: Event[] = [
     description:
       "A parenting series with Vesuvius on raising emotionally healthy children.",
     seeds: ["vesuvius-1", "vesuvius-2", "vesuvius-3"],
+  },
+  {
+    title: "Christmas Celebration",
+    description:
+      "A warm celebration of togetherness, creativity and joy at The Pause Room.",
+    seeds: ["christmas-1", "christmas-2"],
+    images: [christmas1.url, christmas2.url],
   },
 ];
 
