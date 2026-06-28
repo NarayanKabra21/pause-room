@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import blogHero from "@/assets/pages/blog-hero.jpg";
+import anger1 from "@/assets/gallery/anger-1.png.asset.json";
+import anger2 from "@/assets/gallery/anger-2.png.asset.json";
+import anger3 from "@/assets/gallery/anger-3.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
