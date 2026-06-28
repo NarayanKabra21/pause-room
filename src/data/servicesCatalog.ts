@@ -379,6 +379,29 @@ const therapy: CatalogItem[] = [
         ],
       },
       {
+        title: "Cognitive Rehabilitation",
+        what: "Evidence-based therapy designed to help people improve or compensate for difficulties in attention, memory, and executive functioning which may be caused by brain injury, neurological conditions, or neurocognitive conditions.",
+        why: "When the mind's usual pathways are disrupted, everyday tasks can feel unfamiliar and exhausting. Cognitive rehabilitation offers structured, compassionate support to rebuild lost skills, develop compensatory strategies, and restore confidence in daily life.",
+        outcomes: [
+          "Improved attention and concentration in daily tasks",
+          "Better memory recall and organisational skills",
+          "Stronger executive functioning and problem-solving",
+          "Renewed confidence in work, home and social life",
+        ],
+        benefits: [
+          { title: "Targeted recovery", desc: "Interventions focused on the specific cognitive areas affected." },
+          { title: "Practical strategies", desc: "Compensatory tools that make daily life manageable again." },
+          { title: "Holistic support", desc: "Care that considers emotional well-being alongside cognition." },
+          { title: "Progress tracking", desc: "Clear milestones that honour every step forward." },
+        ],
+        whoCanBenefit: [
+          "Individuals recovering from brain injury or stroke",
+          "Those living with neurological or neurocognitive conditions",
+          "People experiencing attention or memory difficulties",
+          "Anyone seeking to rebuild cognitive confidence after illness",
+        ],
+      },
+      {
         title: "Behaviour Modification Therapy",
         what: "Structured behavioural approaches that help children and adults shift specific behaviours, build new habits, and replace unhelpful patterns with sustainable ones.",
         why: "Some changes ask for more than insight. Targeted behavioural work makes change measurable, gentle and lasting — without shaming the person inside the pattern.",
