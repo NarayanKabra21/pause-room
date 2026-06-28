@@ -1,5 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, HeartHandshake, Sparkles, Leaf, Lock } from "lucide-react";
+
+const values = [
+  { icon: HeartHandshake, title: "Compassion first", desc: "Every interaction begins with warmth, not protocol." },
+  { icon: Lock, title: "Confidentiality", desc: "What you share stays held with strict therapeutic ethics." },
+  { icon: Sparkles, title: "Evidence-based care", desc: "Clinical rigour woven gently into a human-shaped experience." },
+  { icon: Leaf, title: "Patient-led pace", desc: "We move at the pace of your healing — never the clock." },
+];
 import { PageShell } from "@/components/site/PageShell";
 import { team } from "@/data/team";
 import pauseImgAsset from "@/assets/pages/pause-hero.jpg.asset.json";
