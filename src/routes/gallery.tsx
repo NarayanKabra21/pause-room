@@ -25,7 +25,7 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-type Event = { title: string; description?: string; seeds: string[] };
+type Event = { title: string; description?: string; seeds: string[]; images?: string[] };
 
 const events: Event[] = [
   {
@@ -33,6 +33,7 @@ const events: Event[] = [
     description:
       "An interactive workshop helping participants understand triggers and respond with calm intention.",
     seeds: ["anger-1", "anger-2", "anger-3"],
+    images: [anger1.url, anger2.url, anger3.url],
   },
   {
     title: "Before the Next Chapter Webinar",
