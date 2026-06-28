@@ -14,6 +14,8 @@ import christmas2 from "@/assets/gallery/christmas-2.png.asset.json";
 import ckbirla1 from "@/assets/gallery/ckbirla-1.png.asset.json";
 import ckbirla2 from "@/assets/gallery/ckbirla-2.webp.asset.json";
 import ckbirla3 from "@/assets/gallery/ckbirla-3.webp.asset.json";
+import cmri1 from "@/assets/gallery/cmri-1.png.asset.json";
+import cmri2 from "@/assets/gallery/cmri-2.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
