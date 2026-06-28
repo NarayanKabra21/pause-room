@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoAsset from "@/assets/logo-transparent.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
