@@ -22,6 +22,7 @@ import iocl3 from "@/assets/gallery/iocl-3.png.asset.json";
 import noah1 from "@/assets/gallery/noah-ark-1.png.asset.json";
 import smart1 from "@/assets/gallery/smart-skills-1.png.asset.json";
 import smart2 from "@/assets/gallery/smart-skills-2.png.asset.json";
+import vesuvius1 from "@/assets/gallery/vesuvius-1.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -109,7 +110,8 @@ const events: Event[] = [
     title: "Vesuvius Successful Parenting",
     description:
       "A parenting series with Vesuvius on raising emotionally healthy children.",
-    seeds: ["vesuvius-1", "vesuvius-2", "vesuvius-3"],
+    seeds: ["vesuvius-1"],
+    images: [vesuvius1.url],
   },
   {
     title: "Christmas Celebration",
