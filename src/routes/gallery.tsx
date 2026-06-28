@@ -16,6 +16,9 @@ import ckbirla2 from "@/assets/gallery/ckbirla-2.webp.asset.json";
 import ckbirla3 from "@/assets/gallery/ckbirla-3.webp.asset.json";
 import cmri1 from "@/assets/gallery/cmri-1.png.asset.json";
 import cmri2 from "@/assets/gallery/cmri-2.png.asset.json";
+import iocl1 from "@/assets/gallery/iocl-1.png.asset.json";
+import iocl2 from "@/assets/gallery/iocl-2.png.asset.json";
+import iocl3 from "@/assets/gallery/iocl-3.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -84,6 +87,7 @@ const events: Event[] = [
     description:
       "A workplace seminar exploring the invisible mental load carried by modern professionals.",
     seeds: ["iocl-1", "iocl-2", "iocl-3"],
+    images: [iocl1.url, iocl2.url, iocl3.url],
   },
   {
     title: "Smart Skills Summer Camp 26",
