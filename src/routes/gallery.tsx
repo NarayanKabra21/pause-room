@@ -96,7 +96,8 @@ const events: Event[] = [
     title: "Smart Skills Summer Camp 26",
     description:
       "Life-skills and emotional learning for young minds at the Smart Skills summer camp.",
-    seeds: ["smart-1", "smart-2", "smart-3"],
+    seeds: ["smart-1", "smart-2"],
+    images: [smart1.url, smart2.url],
   },
   {
     title: "Summer Camp 2026",
