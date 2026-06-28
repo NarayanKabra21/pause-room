@@ -11,6 +11,9 @@ import brave2 from "@/assets/gallery/brave-2.png.asset.json";
 import brave3 from "@/assets/gallery/brave-3.png.asset.json";
 import christmas1 from "@/assets/gallery/christmas-1.png.asset.json";
 import christmas2 from "@/assets/gallery/christmas-2.png.asset.json";
+import ckbirla1 from "@/assets/gallery/ckbirla-1.png.asset.json";
+import ckbirla2 from "@/assets/gallery/ckbirla-2.webp.asset.json";
+import ckbirla3 from "@/assets/gallery/ckbirla-3.webp.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -72,6 +75,7 @@ const events: Event[] = [
     description:
       "Holding space for emotional well-being on World Cancer Day with CK Birla Hospitals.",
     seeds: ["ckbirla-1", "ckbirla-2", "ckbirla-3"],
+    images: [ckbirla1.url, ckbirla2.url, ckbirla3.url],
   },
   {
     title: "IOCL Haldia Invisible Mental Load Seminar",
