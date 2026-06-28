@@ -87,6 +87,7 @@ const events: Event[] = [
     description:
       "A workplace seminar exploring the invisible mental load carried by modern professionals.",
     seeds: ["iocl-1", "iocl-2", "iocl-3"],
+    images: [iocl1.url, iocl2.url, iocl3.url],
   },
   {
     title: "Smart Skills Summer Camp 26",
