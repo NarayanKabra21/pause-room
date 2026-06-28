@@ -33,7 +33,7 @@ export function About() {
 
         <blockquote className="reveal-on-scroll mt-16 max-w-2xl mx-auto">
           <p className="font-display italic text-2xl md:text-3xl text-foreground/90 leading-snug">
-            "Healing begins the moment you allow yourself to feel."
+            "Healing begins the moment you feel heard. Take the first step"
           </p>
         </blockquote>
       </div>
