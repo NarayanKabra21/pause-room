@@ -9,6 +9,8 @@ import anger3 from "@/assets/gallery/anger-3.png.asset.json";
 import brave1 from "@/assets/gallery/brave-1.png.asset.json";
 import brave2 from "@/assets/gallery/brave-2.png.asset.json";
 import brave3 from "@/assets/gallery/brave-3.png.asset.json";
+import christmas1 from "@/assets/gallery/christmas-1.png.asset.json";
+import christmas2 from "@/assets/gallery/christmas-2.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
