@@ -110,7 +110,8 @@ const events: Event[] = [
     title: "Vesuvius Successful Parenting",
     description:
       "A parenting series with Vesuvius on raising emotionally healthy children.",
-    seeds: ["vesuvius-1", "vesuvius-2", "vesuvius-3"],
+    seeds: ["vesuvius-1"],
+    images: [vesuvius1.url],
   },
   {
     title: "Christmas Celebration",
