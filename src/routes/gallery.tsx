@@ -6,6 +6,9 @@ import blogHero from "@/assets/pages/blog-hero.jpg";
 import anger1 from "@/assets/gallery/anger-1.png.asset.json";
 import anger2 from "@/assets/gallery/anger-2.png.asset.json";
 import anger3 from "@/assets/gallery/anger-3.png.asset.json";
+import brave1 from "@/assets/gallery/brave-1.png.asset.json";
+import brave2 from "@/assets/gallery/brave-2.png.asset.json";
+import brave3 from "@/assets/gallery/brave-3.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -48,6 +51,7 @@ const events: Event[] = [
     description:
       "A community collaboration supporting courage, healing and emotional resilience.",
     seeds: ["brave-1", "brave-2", "brave-3"],
+    images: [brave1.url, brave2.url, brave3.url],
   },
   {
     title: "Calcutta Debating Circle",
