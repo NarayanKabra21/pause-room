@@ -14,6 +14,8 @@ import christmas2 from "@/assets/gallery/christmas-2.png.asset.json";
 import ckbirla1 from "@/assets/gallery/ckbirla-1.png.asset.json";
 import ckbirla2 from "@/assets/gallery/ckbirla-2.webp.asset.json";
 import ckbirla3 from "@/assets/gallery/ckbirla-3.webp.asset.json";
+import cmri1 from "@/assets/gallery/cmri-1.png.asset.json";
+import cmri2 from "@/assets/gallery/cmri-2.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -107,6 +109,13 @@ const events: Event[] = [
       "A warm celebration of togetherness, creativity and joy at The Pause Room.",
     seeds: ["christmas-1", "christmas-2"],
     images: [christmas1.url, christmas2.url],
+  },
+  {
+    title: "CMRI Fellowship in Fatherhood",
+    description:
+      "A fellowship session with CK Birla CMRI exploring the emotional transition into fatherhood.",
+    seeds: ["cmri-1", "cmri-2"],
+    images: [cmri1.url, cmri2.url],
   },
 ];
 
