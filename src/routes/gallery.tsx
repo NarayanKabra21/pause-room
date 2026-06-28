@@ -20,6 +20,8 @@ import iocl1 from "@/assets/gallery/iocl-1.png.asset.json";
 import iocl2 from "@/assets/gallery/iocl-2.png.asset.json";
 import iocl3 from "@/assets/gallery/iocl-3.png.asset.json";
 import noah1 from "@/assets/gallery/noah-ark-1.png.asset.json";
+import smart1 from "@/assets/gallery/smart-skills-1.png.asset.json";
+import smart2 from "@/assets/gallery/smart-skills-2.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -94,7 +96,8 @@ const events: Event[] = [
     title: "Smart Skills Summer Camp 26",
     description:
       "Life-skills and emotional learning for young minds at the Smart Skills summer camp.",
-    seeds: ["smart-1", "smart-2", "smart-3"],
+    seeds: ["smart-1", "smart-2"],
+    images: [smart1.url, smart2.url],
   },
   {
     title: "Summer Camp 2026",
