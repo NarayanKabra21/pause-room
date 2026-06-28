@@ -11,6 +11,9 @@ import brave2 from "@/assets/gallery/brave-2.png.asset.json";
 import brave3 from "@/assets/gallery/brave-3.png.asset.json";
 import christmas1 from "@/assets/gallery/christmas-1.png.asset.json";
 import christmas2 from "@/assets/gallery/christmas-2.png.asset.json";
+import ckbirla1 from "@/assets/gallery/ckbirla-1.png.asset.json";
+import ckbirla2 from "@/assets/gallery/ckbirla-2.webp.asset.json";
+import ckbirla3 from "@/assets/gallery/ckbirla-3.webp.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
