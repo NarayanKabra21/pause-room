@@ -51,6 +51,7 @@ const events: Event[] = [
     description:
       "A community collaboration supporting courage, healing and emotional resilience.",
     seeds: ["brave-1", "brave-2", "brave-3"],
+    images: [brave1.url, brave2.url, brave3.url],
   },
   {
     title: "Calcutta Debating Circle",
