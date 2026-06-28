@@ -19,6 +19,7 @@ import cmri2 from "@/assets/gallery/cmri-2.png.asset.json";
 import iocl1 from "@/assets/gallery/iocl-1.png.asset.json";
 import iocl2 from "@/assets/gallery/iocl-2.png.asset.json";
 import iocl3 from "@/assets/gallery/iocl-3.png.asset.json";
+import noah1 from "@/assets/gallery/noah-ark-1.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
