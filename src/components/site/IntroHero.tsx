@@ -51,7 +51,6 @@ export function IntroHero() {
   const [current, setCurrent] = useState<number>(0);
 
   useEffect(() => {
-    setCurrent(Math.floor(Math.random() * scenes.length));
     const id = setInterval(
       () => setCurrent((i) => (i + 1) % scenes.length),
       5200,
