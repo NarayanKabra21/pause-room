@@ -113,7 +113,6 @@ export function IntroHero() {
               src={logoAsset.url}
               alt="The Pause Room"
               className="relative h-44 md:h-64 lg:h-72 w-auto mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.6)]"
-              style={{ filter: "brightness(0) invert(1)" }}
             />
           </div>
           <div className="mt-8 flex justify-center">
