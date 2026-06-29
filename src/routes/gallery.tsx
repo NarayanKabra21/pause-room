@@ -4,6 +4,37 @@ import { PageShell } from "@/components/site/PageShell";
 import { Lightbox } from "@/components/site/Lightbox";
 import blogHero from "@/assets/pages/blog-hero.jpg";
 
+// ─── Gallery media ─────────────────────────────────────────────────────────────
+// All files live in /public/gallery/ and are served as static assets (no bundling)
+const g = (f: string) => `/gallery/${f}`;
+
+const anger1  = g("anger-1.png");
+const anger2  = g("anger-2.png");
+const anger3  = g("anger-3.jpg");
+const before1 = g("before_the_next_moment1.mp4");
+const before2 = g("before_the_next_moment2.png");
+const xmas1   = g("Christmas_celebration1.png");
+const xmas2   = g("Christmas_celebration2.MOV");
+const xmas3   = g("Christmas_celebration3.png");
+const summer1 = g("Summer_camp1.mp4");
+const summer2 = g("Summer_camp2.png");
+const summer3 = g("Summer_camp3.MOV");
+const smart1  = g("Smartskill_summercamp1.MOV");
+const smart2  = g("smartskill_summercamp2.png");
+const smart3  = g("Smartskill_summercamp3.png");
+const brave1  = g("Bravesoul1.png");
+const brave2  = g("Bravesoul2.png");
+const brave3  = g("Bravesoul3.png");
+const vesu1   = g("vesuvius1.png");
+const vesu2   = g("vesuvius2.mp4");
+const iocl1   = g("iocl_haldia_1.png");
+const iocl2   = g("iocl_haldiaa_2.png");
+const iocl3   = g("iocl_haldia3.png");
+const cu1     = g("Calcutta_University1.png");
+const cu2     = g("calcutta_university2.png");
+const cu3     = g("calcutta_university3.png");
+
+
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
@@ -41,6 +72,7 @@ type Event = {
   date?: string;
   subtitle?: string;
   seeds: string[];
+  images?: string[];
 };
 
 // ─── Pause Room Initiatives ───────────────────────────────────────────────────
@@ -50,7 +82,8 @@ const initiativesEvents: Event[] = [
     title: "Before the Next Chapter",
     type: "Webinar",
     subtitle: "A reflective space for emotional transitions and new beginnings",
-    seeds: ["chapter-a", "chapter-b", "chapter-c"],
+    seeds: ["chapter-a", "chapter-b"],
+    images: [before1, before2],
   },
   {
     id: "christmas-social-skills",
@@ -58,6 +91,7 @@ const initiativesEvents: Event[] = [
     type: "Workshop",
     subtitle: "Celebrating connection, play and togetherness",
     seeds: ["xmas-a", "xmas-b", "xmas-c"],
+    images: [xmas1, xmas2, xmas3],
   },
   {
     id: "anger-management-children",
@@ -66,6 +100,7 @@ const initiativesEvents: Event[] = [
     subtitle:
       "Helping young minds understand their emotions and respond with calm",
     seeds: ["anger-a", "anger-b", "anger-c"],
+    images: [anger1, anger2, anger3],
   },
   {
     id: "social-skills-summer",
@@ -73,6 +108,7 @@ const initiativesEvents: Event[] = [
     type: "Workshop",
     subtitle: "Building confidence, empathy and connection over summer",
     seeds: ["summer-a", "summer-b", "summer-c"],
+    images: [summer1, summer2, summer3],
   },
   {
     id: "social-skills-adulthood",
@@ -81,6 +117,7 @@ const initiativesEvents: Event[] = [
     subtitle:
       "Equipping young adults with the emotional toolkit for life's next chapter",
     seeds: ["adult-a", "adult-b", "adult-c"],
+    images: [smart1, smart2, smart3],
   },
 ];
 
@@ -98,7 +135,8 @@ const collaborationsEvents: Event[] = [
     title: "Successful Parenting",
     type: "Seminar",
     subtitle: "Vesuvius International Ltd.",
-    seeds: ["vesuvius-a", "vesuvius-b", "vesuvius-c"],
+    seeds: ["vesuvius-a", "vesuvius-b"],
+    images: [vesu1, vesu2],
   },
   {
     id: "brave-souls-awareness",
@@ -106,6 +144,7 @@ const collaborationsEvents: Event[] = [
     type: "Awareness Program",
     subtitle: "Brave Souls Foundation × The Pause Room",
     seeds: ["brave-a", "brave-b", "brave-c"],
+    images: [brave1, brave2, brave3],
   },
   {
     id: "vesuvius-mental-load",
@@ -120,6 +159,7 @@ const collaborationsEvents: Event[] = [
     type: "Seminar",
     subtitle: "IOCL Haldia Refinery",
     seeds: ["iocl-load-a", "iocl-load-b", "iocl-load-c"],
+    images: [iocl1, iocl2, iocl3],
   },
   {
     id: "cu-learning-disability",
@@ -127,6 +167,7 @@ const collaborationsEvents: Event[] = [
     type: "Training",
     subtitle: "Calcutta University × The Pause Room",
     seeds: ["cu-a", "cu-b", "cu-c"],
+    images: [cu1, cu2, cu3],
   },
   {
     id: "noahs-arc-children",
@@ -235,7 +276,7 @@ function EventSection({ event, globalOffset, onImageClick }: EventSectionProps) 
       {/* 3-image row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {event.seeds.map((seed, i) => {
-          const src = placeholder(seed);
+          const src = event.images?.[i] || placeholder(seed);
           const imgIndex = globalOffset + i;
           return (
             <button
@@ -246,12 +287,23 @@ function EventSection({ event, globalOffset, onImageClick }: EventSectionProps) 
               aria-label={`Open ${event.title} photo ${i + 1}`}
               className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted cursor-zoom-in"
             >
-              <img
-                src={src}
-                alt={`${event.title} — photo ${i + 1}`}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] group-hover:scale-105"
-              />
+              {src.toLowerCase().endsWith(".mp4") || src.toLowerCase().endsWith(".mov") ? (
+                <video
+                  src={src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] group-hover:scale-105"
+                />
+              ) : (
+                <img
+                  src={src}
+                  alt={`${event.title} — photo ${i + 1}`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] group-hover:scale-105"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="rounded-full bg-white/20 backdrop-blur-sm p-2.5">
@@ -280,7 +332,7 @@ function GalleryPage() {
     () =>
       initiativesEvents.flatMap((ev) =>
         ev.seeds.map((seed, i) => ({
-          src: placeholder(seed),
+          src: ev.images?.[i] || placeholder(seed),
           alt: `${ev.title} — photo ${i + 1}`,
         }))
       ),
@@ -291,7 +343,7 @@ function GalleryPage() {
     () =>
       collaborationsEvents.flatMap((ev) =>
         ev.seeds.map((seed, i) => ({
-          src: placeholder(seed),
+          src: ev.images?.[i] || placeholder(seed),
           alt: `${ev.title} — photo ${i + 1}`,
         }))
       ),

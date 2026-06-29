@@ -167,17 +167,30 @@ export function Lightbox({ images, index, onClose, onIndexChange }: LightboxProp
         onClick={(e) => e.stopPropagation()}
         style={{ cursor: scale > 1 ? (dragRef.current ? "grabbing" : "grab") : "zoom-in" }}
       >
-        <img
-          src={current.src}
-          alt={current.alt}
-          draggable={false}
-          onClick={() => (scale === 1 ? zoomIn() : null)}
-          style={{
-            transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})`,
-            transition: dragRef.current ? "none" : "transform 200ms ease-out",
-          }}
-          className="max-w-[92vw] max-h-[85vh] object-contain"
-        />
+        {/\.(mp4|mov)$/i.test(current.src) ? (
+          <video
+            key={current.src}
+            src={current.src}
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls
+            className="max-w-[92vw] max-h-[85vh] object-contain"
+          />
+        ) : (
+          <img
+            src={current.src}
+            alt={current.alt}
+            draggable={false}
+            onClick={() => (scale === 1 ? zoomIn() : null)}
+            style={{
+              transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})`,
+              transition: dragRef.current ? "none" : "transform 200ms ease-out",
+            }}
+            className="max-w-[92vw] max-h-[85vh] object-contain"
+          />
+        )}
       </div>
     </div>
   );
