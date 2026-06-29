@@ -47,10 +47,8 @@ const scenes: Scene[] = [
 ];
 
 export function IntroHero() {
-  // Pick a random starting scene each visit, then rotate.
-  const [current, setCurrent] = useState<number>(() =>
-    typeof window === "undefined" ? 0 : Math.floor(Math.random() * scenes.length),
-  );
+  // Keep the first render deterministic so SSR and client hydration match.
+  const [current, setCurrent] = useState<number>(0);
 
   useEffect(() => {
     const id = setInterval(
