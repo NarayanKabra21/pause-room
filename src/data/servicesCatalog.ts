@@ -542,7 +542,7 @@ const therapy: CatalogItem[] = [
     categoryLabel: "Therapy & Counselling",
     quote: "Your work is to discover your work and then with all your heart to give yourself to it.",
     quoteAuthor: "Buddha",
-    what: "Therapy for the seasons of choice and change — career questions, life transitions, identity shifts, and the quiet search for direction that asks for more than advice.",
+    what: "Adjustment Difficulties — Life transitions—such as becoming a parent, getting married, starting college, or experiencing an empty nest—can feel overwhelming. We provide compassionate support to help you adapt with confidence and resilience.",
     why: "Transitions ask us to become someone slightly new. A steady, reflective space helps that becoming happen with clarity instead of confusion.",
     whoCanBenefit: [
       "Students and professionals facing decisions",

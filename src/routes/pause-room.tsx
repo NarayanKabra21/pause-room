@@ -235,11 +235,9 @@ function PauseRoomPage() {
             <span className="text-xs tracking-[0.4em] uppercase text-primary/80">The People of the Room</span>
             <h2 className="mt-3 text-3xl md:text-5xl">The hands and hearts that hold this room</h2>
             <p className="mt-5 text-lg leading-relaxed text-foreground/80">
-              The Pause Room is shaped, daily, by a small team of psychiatrists and psychologists
-              who chose this work as a vocation. Each of them brings a different kind of
-              expertise — psychiatry, trauma and adult psychotherapy, child and adolescent care — and
-              the same underlying commitment: to listen carefully, move slowly, and honour every
-              person who arrives. What follows is a quiet introduction to the people behind the room.
+              The Pause Room is shaped by a small team of psychologists who chose this work as a vocation.
+              Each of them brings a different kind of expertise and individuality along with the same
+              underlying commitment: to listen carefully, move slowly, and honour every person who arrives.
             </p>
           </div>
 
@@ -264,28 +262,79 @@ function PauseRoomPage() {
                 <div className="md:col-span-7 [direction:ltr]">
                   <span className="text-xs tracking-[0.4em] uppercase text-primary/80">{m.role}</span>
                   <h3 className="mt-2 text-3xl md:text-4xl">{m.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground italic">{m.specialization} · {m.experience}</p>
+                  <p className="mt-2 text-sm text-muted-foreground italic">{m.specialization}{m.experience ? ` · ${m.experience}` : ""}</p>
                   <div className="mt-5 space-y-3 text-foreground/85 leading-relaxed">
                     {m.bio.map((p, idx) => (
                       <p key={idx}>{p}</p>
                     ))}
                   </div>
-                  <div className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Qualifications</p>
-                      <p className="mt-1 text-foreground/80">{m.qualifications.join(" · ")}</p>
+                  {/* Education */}
+                  <div className="mt-8">
+                    <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Education</p>
+                    <div className="space-y-2">
+                      {m.qualifications.map((q, qi) => {
+                        const parts = q.split(" \u2014 ");
+                        const degree = parts[0];
+                        const institution = parts[1];
+                        return (
+                          <div key={qi} className="flex gap-3 items-start rounded-xl bg-muted/50 px-4 py-3 border border-border/40">
+                            <span className="mt-1 flex-shrink-0 h-5 w-5 rounded-full bg-primary/15 flex items-center justify-center">
+                              <span className="h-2 w-2 rounded-full bg-primary/70" />
+                            </span>
+                            <div>
+                              <p className="text-sm font-medium text-foreground leading-snug">{degree}</p>
+                              {institution && <p className="text-xs text-muted-foreground mt-0.5">{institution}</p>}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Certifications</p>
-                      <p className="mt-1 text-foreground/80">{m.certifications.join(" · ")}</p>
+                  </div>
+
+                  {/* Certifications */}
+                  <div className="mt-6">
+                    <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Certifications</p>
+                    <div className="space-y-2">
+                      {m.certifications.map((cert, ci) => {
+                        const parts = cert.split(" \u2014 ");
+                        const title = parts[0];
+                        const org = parts[1];
+                        return (
+                          <div key={ci} className="flex gap-3 items-start rounded-xl bg-accent/20 px-4 py-3 border border-accent/30">
+                            <svg className="mt-0.5 flex-shrink-0 h-4 w-4 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                            </svg>
+                            <div>
+                              <p className="text-sm font-medium text-foreground leading-snug">{title}</p>
+                              {org && <p className="text-xs text-muted-foreground mt-0.5">{org}</p>}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Expertise</p>
-                      <p className="mt-1 text-foreground/80">{m.expertise.join(", ")}</p>
+                  </div>
+
+                  {/* Expertise */}
+                  <div className="mt-6">
+                    <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Areas of Expertise</p>
+                    <div className="flex flex-wrap gap-2">
+                      {m.expertise.map((tag, ti) => (
+                        <span key={ti} className="rounded-full bg-secondary/70 border border-border/50 px-3 py-1 text-xs text-foreground/80">
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Languages</p>
-                      <p className="mt-1 text-foreground/80">{m.languages.join(", ")}</p>
+                  </div>
+
+                  {/* Languages */}
+                  <div className="mt-6">
+                    <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Languages</p>
+                    <div className="flex flex-wrap gap-2">
+                      {m.languages.map((lang, li) => (
+                        <span key={li} className="rounded-full bg-primary/10 border border-primary/20 px-4 py-1 text-xs font-medium text-primary">
+                          {lang}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -293,12 +342,7 @@ function PauseRoomPage() {
             ))}
           </div>
 
-          <div className="reveal-on-scroll mt-20 max-w-2xl mx-auto text-center">
-            <p className="text-lg text-foreground/80 leading-relaxed italic">
-              "We are a small team on purpose. It is the only way we know how to do this work — with
-              presence, with patience, and with the time each person deserves."
-            </p>
-          </div>
+
         </div>
       </section>
 
