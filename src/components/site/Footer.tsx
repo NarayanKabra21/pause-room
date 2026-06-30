@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Linkedin } from "lucide-react";
-import logoAsset from "@/assets/logo-new-transparent.png.asset.json";
+import logoAsset from "@/assets/logo-pause-room.png.asset.json";
 
 function WhatsAppIcon({ size = 16 }: { size?: number }) {
   return (
