@@ -94,19 +94,19 @@ function PauseRoomPage() {
           </div>
 
           <div className="mt-14 grid md:grid-cols-3 gap-8">
-            <div className="reveal-on-scroll glass rounded-2xl p-8 text-center" style={{ transitionDelay: "0ms" }}>
+            <div className="reveal-on-scroll card-hover glass rounded-2xl p-8 text-center" style={{ transitionDelay: "0ms" }}>
               <p className="font-display text-4xl text-primary/60 mb-4">01</p>
               <p className="text-lg leading-relaxed text-foreground/85">
                 Beneath every fear, anxiety, and worry is a story waiting to be heard.
               </p>
             </div>
-            <div className="reveal-on-scroll glass rounded-2xl p-8 text-center" style={{ transitionDelay: "80ms" }}>
+            <div className="reveal-on-scroll card-hover glass rounded-2xl p-8 text-center" style={{ transitionDelay: "80ms" }}>
               <p className="font-display text-4xl text-primary/60 mb-4">02</p>
               <p className="text-lg leading-relaxed text-foreground/85">
                 Beneath every self-doubt is a strength waiting to be rediscovered.
               </p>
             </div>
-            <div className="reveal-on-scroll glass rounded-2xl p-8 text-center" style={{ transitionDelay: "160ms" }}>
+            <div className="reveal-on-scroll card-hover glass rounded-2xl p-8 text-center" style={{ transitionDelay: "160ms" }}>
               <p className="font-display text-4xl text-primary/60 mb-4">03</p>
               <p className="text-lg leading-relaxed text-foreground/85">
                 Behind every overwhelming emotion is a human longing for kindness, acceptance, and understanding.
@@ -171,7 +171,7 @@ function PauseRoomPage() {
           </div>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map(({ icon: Icon, title, desc }, i) => (
-              <div key={title} className="reveal-on-scroll glass rounded-2xl p-6" style={{ transitionDelay: `${i * 80}ms` }}>
+              <div key={title} className="reveal-on-scroll card-hover glass rounded-2xl p-6" style={{ transitionDelay: `${i * 80}ms` }}>
                 <Icon size={22} className="text-primary mb-4" strokeWidth={1.6} />
                 <h3 className="text-lg">{title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>

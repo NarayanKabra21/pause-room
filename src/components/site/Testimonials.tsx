@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { Quote } from "lucide-react";
 
 const testimonials = [
-  { quote: "For the first time in years, I felt heard without being judged.", name: "Aanya R.", role: "Therapy client" },
-  { quote: "The environment itself feels healing. I leave lighter every single time.", name: "Karan M.", role: "Anxiety support" },
-  { quote: "The Pause Room helped me emotionally reconnect with myself.", name: "Sneha P.", role: "Burnout recovery" },
-  { quote: "Soft, slow, and deeply human. Exactly what I didn't know I needed.", name: "Rohan D.", role: "Online sessions" },
+  { quote: "I took sessions with Aparna and it was a truly eye-opening experience. She has a wonderful way of making me feel comfortable enough to open up and share my thoughts honestly. Through our sessions, I gained a deeper understanding of myself that I hadn't expected - it felt like a real awakening. Her guidance is thoughtful and wise, and I left with so much more clarity. Highly recommend her.", name: "Anonymous", role: "Therapy client" },
+  { quote: "I think everyone should take therapy and Aparna ma'am, you are the best any one can have as a therapist.", name: "T.S", role: "Therapy client" },
+  { quote: "This was my first time trying therapy and Dr. Aparna came recommended by my longtime psychiatrist to help me take the next step. In the last several months, I have enjoyed the guidance of an experienced, professional, and empathetic therapist and I would wholeheartedly recommend her services to those seeking help.", name: "MB", role: "Therapy client" },
 ];
 
 export function Testimonials() {

@@ -27,7 +27,7 @@ export function HealingAreas() {
         {areas.map((a, i) => (
           <div
             key={a}
-            className="reveal-on-scroll glass rounded-2xl px-5 py-6 text-center"
+            className="reveal-on-scroll card-hover glass rounded-2xl px-5 py-6 text-center"
             style={{ transitionDelay: `${(i % 4) * 60}ms` }}
           >
             <div className="text-foreground/90 font-medium">{a}</div>

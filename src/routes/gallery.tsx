@@ -33,7 +33,43 @@ const iocl3   = g("iocl_haldia3.png");
 const cu1     = g("Calcutta_University1.png");
 const cu2     = g("calcutta_university2.png");
 const cu3     = g("calcutta_university3.png");
-
+const anxiety1 = g("anxiety_to_action1.jpg");
+const anxiety2 = g("anxiety_to_action2.png");
+const anxiety3 = g("anxiety_to_action3.jpg");
+const walk1 = g("walk_dyslexia1.png");
+const walk2 = g("walk_dyslexia2.jpg");
+const walk3 = g("walk_dyslexia3.png");
+const ntpc1 = g("ntpc_womens_day1.jpg");
+const ntpc2 = g("ntpc_womens_day2.jpg");
+const ntpc3 = g("ntpc_womens_day3.png");
+const stress1 = g("stress1.png");
+const stress2 = g("stress2.png");
+const erpl1 = g("erpl1.png");
+const erpl2 = g("erpl2.png");
+const erpl3 = g("erpl3.png");
+const worklife1 = g("worklife1.png");
+const worklife2 = g("worklife2.png");
+const children1 = g("children1.png");
+const brave_acid1 = g("brave_acid1.jpg");
+const brave_acid2 = g("brave_acid2.jpg");
+const brave_acid3 = g("brave_acid3.jpg");
+const noah_arc1 = g("noah_arc1.jpg");
+const noah_arc2 = g("noah_arc2.png");
+const noah_arc3 = g("noah_arc3.jpg");
+const vesu_mental_load = g("The_Invisible_Mental_Load_Vesuvius_International__Ltd..mp4");
+const kdc1 = g("kdc1.png");
+const kdc2 = g("kdc2.png");
+const ck_cancer1 = g("ck_cancer1.jpg");
+const ck_cancer2 = g("ck_cancer2.jpg");
+const ck_cancer3 = g("ck_cancer3.jpg");
+const tcs_stress1 = g("tcs_stress1.png");
+const tcs_stress2 = g("tcs_stress2.png");
+const tcs_stress3 = g("tcs_stress3.png");
+const cmri_father1 = g("cmri_father1.png");
+const cmri_father2 = g("cmri_father2.png");
+const autism1 = g("autism1.jpg");
+const autism2 = g("autism2.jpg");
+const autism3 = g("autism3.jpg");
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -123,13 +159,7 @@ const initiativesEvents: Event[] = [
 
 // ─── Partnerships & Collaborations ───────────────────────────────────────────
 const collaborationsEvents: Event[] = [
-  {
-    id: "cdc-high-pressure",
-    title: "Managing High Pressure Situations",
-    type: "Seminar",
-    subtitle: "CDC × The Pause Room",
-    seeds: ["cdc-a", "cdc-b", "cdc-c"],
-  },
+
   {
     id: "vesuvius-parenting",
     title: "Successful Parenting",
@@ -151,7 +181,8 @@ const collaborationsEvents: Event[] = [
     title: "The Invisible Mental Load",
     type: "Seminar",
     subtitle: "Vesuvius International Ltd.",
-    seeds: ["vesuvius2-a", "vesuvius2-b", "vesuvius2-c"],
+    seeds: ["vesuvius2-a"],
+    images: [vesu_mental_load],
   },
   {
     id: "iocl-mental-load",
@@ -175,6 +206,7 @@ const collaborationsEvents: Event[] = [
     type: "Training",
     subtitle: "Noah's Arc × The Pause Room",
     seeds: ["noah-a", "noah-b", "noah-c"],
+    images: [noah_arc1, noah_arc2, noah_arc3],
   },
   {
     id: "anxiety-to-action",
@@ -182,6 +214,7 @@ const collaborationsEvents: Event[] = [
     type: "Seminar",
     subtitle: "The Pause Room",
     seeds: ["anxiety-a", "anxiety-b", "anxiety-c"],
+    images: [anxiety1, anxiety2, anxiety3],
   },
   {
     id: "walk-dyslexia",
@@ -189,6 +222,7 @@ const collaborationsEvents: Event[] = [
     type: "Awareness Program",
     subtitle: "The Pause Room × Anjali Dyslexia Association",
     seeds: ["dyslexia-a", "dyslexia-b", "dyslexia-c"],
+    images: [walk1, walk2, walk3],
   },
   {
     id: "ntpc-womens-mental-health",
@@ -196,6 +230,7 @@ const collaborationsEvents: Event[] = [
     type: "Seminar",
     subtitle: "NTPC Farakka",
     seeds: ["ntpc-a", "ntpc-b", "ntpc-c"],
+    images: [ntpc1, ntpc2, ntpc3],
   },
   {
     id: "brave-souls-acid-attack",
@@ -203,13 +238,15 @@ const collaborationsEvents: Event[] = [
     type: "Panel Discussion",
     subtitle: "Brave Souls Foundation",
     seeds: ["acid-a", "acid-b", "acid-c"],
+    images: [brave_acid1, brave_acid2, brave_acid3],
   },
   {
     id: "iocl-stress",
     title: "Stress Management at Workplace",
     type: "Seminar",
     subtitle: "IOCL Haldia Refinery",
-    seeds: ["iocl-stress-a", "iocl-stress-b", "iocl-stress-c"],
+    seeds: ["iocl-stress-a", "iocl-stress-b"],
+    images: [stress1, stress2],
   },
   {
     id: "iocl-erpl-wellbeing",
@@ -217,27 +254,63 @@ const collaborationsEvents: Event[] = [
     type: "Seminar",
     subtitle: "IOCL ERPL",
     seeds: ["erpl-a", "erpl-b", "erpl-c"],
+    images: [erpl1, erpl2, erpl3],
   },
   {
     id: "iocl-work-life",
     title: "Mental Wellbeing & Work-Life Balance",
     type: "Seminar",
     subtitle: "IOCL Eastern Region Office",
-    seeds: ["worklife-a", "worklife-b", "worklife-c"],
+    seeds: ["worklife-a", "worklife-b"],
+    images: [worklife1, worklife2],
   },
   {
     id: "iocl-children-wellbeing",
     title: "Mental Wellbeing of Children",
     type: "Seminar",
     subtitle: "IOCL Haldia Refinery",
-    seeds: ["children-wb-a", "children-wb-b", "children-wb-c"],
+    seeds: ["children-wb-a"],
+    images: [children1],
   },
   {
-    id: "ys-autism",
+    id: "kolkata-debating-club",
+    title: "Kolkata Debating Club",
+    type: "Seminar",
+    subtitle: "The Pause Room × Kolkata Debating Club",
+    seeds: ["kdc-a", "kdc-b"],
+    images: [kdc1, kdc2],
+  },
+  {
+    id: "ck-birla-world-cancer-day",
+    title: "World Cancer Day",
+    type: "Awareness Program",
+    subtitle: "CK Birla Hospitals",
+    seeds: ["ck-birla-a", "ck-birla-b", "ck-birla-c"],
+    images: [ck_cancer1, ck_cancer2, ck_cancer3],
+  },
+  {
+    id: "tcs-stress-management",
+    title: "Stress Management",
+    type: "Seminar",
+    subtitle: "TCS",
+    seeds: ["tcs-a", "tcs-b", "tcs-c"],
+    images: [tcs_stress1, tcs_stress2, tcs_stress3],
+  },
+  {
+    id: "cmri-fellowship-fatherhood",
+    title: "Fellowship in Fatherhood",
+    type: "Seminar",
+    subtitle: "CMRI",
+    seeds: ["cmri-a", "cmri-b"],
+    images: [cmri_father1, cmri_father2],
+  },
+  {
+    id: "yi-autism",
     title: "Demystifying Autism Awareness Program",
     type: "Awareness Program",
     subtitle: "Y's Kolkata Chapter",
-    seeds: ["autism-a", "autism-b", "autism-c"],
+    seeds: ["yi-a", "yi-b", "yi-c"],
+    images: [autism1, autism2, autism3],
   },
 ];
 
@@ -301,7 +374,9 @@ function EventSection({ event, globalOffset, onImageClick }: EventSectionProps) 
                   src={src}
                   alt={`${event.title} — photo ${i + 1}`}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] group-hover:scale-105"
+                  className={`absolute inset-0 h-full w-full transition-transform duration-[1600ms] group-hover:scale-105 ${
+                    src.includes("ntpc_womens_day3") || src.includes("walk1") || src.includes("ck_cancer1") ? "object-contain" : src.includes("cmri_father1") ? "object-cover object-top" : "object-cover"
+                  }`}
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

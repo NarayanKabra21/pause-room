@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Calendar as CalendarIcon, Check, Send, Video, MapPin, Repeat, HeartPulse } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
@@ -41,6 +41,46 @@ const bookFaqs = [
 function BookPage() {
   const [date, setDate] = useState<Date | undefined>();
   const [submitted, setSubmitted] = useState(false);
+  const [consultationType, setConsultationType] = useState("");
+  const [preferredTime, setPreferredTime] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = formRef.current;
+    if (!form) return;
+
+    const fd = new FormData(form);
+    const name     = (fd.get("name") as string)?.trim() ?? "";
+    const email    = (fd.get("email") as string)?.trim() ?? "";
+    const phone    = (fd.get("phone") as string)?.trim() ?? "";
+    const message  = (fd.get("message") as string)?.trim() ?? "";
+    const dateStr  = date ? format(date, "PPP") : "";
+
+    const submittedAt = new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      dateStyle: "full",
+      timeStyle: "short",
+    });
+
+    const whatsappMessage =
+      `🌿 *New Booking Request — The Pause Room*\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `Hello, a new booking request has been submitted through the website. Here are the details:\n\n` +
+      `👤 *Name:* ${name || "—"}\n` +
+      `📧 *Email:* ${email || "—"}\n` +
+      `📞 *Phone:* ${phone || "—"}\n\n` +
+      `🗂 *Consultation Type:* ${consultationType || "—"}\n` +
+      `📅 *Preferred Date:* ${dateStr || "—"}\n` +
+      `⏰ *Preferred Time:* ${preferredTime || "—"}\n\n` +
+      (message ? `💬 *Message from the enquirer:*\n${message}\n\n` : "") +
+      `━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `🕐 *Submitted on:* ${submittedAt}`;
+
+    const encoded = encodeURIComponent(whatsappMessage);
+    window.open(`https://wa.me/917439680766?text=${encoded}`, "_blank");
+    setSubmitted(true);
+  };
 
   return (
     <PageShell
@@ -57,7 +97,7 @@ function BookPage() {
           </div>
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {types.map(({ icon: Icon, label, desc }, i) => (
-              <div key={label} className="reveal-on-scroll glass rounded-2xl p-6" style={{ transitionDelay: `${i * 80}ms` }}>
+              <div key={label} className="reveal-on-scroll card-hover glass rounded-2xl p-6" style={{ transitionDelay: `${i * 80}ms` }}>
                 <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4"><Icon size={20} strokeWidth={1.6} /></div>
                 <h3 className="text-lg">{label}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
@@ -74,11 +114,12 @@ function BookPage() {
               <div className="mx-auto h-16 w-16 rounded-full bg-primary/15 text-primary flex items-center justify-center"><Check size={28} /></div>
               <h2 className="mt-6 text-3xl">Thank you</h2>
               <p className="mt-3 text-muted-foreground">Your request has been received. We'll be in touch within 24 hours to confirm your session.</p>
-              <Button className="mt-8 rounded-full" onClick={() => setSubmitted(false)}>Book another</Button>
+              <Button className="mt-8 rounded-full" onClick={() => { setSubmitted(false); setConsultationType(""); setPreferredTime(""); setDate(undefined); }}>Book another</Button>
             </div>
           ) : (
             <form
-              onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+              ref={formRef}
+              onSubmit={handleSubmit}
               className="reveal-on-scroll glass rounded-3xl p-8 md:p-10 shadow-elevated grid sm:grid-cols-2 gap-5"
             >
               <div className="sm:col-span-2">
@@ -87,19 +128,19 @@ function BookPage() {
               </div>
               <div>
                 <Label>Name</Label>
-                <Input required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                <Input name="name" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
               </div>
               <div>
                 <Label>Email</Label>
-                <Input type="email" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                <Input name="email" type="email" required className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
               </div>
               <div>
                 <Label>Phone</Label>
-                <Input type="tel" className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
+                <Input name="phone" type="tel" className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl" />
               </div>
               <div>
                 <Label>Consultation type</Label>
-                <Select>
+                <Select value={consultationType} onValueChange={setConsultationType} required>
                   <SelectTrigger className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl"><SelectValue placeholder="Choose" /></SelectTrigger>
                   <SelectContent>
                     {types.map((t) => <SelectItem key={t.label} value={t.label}>{t.label}</SelectItem>)}
@@ -122,16 +163,16 @@ function BookPage() {
               </div>
               <div>
                 <Label>Preferred time</Label>
-                <Select>
+                <Select value={preferredTime} onValueChange={setPreferredTime}>
                   <SelectTrigger className="mt-2 h-12 bg-white/60 border-white/60 rounded-xl"><SelectValue placeholder="Choose a time" /></SelectTrigger>
                   <SelectContent>
-                    {["Morning (9–12)","Afternoon (12–4)","Evening (4–7)"].map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}
+                    {["Morning (9–12)", "Afternoon (12–4)", "Evening (4–7)"].map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
               <div className="sm:col-span-2">
                 <Label>Message</Label>
-                <Textarea rows={4} className="mt-2 bg-white/60 border-white/60 rounded-xl" placeholder="Share whatever feels right." />
+                <Textarea name="message" rows={4} className="mt-2 bg-white/60 border-white/60 rounded-xl" placeholder="Share whatever feels right." />
               </div>
               <Button type="submit" className="sm:col-span-2 h-12 rounded-full bg-primary hover:shadow-glow">
                 <Send size={16} className="mr-2" /> Send request
@@ -141,22 +182,7 @@ function BookPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-sky">
-        <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl md:text-4xl text-center reveal-on-scroll">Gentle Answers</h2>
-          <div className="mt-10 space-y-4">
-            {bookFaqs.map((f) => (
-              <details key={f.q} className="reveal-on-scroll group glass rounded-2xl p-6 open:shadow-soft">
-                <summary className="cursor-pointer list-none flex items-center justify-between text-lg">
-                  {f.q}
-                  <span className="ml-4 text-primary group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
-                </summary>
-                <p className="mt-3 text-muted-foreground">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </PageShell>
   );
 }

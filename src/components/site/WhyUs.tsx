@@ -29,7 +29,7 @@ export function WhyUs() {
             {points.map(({ icon: Icon, title, desc }, i) => (
               <div
                 key={title}
-                className="reveal-on-scroll group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-6 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-elevated hover:border-primary/40 hover:bg-card/90"
+                className="reveal-on-scroll card-hover group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-6 backdrop-blur-md hover:border-primary/40 hover:bg-card/90"
                 style={{ transitionDelay: `${(i % 2) * 80}ms` }}
               >
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />

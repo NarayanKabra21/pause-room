@@ -845,4 +845,5 @@ export const getAdjacent = (slug: string) => {
   };
 };
 
-export const servicesHeroImage = "/__l5e/assets-v1/c7eac256-0116-49c9-b1c5-b5acc4b1a336/services-hero.jpg";
+import servicesHeroAsset from "@/assets/services-hero.jpg.asset.json";
+export const servicesHeroImage = servicesHeroAsset.url;

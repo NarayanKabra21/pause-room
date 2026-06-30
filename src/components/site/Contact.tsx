@@ -33,9 +33,13 @@ export function Contact() {
             <div className="flex items-start gap-4 rounded-2xl p-5 border border-destructive/20 bg-destructive/5">
               <AlertCircle size={20} className="text-destructive mt-0.5" />
               <div>
-                <div className="text-sm font-medium text-destructive">Emergency support</div>
+                <div className="text-sm font-medium text-destructive">Emergency Support</div>
                 <div className="mt-1 text-sm text-muted-foreground">
-                  If you are in immediate distress, please call <span className="text-foreground font-medium">iCall: 9152987821</span> (free, confidential).
+                  For immediate mental health support, please contact Tele-MANAS, the Government of India's national mental health helpline. This service is operated independently by the Government of India and is not associated with The Pause Room.
+                </div>
+                <div className="mt-2 text-sm">
+                  <span className="text-muted-foreground">Tele-MANAS Helpline: </span>
+                  <a href="tel:18008914416" className="text-foreground font-semibold hover:text-destructive transition-colors">1-800-891-4416</a>
                 </div>
               </div>
             </div>

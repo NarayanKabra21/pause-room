@@ -60,19 +60,28 @@ function ContactPage() {
       return;
     }
 
+    const submittedAt = new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      dateStyle: "full",
+      timeStyle: "short",
+    });
+
     const whatsappMessage =
-      `Hello The Pause Room,\n\n` +
-      `I would like to book a consultation. Here are my details:\n\n` +
-      `*Name:* ${name}\n` +
-      `*Age:* ${age}\n` +
-      `*Email:* ${email}\n` +
-      `*Phone:* ${phone}\n` +
-      `*Consultation Type:* ${consultationType}\n` +
-      `*Preferred Date:* ${preferredDate}\n` +
-      `*Message:* ${message}`;
+      `🌿 *New Enquiry — The Pause Room*\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `Hello, a new enquiry has been submitted through the website. Here are the details:\n\n` +
+      `👤 *Name:* ${name}\n` +
+      `🎂 *Age:* ${age}\n` +
+      `📧 *Email:* ${email}\n` +
+      `📞 *Phone:* ${phone}\n\n` +
+      `🗂 *Type of Consultation:* ${consultationType}\n` +
+      `📅 *Preferred Date:* ${new Date(preferredDate).toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}\n\n` +
+      `💬 *Message from the enquirer:*\n${message}\n\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `🕐 *Submitted on:* ${submittedAt}`;
 
     const encoded = encodeURIComponent(whatsappMessage);
-    window.location.href = `https://wa.me/917439680766?text=${encoded}`;
+    window.open(`https://wa.me/917439680766?text=${encoded}`, "_blank");
   };
 
   return (
@@ -109,9 +118,13 @@ function ContactPage() {
             <div className="flex items-start gap-4 rounded-2xl p-5 border border-destructive/20 bg-destructive/5">
               <AlertCircle size={20} className="text-destructive mt-0.5" />
               <div>
-                <div className="text-sm font-medium text-destructive">Emergency support</div>
+                <div className="text-sm font-medium text-destructive">Emergency Support</div>
                 <div className="mt-1 text-sm text-muted-foreground">
-                  If you are in immediate distress, please call <span className="text-foreground font-medium">iCall: 9152987821</span> (free, confidential).
+                  For immediate mental health support, please contact Tele-MANAS, the Government of India's national mental health helpline. This service is operated independently by the Government of India and is not associated with The Pause Room.
+                </div>
+                <div className="mt-2 text-sm">
+                  <span className="text-muted-foreground">Tele-MANAS Helpline: </span>
+                  <a href="tel:18008914416" className="text-foreground font-semibold hover:text-destructive transition-colors">1-800-891-4416</a>
                 </div>
               </div>
             </div>

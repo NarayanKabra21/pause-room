@@ -1,5 +1,5 @@
 import aparnaImg from "@/assets/team/Aparna_ma'am.jpeg";
-import swatiImg from "@/assets/team/swati.jpg";
+import swatiImg from "@/assets/team/swati-new.jpg";
 
 export type TeamMember = {
   slug: string;
@@ -20,8 +20,8 @@ export const team: TeamMember[] = [
   {
     slug: "aparna",
     name: "Aparna Ladha Somani",
-    role: "Founder & Clinical Psychologist",
-    specialization: "Clinical Psychology · CRR Registered",
+    role: "Director & Clinical Psychologist",
+    specialization: "Clinical Psychology · RCI Registered",
     qualifications: [
       "M.Phil. in Clinical Psychology — Amity University, Kolkata",
       "M.A. in Clinical Psychology — SNDT Women's University, Mumbai",
@@ -48,7 +48,7 @@ export const team: TeamMember[] = [
     languages: ["English", "Hindi", "Bengali"],
     shortBio: "A clinical psychologist whose work is rooted in evidence-based care, compassion and meaningful change.",
     bio: [
-      "Aparna Ladha Somani is the Founder of The Pause Room and a Clinical Psychologist (CRR Registered) with over 8 years of experience in psychological assessment, psychotherapy, counselling, and rehabilitation.",
+      "Aparna Ladha Somani is the Founder of The Pause Room and a Clinical Psychologist (RCI Registered) with over 8 years of experience in psychological assessment, psychotherapy, counselling, and rehabilitation.",
       "She specializes in providing evidence-based mental health care for children, adolescents, and adults, combining clinical expertise with a compassionate, person-centred approach.",
       "Her work spans hospitals, rehabilitation centres, corporate wellness programs, and private practice, with a focus on helping individuals build resilience, emotional well-being, and meaningful change.",
     ],
@@ -57,15 +57,16 @@ export const team: TeamMember[] = [
   {
     slug: "swati",
     name: "Swati Periwal",
-    role: "Clinical Psychologist",
+    role: "Counselling Psychologist",
     specialization: "Child, Adolescent & Adult Mental Health",
     qualifications: [
       "M.Sc. in Psychology (Clinical Specialization) — Mount Carmel College, Bengaluru",
       "B.A. in Journalism, English & Psychology — Bangalore University · Indian Institute of Psychology & Research",
     ],
     certifications: [
+      "Expressive Arts Therapy Trainer — UNESCO-CID",
+      "Advanced Handwriting Analysis — GSI",
       "NLP — Emotional Intelligence & Leadership Skills",
-      "Advanced Handwriting Analysis",
       "Dream Analysis",
       "Drawing Analysis",
     ],
@@ -85,9 +86,9 @@ export const team: TeamMember[] = [
     languages: ["English", "Hindi"],
     shortBio: "A clinical psychology professional dedicated to creating safe, empathetic spaces for emotional growth and resilience.",
     bio: [
-      "Swati Periwal is a Clinical Psychology professional dedicated to supporting the emotional well-being of children, adolescents, and adults.",
-      "She has experience in psychological assessments, counselling, psychometric testing, and mental health workshops across hospitals, rehabilitation centres, and clinical settings.",
-      "She believes in creating a safe, empathetic space where individuals can build resilience, develop healthy coping strategies, and work towards lasting emotional growth.",
+      "Swati Periwal is a NET-qualified Counselling Psychologist, she is driven by the belief that understanding people is both an art and a responsibility.",
+      "She has experience in psychological assessments, counselling and conducting mental health workshops across diverse age groups in different settings like schools and NGOs.",
+      "Her approach is not limited to traditional talk therapy. She follows an eclectic approach to counselling, believing that there is no rigid method or one-size-fits-all solution. Recognising that every individual is unique, she adapts therapy to suit the person rather than the other way around.",
     ],
     photo: swatiImg,
   },
