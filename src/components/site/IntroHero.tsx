@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import logoAsset from "@/assets/logo-new-transparent.png.asset.json";
+import logoAsset from "@/assets/logo-pause-room.png.asset.json";
 import lake from "@/assets/hero-lake.jpg";
 import clouds from "@/assets/intro/clouds.jpg";
 import ocean from "@/assets/intro/ocean.jpg";
@@ -109,22 +109,12 @@ export function IntroHero() {
         <div className="text-center animate-fade-in" style={{ animationDuration: "2.4s" }}>
           <div className="relative inline-block">
             <div className="absolute inset-0 rounded-full bg-white/40 blur-3xl scale-110" />
-            <div
-              role="img"
-              aria-label="The Pause Room"
-              className="relative h-44 md:h-64 lg:h-72 w-[36rem] max-w-[80vw] mx-auto drop-shadow-[0_0_40px_rgba(241,239,229,0.55)]"
-              style={{
-                backgroundColor: "#F1EFE5",
-                WebkitMaskImage: `url(${logoAsset.url})`,
-                maskImage: `url(${logoAsset.url})`,
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-              }}
+            <img
+              src={logoAsset.url}
+              alt="The Pause Room"
+              className="relative h-44 md:h-64 lg:h-72 w-auto mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.45)]"
             />
+
 
           </div>
           <div className="mt-8 flex justify-center">
