@@ -58,7 +58,7 @@ export const team: TeamMember[] = [
     slug: "swati",
     name: "Swati Periwal",
     role: "Counselling Psychologist",
-    specialization: "Child, Adolescent & Adult Mental Health",
+    specialization: "Counseling Psychologist · NET · 2+ years",
     qualifications: [
       "M.Sc. in Psychology (Clinical Specialization) — Mount Carmel College, Bengaluru",
       "B.A. in Journalism, English & Psychology — Bangalore University · Indian Institute of Psychology & Research",

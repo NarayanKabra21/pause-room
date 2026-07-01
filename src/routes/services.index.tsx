@@ -1,5 +1,6 @@
+import { useState, useEffect, useCallback, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, X } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { useReveal } from "@/hooks/use-reveal";
@@ -7,6 +8,7 @@ import {
   serviceCategories,
   servicesHeroImage,
   type CatalogItem,
+  type CatalogSubsection,
 } from "@/data/servicesCatalog";
 
 export const Route = createFileRoute("/services/")({
@@ -32,6 +34,7 @@ export const Route = createFileRoute("/services/")({
 
 function ServicesPage() {
   useReveal();
+  const [selectedItem, setSelectedItem] = useState<CatalogItem | null>(null);
 
   return (
     <main className="relative overflow-hidden animate-fade-in">
@@ -88,13 +91,14 @@ function ServicesPage() {
         </div>
       </section>
 
+      {/* SERVICE CATEGORIES WITH CARDS */}
       {serviceCategories.map((cat, idx) => (
         <section
           key={cat.slug}
           id={cat.slug}
           className={`relative py-28 md:py-36 ${idx % 2 ? "bg-gradient-sky" : ""}`}
         >
-          <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-6xl px-6">
             <div className="reveal-on-scroll max-w-3xl">
               <span className="text-xs tracking-[0.4em] uppercase text-primary/80">
                 {String(idx + 1).padStart(2, "0")} · Section
@@ -105,9 +109,15 @@ function ServicesPage() {
               </p>
             </div>
 
-            <div className="mt-20 space-y-16 md:space-y-20">
+            {/* CARD GRID */}
+            <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-6">
               {cat.items.map((item, i) => (
-                <ServiceEntry key={item.slug} item={item} delay={i * 60} />
+                <ServiceCard
+                  key={item.slug}
+                  item={item}
+                  delay={i * 80}
+                  onClick={() => setSelectedItem(item)}
+                />
               ))}
             </div>
           </div>
@@ -132,41 +142,286 @@ function ServicesPage() {
       </section>
 
       <Footer />
+
+      {/* POPUP MODAL */}
+      {selectedItem && (
+        <ServiceModal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}
+        />
+      )}
     </main>
   );
 }
 
-function ServiceEntry({ item, delay }: { item: CatalogItem; delay: number }) {
+/* ─── Service Card ─────────────────────────────────────────────────────────── */
+
+function ServiceCard({
+  item,
+  delay,
+  onClick,
+}: {
+  item: CatalogItem;
+  delay: number;
+  onClick: () => void;
+}) {
   const Icon = item.icon;
+
   return (
-    <article
-      className="reveal-on-scroll group relative"
+    <button
+      type="button"
+      onClick={onClick}
+      className="reveal-on-scroll group relative aspect-square overflow-hidden rounded-2xl bg-muted cursor-pointer text-left focus:outline-none"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="flex items-start gap-5">
-        <div className="hidden sm:flex shrink-0 h-12 w-12 rounded-full bg-primary/10 text-primary items-center justify-center mt-1">
-          <Icon size={20} strokeWidth={1.6} />
-        </div>
-        <div className="flex-1">
-          <h3 className="text-2xl md:text-3xl leading-tight">{item.title}</h3>
-          <p className="mt-4 text-base md:text-lg leading-relaxed text-foreground/75 max-w-3xl">
-            {item.what}
-          </p>
+      {/* Image */}
+      <img
+        src={item.cardImage}
+        alt={item.title}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      />
 
-          {item.subsections && item.subsections.length > 0 && (
-            <div className="mt-10 space-y-8 border-l border-primary/15 pl-6 md:pl-8">
-              {item.subsections.map((sub) => (
-                <div key={sub.title}>
-                  <h4 className="text-xl md:text-2xl">{sub.title}</h4>
-                  <p className="mt-3 text-base leading-relaxed text-foreground/70 max-w-3xl">
-                    {sub.what}
-                  </p>
+      {/* Gradient overlay — always visible at bottom for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+
+      {/* Hover lift shadow — applied via group-hover on the wrapper */}
+      <div className="absolute inset-0 rounded-2xl transition-shadow duration-500 group-hover:shadow-[0_12px_40px_-8px_rgba(0,0,0,0.3)]" />
+
+      {/* Icon badge */}
+      <div className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/15 backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <Icon size={14} className="text-white" strokeWidth={1.8} />
+      </div>
+
+      {/* Title at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 px-4 py-4">
+        <h3
+          className="text-sm md:text-base font-semibold text-white leading-snug"
+          style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.6)" }}
+        >
+          {item.title}
+        </h3>
+      </div>
+    </button>
+  );
+}
+
+/* ─── Service Modal ────────────────────────────────────────────────────────── */
+
+function ServiceModal({
+  item,
+  onClose,
+}: {
+  item: CatalogItem;
+  onClose: () => void;
+}) {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Animate in
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => setIsVisible(true));
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  // Close with animation
+  const handleClose = useCallback(() => {
+    setIsVisible(false);
+    setTimeout(onClose, 350);
+  }, [onClose]);
+
+  // Close on Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [handleClose]);
+
+  // Close on backdrop click
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === overlayRef.current) handleClose();
+  };
+
+  const Icon = item.icon;
+
+  return (
+    <div
+      ref={overlayRef}
+      onClick={handleBackdropClick}
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 transition-all duration-350 ${
+        isVisible
+          ? "bg-black/60 backdrop-blur-sm"
+          : "bg-black/0 backdrop-blur-none pointer-events-none"
+      }`}
+    >
+      <div
+        className={`relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl bg-card border border-border/50 shadow-elevated transition-all duration-350 ease-out ${
+          isVisible
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-95 translate-y-4"
+        }`}
+      >
+        {/* Hero image in modal */}
+        <div className="relative h-52 md:h-60 overflow-hidden rounded-t-3xl shrink-0">
+          <img
+            src={item.heroImage}
+            alt={item.title}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+          
+          {/* Close button */}
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-black/30 backdrop-blur-md text-white/90 hover:bg-black/50 hover:text-white transition-all duration-300"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="px-6 md:px-8 pb-8 pt-2">
+          <h2 className="text-2xl md:text-3xl font-display leading-tight text-foreground">
+            {item.title}
+          </h2>
+
+          {/* Quote */}
+          <blockquote className="mt-5 pl-4 border-l-2 border-primary/30">
+            <p className="text-sm italic text-foreground/60 leading-relaxed">
+              "{item.quote}"
+            </p>
+            <cite className="mt-1 block text-xs text-primary/70 not-italic">
+              — {item.quoteAuthor}
+            </cite>
+          </blockquote>
+
+          {/* What */}
+          <div className="mt-6">
+            <h3 className="text-xs tracking-[0.3em] uppercase text-primary/80 mb-2">What it is</h3>
+            <p className="text-base leading-relaxed text-foreground/80">{item.what}</p>
+          </div>
+
+          {/* Why */}
+          <div className="mt-5">
+            <h3 className="text-xs tracking-[0.3em] uppercase text-primary/80 mb-2">Why it matters</h3>
+            <p className="text-base leading-relaxed text-foreground/80">{item.why}</p>
+          </div>
+
+          {/* Who can benefit */}
+          <div className="mt-5">
+            <h3 className="text-xs tracking-[0.3em] uppercase text-primary/80 mb-2">Who can benefit</h3>
+            <ul className="space-y-1.5">
+              {item.whoCanBenefit.map((w, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-foreground/75">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40" />
+                  {w}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Outcomes */}
+          <div className="mt-5">
+            <h3 className="text-xs tracking-[0.3em] uppercase text-primary/80 mb-2">Outcomes</h3>
+            <ul className="space-y-1.5">
+              {item.outcomes.map((o, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-foreground/75">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40" />
+                  {o}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Benefits */}
+          <div className="mt-5">
+            <h3 className="text-xs tracking-[0.3em] uppercase text-primary/80 mb-3">Benefits</h3>
+            <div className="grid grid-cols-2 gap-3">
+              {item.benefits.map((b, i) => (
+                <div key={i} className="rounded-xl bg-muted/50 border border-border/40 p-3">
+                  <p className="text-sm font-medium text-foreground">{b.title}</p>
+                  <p className="mt-1 text-xs text-foreground/60 leading-relaxed">{b.desc}</p>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Subsections */}
+          {item.subsections && item.subsections.length > 0 && (
+            <div className="mt-6 border-t border-border/40 pt-6">
+              <h3 className="text-xs tracking-[0.3em] uppercase text-primary/80 mb-4">Specialisations</h3>
+              <div className="space-y-3">
+                {item.subsections.map((sub) => (
+                  <ModalSubsection key={sub.title} sub={sub} />
+                ))}
+              </div>
+            </div>
           )}
+
+          {/* CTA */}
+          <div className="mt-8 flex justify-center">
+            <Link
+              to="/book"
+              onClick={handleClose}
+              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3 text-sm font-medium shadow-soft hover:shadow-glow hover:scale-105 transition-all duration-500"
+            >
+              Book a consultation <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </div>
-    </article>
+    </div>
+  );
+}
+
+/* ─── Modal Subsection Accordion ───────────────────────────────────────────── */
+
+function ModalSubsection({ sub }: { sub: CatalogSubsection }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="rounded-xl border border-border/40 bg-muted/30 overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between px-4 py-3 text-left focus:outline-none group/sub"
+      >
+        <h4 className="text-sm md:text-base font-medium text-foreground transition-colors group-hover/sub:text-primary">
+          {sub.title}
+        </h4>
+        <ChevronDown
+          size={16}
+          className={`shrink-0 transition-transform duration-500 text-primary/50 group-hover/sub:text-primary/70 ${isOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+      <div
+        className={`grid transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-4 pb-4 space-y-3">
+            <p className="text-sm leading-relaxed text-foreground/70">{sub.what}</p>
+            {sub.whoCanBenefit && sub.whoCanBenefit.length > 0 && (
+              <div>
+                <p className="text-[11px] tracking-[0.2em] uppercase text-primary/60 mb-1.5">Who can benefit</p>
+                <ul className="space-y-1">
+                  {sub.whoCanBenefit.map((w, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/65">
+                      <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-primary/30" />
+                      {w}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -216,7 +216,7 @@ function PauseRoomPage() {
 
           <blockquote className="mt-10">
             <p className="font-display italic text-2xl md:text-3xl lg:text-4xl text-foreground/90 leading-snug">
-              "Emotional well-being isn't built through conversations alone. It is built through conversations and thoughts that make space for pause."
+              "Emotional well-being isn't built through conversations alone. It is built through conversations and thoughts that make space for a pause."
             </p>
           </blockquote>
 

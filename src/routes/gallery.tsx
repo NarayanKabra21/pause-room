@@ -49,7 +49,9 @@ const erpl2 = g("erpl2.png");
 const erpl3 = g("erpl3.png");
 const worklife1 = g("worklife1.png");
 const worklife2 = g("worklife2.png");
-const children1 = g("children1.png");
+const children1 = g("Mental_Wellbeing_of_Children1.jpeg");
+const children2 = g("Mental_Wellbeing_of_Children2.jpeg");
+const children3 = g("Mental_Wellbeing_of_Children3.jpeg");
 const brave_acid1 = g("brave_acid1.jpg");
 const brave_acid2 = g("brave_acid2.jpg");
 const brave_acid3 = g("brave_acid3.jpg");
@@ -316,8 +318,8 @@ const collaborationsEvents: Event[] = [
     type: "Seminar",
     date: "16th May 2024",
     subtitle: "A seminar at IOCL Haldia Refinery guiding parents and caregivers on nurturing the mental wellbeing of children",
-    seeds: ["children-wb-a"],
-    images: [children1],
+    seeds: ["children-wb-a", "children-wb-b", "children-wb-c"],
+    images: [children1, children2, children3],
   },
   {
     id: "ck-birla-world-cancer-day",
