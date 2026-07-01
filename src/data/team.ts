@@ -67,8 +67,7 @@ export const team: TeamMember[] = [
       "Expressive Arts Therapy Trainer — UNESCO-CID",
       "Advanced Handwriting Analysis — GSI",
       "NLP — Emotional Intelligence & Leadership Skills",
-      "Dream Analysis",
-      "Drawing Analysis",
+      "Dream Analysis — Hrohour",
     ],
     experience: "",
     expertise: [
