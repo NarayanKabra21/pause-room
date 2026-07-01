@@ -65,7 +65,7 @@ function ServicesPage() {
             className="mt-5 text-4xl md:text-6xl lg:text-7xl text-white leading-[1.05] animate-fade-up"
             style={{ animationDelay: "180ms" }}
           >
-            Professional <em className="not-italic text-gradient-lake" style={{ filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.55))' }}>Psychological</em><br />
+            Professional <em className="not-italic" style={{ background: 'linear-gradient(135deg, oklch(0.55 0.1 230) 0%, oklch(0.35 0.11 235) 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', filter: 'drop-shadow(0 2px 12px rgba(0,0,0,0.65))' }}>Psychological</em><br />
             Services
           </h1>
           <p
