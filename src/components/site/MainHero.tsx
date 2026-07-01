@@ -42,9 +42,9 @@ export function MainHero() {
           </div>
 
           <div className="mt-12 flex items-center gap-8 text-xs text-muted-foreground">
-            <div><div className="text-2xl font-display text-foreground">10+</div>Years of care</div>
+            <div><div className="text-2xl font-display text-foreground">8+</div>Years of care</div>
             <div className="h-10 w-px bg-border" />
-            <div><div className="text-2xl font-display text-foreground">2,400</div>Lives supported</div>
+            <div><div className="text-2xl font-display text-foreground">3000+</div>Lives Supported</div>
             <div className="h-10 w-px bg-border" />
             <div><div className="text-2xl font-display text-foreground">100%</div>Confidential</div>
           </div>
