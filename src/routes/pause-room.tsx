@@ -9,8 +9,7 @@ const values = [
 ];
 import { PageShell } from "@/components/site/PageShell";
 import { team } from "@/data/team";
-import pauseImgAsset from "@/assets/pages/pause-hero.jpg.asset.json";
-const pauseImg = pauseImgAsset.url;
+import pauseImg from "@/assets/Pause_room_Hero_new.png";
 
 export const Route = createFileRoute("/pause-room")({
   head: () => ({
