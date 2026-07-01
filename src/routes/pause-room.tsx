@@ -25,7 +25,7 @@ export const Route = createFileRoute("/pause-room")({
 
 function PauseRoomPage() {
   return (
-    <PageShell image={pauseImg} objectPosition="center center" objectFit="contain" heroHeight="85vh">
+    <PageShell image={pauseImg} objectPosition="center center" objectFit="cover" heroHeight="80vh">
       {/* ── 1. The world we live in ── */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute -top-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-primary/10 blur-3xl" />
