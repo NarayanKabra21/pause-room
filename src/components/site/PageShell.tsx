@@ -9,11 +9,12 @@ type Props = {
   intro?: string;
   image: string;
   objectPosition?: string;
+  objectFit?: "cover" | "contain";
   heroHeight?: string;
   children: ReactNode;
 };
 
-export function PageShell({ eyebrow, title, intro, image, objectPosition = "center 30%", heroHeight = "70vh", children }: Props) {
+export function PageShell({ eyebrow, title, intro, image, objectPosition = "center 30%", objectFit = "cover", heroHeight = "70vh", children }: Props) {
   useReveal();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -27,8 +28,8 @@ export function PageShell({ eyebrow, title, intro, image, objectPosition = "cent
         <img
           src={image}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-center animate-ken-burns"
-          style={{ objectPosition }}
+          className="absolute inset-0 h-full w-full animate-ken-burns"
+          style={{ objectPosition, objectFit }}
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-overlay)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-background/5 to-transparent" />
