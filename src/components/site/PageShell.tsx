@@ -9,10 +9,11 @@ type Props = {
   intro?: string;
   image: string;
   objectPosition?: string;
+  heroHeight?: string;
   children: ReactNode;
 };
 
-export function PageShell({ eyebrow, title, intro, image, objectPosition = "center 30%", children }: Props) {
+export function PageShell({ eyebrow, title, intro, image, objectPosition = "center 30%", heroHeight = "70vh", children }: Props) {
   useReveal();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -22,7 +23,7 @@ export function PageShell({ eyebrow, title, intro, image, objectPosition = "cent
     <main className="relative overflow-hidden animate-fade-in">
       <Navbar />
 
-      <section className="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
+      <section className="relative w-full overflow-hidden" style={{ height: heroHeight, minHeight: "480px" }}>
         <img
           src={image}
           alt=""
