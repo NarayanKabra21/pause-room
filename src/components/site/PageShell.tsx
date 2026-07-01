@@ -11,10 +11,11 @@ type Props = {
   objectPosition?: string;
   objectFit?: "cover" | "contain";
   heroHeight?: string;
+  disableOverlay?: boolean;
   children: ReactNode;
 };
 
-export function PageShell({ eyebrow, title, intro, image, objectPosition = "center 30%", objectFit = "cover", heroHeight = "70vh", children }: Props) {
+export function PageShell({ eyebrow, title, intro, image, objectPosition = "center 30%", objectFit = "cover", heroHeight = "70vh", disableOverlay = false, children }: Props) {
   useReveal();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
