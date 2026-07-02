@@ -664,7 +664,7 @@ const workshops: CatalogItem[] = [
   },
   {
     slug: "mental-health-awareness-workshops",
-    title: "Other Mental Healths",
+    title: "Other Mental Health",
     shortDesc: "Anxiety, depression, relationships, mindfulness and personal growth.",
     cardImage: u("photo-1545389336-cf090694435e"),
     heroImage: u("photo-1499914485622-a88fac536970", 1920),

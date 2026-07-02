@@ -51,7 +51,7 @@ export function Footer() {
             <div className="mt-4 flex gap-3">
               {[
                 { Icon: Instagram, href: "https://www.instagram.com/thepause.room/?hl=en", label: "Instagram" },
-                { Icon: Facebook, href: "#", label: "Facebook" },
+                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61550971682345&mibextid=ZbWKwL", label: "Facebook" },
                 { Icon: Linkedin, href: "https://www.linkedin.com/company/the-pause-room06/", label: "LinkedIn" },
                 { Icon: WhatsAppIcon, href: "https://wa.me/917439680766", label: "WhatsApp" },
               ].map(({ Icon, href, label }) => (
