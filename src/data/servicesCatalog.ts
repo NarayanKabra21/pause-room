@@ -106,7 +106,7 @@ const assessments: CatalogItem[] = [
     title: "Personality Profile Assessment",
     shortDesc: "A gentler, more honest mirror for understanding yourself.",
     cardImage: u("photo-1499209974431-9dddcece7f88"),
-    heroImage: u("photo-1518709268805-4e9042af2176", 1920),
+    heroImage: personalityCardImage,
     icon: User,
     category: "assessments",
     categoryLabel: "Assessments",
@@ -845,5 +845,6 @@ export const getAdjacent = (slug: string) => {
   };
 };
 
-import servicesHeroAsset from "@/assets/services-hero.jpg.asset.json";
-export const servicesHeroImage = servicesHeroAsset.url;
+import servicesHeroImageAsset from "@/assets/hero-room.jpg";
+import personalityCardImage from "@/assets/personality_card.png";
+export const servicesHeroImage = servicesHeroImageAsset;

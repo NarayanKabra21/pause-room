@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import contactHero from "@/assets/contact-hero.png.asset.json";
+import contactHero from "@/assets/Contact_new.png";
 
 const CONSULTATION_TYPES = [
   "Individual Therapy",
@@ -89,7 +89,7 @@ function ContactPage() {
       eyebrow="Contact"
       title={<>Support that meets you<br /><em className="not-italic">where you are.</em></>}
       intro="Reach us by phone, email or message."
-      image={contactHero.url}
+      image={contactHero}
     >
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12">
