@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo-pause-room.png.asset.json";
+import logoUrl from "@/assets/logo-pause-room-new.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -36,7 +36,7 @@ export function Navbar() {
       <div className="mx-auto mt-4 max-w-7xl px-4">
         <nav className="glass rounded-full px-5 py-3 shadow-soft flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logoAsset.url} alt="The Pause Room" className="h-9 w-auto" />
+            <img src={logoUrl} alt="The Pause Room" className="h-9 w-auto" />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-6 text-sm text-foreground/80">

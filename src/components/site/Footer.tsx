@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Linkedin } from "lucide-react";
-import logoAsset from "@/assets/logo-pause-room.png.asset.json";
+import logoUrl from "@/assets/logo-pause-room-new.png";
 
 function WhatsAppIcon({ size = 16 }: { size?: number }) {
   return (
@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="relative pt-20 pb-10 bg-gradient-to-b from-transparent to-primary/10">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto">
-          <img src={logoAsset.url} alt="The Pause Room" className="h-16 mx-auto" />
+          <img src={logoUrl} alt="The Pause Room" className="h-16 mx-auto" />
           <p className="mt-6 text-lg md:text-xl font-display italic text-foreground/80">
             "Healing takes time. And you do not have to do it alone."
           </p>
